@@ -38,7 +38,13 @@
             <a href="{{ .Permalink }}" class="block group">
                 <article class="bg-white rounded-3xl p-6 border border-blue-50 shadow-soft flex flex-col sm:flex-row gap-8 group-hover:-translate-y-1 group-hover:shadow-[0_20px_40px_-10px_rgba(0,75,135,0.15)] transition-all duration-300">
                     <div class="w-full sm:w-56 h-48 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0">
-                        <img src="{{ .Params.image | default "/images/news/placeholder.jpg" | relURL }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        {{ $newsImg := .Params.image | default "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&q=80&w=500" }}
+                        
+                        {{ if hasPrefix $newsImg "http" }}
+                            <img src="{{ $newsImg }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        {{ else }}
+                            <img src="{{ trim $newsImg "/" | relURL }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        {{ end }}
                     </div>
                     <div class="flex flex-col justify-center">
                         <div class="flex items-center gap-3 mb-3">
