@@ -36,7 +36,7 @@
 
     <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/members" class="text-sm font-bold text-accent uppercase tracking-widest flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href="{{ "members" | relURL }}" class="text-sm font-bold text-accent uppercase tracking-widest flex items-center gap-2 hover:opacity-80 transition-opacity">
                 &larr; Back to Team
             </a>
             <span class="text-xs font-bold text-slate-400 uppercase tracking-widest hidden sm:block">Researcher Profile</span>
@@ -52,7 +52,7 @@
                 <aside class="lg:col-span-4 space-y-8">
                     <div class="bg-white rounded-3xl p-3 border border-blue-50 shadow-soft-blue">
                         <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100">
-                            {{ $img := .Params.image | relURL }}
+                            {{ $img := .Params.image | default "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=800" }}
                             <img src="{{ $img | relURL }}" alt="{{ .Title }}" class="w-full h-full object-cover">
                         </div>
                     </div>
