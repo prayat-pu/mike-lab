@@ -49,16 +49,16 @@
 
     <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 transition-all duration-300 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-extrabold text-accent display-font tracking-tight flex items-center gap-2">
+            <a href="{{ "" | relURL }}" class="text-2xl font-extrabold text-accent display-font tracking-tight flex items-center gap-2">
                 <div class="w-8 h-8 rounded bg-gradient-to-br from-blue-600 to-accent text-white flex items-center justify-center text-sm shadow-md">M</div>
                 IKE
             </a>
             <div class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-600">
                 <!-- <a href="#about" class="hover:text-accent transition-colors">About</a> -->
                 <!-- <a href="#research" class="hover:text-accent transition-colors">Research</a> -->
-                <a href="/members" class="hover:text-accent transition-colors">Team</a>
-                <a href="/news" class="hover:text-accent transition-colors">News</a>
-                <a href="/publications" class="hover:text-accent transition-colors">Publications</a>
+                <a href="{{ "members" | relURL }}" class="hover:text-accent transition-colors">Team</a>
+                <a href="{{ "news" | relURL }}" class="hover:text-accent transition-colors">News</a>
+                <a href="{{ "publications" | relURL }}" class="hover:text-accent transition-colors">Publications</a>
                 <a href="#join" class="px-6 py-2.5 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-lg text-xs uppercase tracking-widest font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">Join Us</a>
             </div>
         </div>
