@@ -22,7 +22,7 @@
 
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/" class="text-2xl font-extrabold text-gray-900 display-font tracking-tight flex items-center gap-2">
+            <a href="{{ "" | relURL }}" class="text-2xl font-extrabold text-gray-900 display-font tracking-tight flex items-center gap-2">
                 &larr; <span class="text-lg">MIKE</span>
             </a>
             <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">Gallery</span>
@@ -44,12 +44,14 @@
                 {{ range $images }}
                     {{ if in (slice ".jpg" ".jpeg" ".png" ".webp") (path.Ext .Name | lower) }}
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
+                            
                             <img 
-                                src="/images/life/{{ .Name }}" 
+                                src="{{ printf "images/life/%s" .Name | relURL }}" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
+                            
                         </div>
                     {{ end }}
                 {{ end }}
