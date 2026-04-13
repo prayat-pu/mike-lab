@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | MIKE Research Clusters</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+        
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #333333; }
+        h1, h2, h3, .display-font { font-family: 'Outfit', sans-serif; }
+        .text-accent { color: #004B87; }
+        
+        /* Image Hover Interaction */
+        .masonry-img { filter: grayscale(20%); transition: all 0.4s ease-in-out; }
+        .masonry-img:hover { filter: grayscale(0%); transform: scale(1.02); }
+    </style>
+</head>
+<body class="antialiased selection:bg-[#004B87] selection:text-white min-h-screen flex flex-col">
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="text-2xl font-extrabold text-gray-900 display-font tracking-tight flex items-center gap-2">
+                &larr; <span class="text-lg">MIKE</span>
+            </a>
+            <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">Gallery</span>
+        </div>
+    </nav>
+
+    <header class="py-20 bg-white border-b border-gray-100 text-center px-6">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">{{ .Title }}</h1>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto font-light">{{ .Params.description }}</p>
+    </header>
+
+    <main class="flex-grow max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+        
+        <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
+            
+            {{ $imageDir := "static/images/life" }}
+            {{ if fileExists $imageDir }}
+                {{ $images := readDir $imageDir }}
+                {{ range $images }}
+                    {{ if in (slice ".jpg" ".jpeg" ".png" ".webp") (path.Ext .Name | lower) }}
+                        <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
+                            <img 
+                                src="/images/life/{{ .Name }}" 
+                                alt="MIKE Lab Activity" 
+                                loading="lazy" 
+                                class="masonry-img w-full h-auto object-cover"
+                            >
+                        </div>
+                    {{ end }}
+                {{ end }}
+            {{ else }}
+                <p class="text-red-500">System Architect Notice: Directory '/static/images/life/' not found. Please create it and add your images.</p>
+            {{ end }}
+
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-100 py-8 px-6 text-center text-xs font-medium text-gray-400 mt-auto">
+        &copy; 2026 MIKE Research Clusters.
+    </footer>
+
+</body>
+</html>

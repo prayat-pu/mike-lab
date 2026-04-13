@@ -1,0 +1,25 @@
+baseURL = "https://prayat-pu.github.io/mike-lab/"
+languageCode = "en-us"
+title = "MIKE Research Clusters"
+#theme = "mike-minimal" # Custom theme directory
+enableInlineShortcodes = true
+
+# SEO and Academic Discoverability
+[params]
+  description = "Machine Intelligence and Knowledge Engineering Research Clusters (MIKE). Engineering AI solutions for global challenges."
+  author = "MIKE Lab"
+  primaryColor = "#004B87" # Example University Accent
+  textColor = "#333333" # Deep Charcoal
+  contact_email = "suppawong.tua@mahidol.ac.th"
+  lab_location = "999 Phuttamonthon 4 Road, Salaya, Nakhon Pathom, Thailand, 73130"
+
+# Clean URL Structure
+[permalinks]
+  news = "/news/:slug/"
+  publications = "/publications/:slug/"
+  members = "/members/:slug/"
+
+# Taxonomies for Research Pillars
+[taxonomies]
+  pillar = "pillars"
+  tag = "tags"

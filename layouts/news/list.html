@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | MIKE Research Clusters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fbfdff; color: #1e293b; }
+        h1, h2, h3, .display-font { font-family: 'Outfit', sans-serif; }
+        .text-accent { color: #004B87; }
+        .bg-accent { background-color: #004B87; }
+        .shadow-soft { box-shadow: 0 10px 40px -10px rgba(0, 75, 135, 0.08); }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 shadow-sm">
+        <div class="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
+            <a href="/" class="text-2xl font-extrabold text-accent display-font flex items-center gap-2 hover:opacity-80">
+                <span class="text-lg mr-1">&larr;</span><div class="w-8 h-8 rounded bg-gradient-to-br from-blue-600 to-accent text-white flex items-center justify-center text-sm">M</div>IKE
+            </a>
+            <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">{{ .Title }}</span>
+        </div>
+    </nav>
+
+    <header class="py-20 text-center bg-gradient-to-b from-[#e6f0fa]/60 to-transparent">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-4">{{ .Title }}</h1>
+        <p class="text-lg text-slate-500 font-light max-w-2xl mx-auto">{{ .Params.description }}</p>
+    </header>
+
+    <main class="flex-grow max-w-4xl mx-auto px-6 py-10 w-full mb-20">
+        <div class="space-y-10">
+            {{ $paginator := .Paginate .Pages.ByDate.Reverse 5 }}
+            {{ range $paginator.Pages }}
+            <a href="{{ .Permalink }}" class="block group">
+                <article class="bg-white rounded-3xl p-6 border border-blue-50 shadow-soft flex flex-col sm:flex-row gap-8 group-hover:-translate-y-1 group-hover:shadow-[0_20px_40px_-10px_rgba(0,75,135,0.15)] transition-all duration-300">
+                    <div class="w-full sm:w-56 h-48 rounded-2xl overflow-hidden bg-slate-100 flex-shrink-0">
+                        <img src="{{ .Params.image | default "/images/news/placeholder.jpg" }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="text-xs font-bold uppercase tracking-widest px-3 py-1 bg-blue-50 text-accent rounded-md">{{ .Date.Format "Jan 02, 2006" }}</span>
+                            {{ with .Params.categories }}
+                            <span class="text-xs font-bold uppercase tracking-widest text-slate-400">#{{ index . 0 }}</span>
+                            {{ end }}
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-accent transition-colors">{{ .Title }}</h2>
+                        <p class="text-slate-600 font-light leading-relaxed mb-4 line-clamp-2">{{ .Params.teaser }}</p>
+                        <span class="text-sm font-bold text-accent uppercase tracking-widest mt-auto">Read Full Story &rarr;</span>
+                    </div>
+                </article>
+            </a>
+            {{ end }}
+        </div>
+
+        {{ if gt $paginator.TotalPages 1 }}
+        <div class="flex items-center justify-center gap-3 mt-16 pt-8 border-t border-blue-50">
+            {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest rounded-xl hover:border-accent hover:text-accent shadow-sm transition-all">&larr; Newer</a>
+            {{ else }}
+            <span class="px-5 py-2.5 bg-slate-50 border border-slate-100 text-slate-300 font-bold text-xs uppercase tracking-widest rounded-xl cursor-not-allowed">&larr; Newer</span>
+            {{ end }}
+
+            <span class="px-4 py-2 text-sm font-bold text-slate-500">
+                Page <span class="text-accent">{{ $paginator.PageNumber }}</span> of {{ $paginator.TotalPages }}
+            </span>
+
+            {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest rounded-xl hover:border-accent hover:text-accent shadow-sm transition-all">Older &rarr;</a>
+            {{ else }}
+            <span class="px-5 py-2.5 bg-slate-50 border border-slate-100 text-slate-300 font-bold text-xs uppercase tracking-widest rounded-xl cursor-not-allowed">Older &rarr;</span>
+            {{ end }}
+        </div>
+        {{ end }}
+    </main>
+
+    <footer class="bg-white border-t border-blue-50 py-8 text-center text-xs text-slate-400 mt-auto">&copy; 2026 MIKE Research Clusters.</footer>
+</body>
+</html>

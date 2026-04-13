@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} | MIKE Research Clusters</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fbfdff; color: #1e293b; }
+        h1, h2, h3, .display-font { font-family: 'Outfit', sans-serif; }
+        .text-accent { color: #004B87; }
+        .year-header { position: sticky; top: 100px; }
+        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col">
+
+    <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 shadow-sm">
+        <div class="max-w-7xl mx-auto py-4 px-6 flex items-center justify-between">
+            <a href="/" class="text-2xl font-extrabold text-accent display-font flex items-center gap-2 hover:opacity-80">
+                <span class="text-lg mr-1">&larr;</span><div class="w-8 h-8 rounded bg-gradient-to-br from-blue-600 to-accent text-white flex items-center justify-center text-sm">M</div>IKE
+            </a>
+            <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">Publications</span>
+        </div>
+    </nav>
+
+    <header class="py-20 text-center bg-gradient-to-b from-[#e6f0fa]/60 to-transparent border-b border-blue-50/50">
+        <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-4">{{ .Title }}</h1>
+        <p class="text-lg text-slate-500 font-light max-w-2xl mx-auto">{{ .Params.description }}</p>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto px-6 py-16 w-full">
+        
+        {{ $paginator := .Paginate .Pages.ByDate.Reverse 5 }}
+        
+        {{ range $paginator.Pages.GroupByDate "2006" }}
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
+            <div class="lg:col-span-2 hidden lg:block">
+                <h2 class="year-header text-6xl font-extrabold text-blue-50 display-font drop-shadow-sm">{{ .Key }}</h2>
+            </div>
+            
+            <div class="lg:col-span-10 space-y-8">
+                <h2 class="text-4xl font-extrabold text-accent lg:hidden mb-6">{{ .Key }}</h2>
+                
+                {{ range .Pages }}
+                <div class="bg-white rounded-2xl p-6 border border-slate-100 shadow-[0_4px_20px_rgb(0,0,0,0.02)] hover:border-blue-200 transition-colors">
+                    <a href="{{ .Permalink }}" class="block group mb-3">
+                        <h3 class="text-xl font-bold text-slate-900 leading-tight group-hover:text-accent transition-colors">{{ .Title }}</h3>
+                    </a>
+                    <p class="text-slate-600 text-sm mb-4 font-light">
+                        <span class="font-medium text-slate-800">
+                            {{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}MIKE Lab Researchers{{ end }}
+                        </span> | <span class="italic text-accent">{{ .Params.venue }}</span>
+                    </p>
+                    <div class="flex gap-3">
+                        <a href="{{ .Permalink }}" class="px-4 py-1.5 bg-blue-50 text-accent text-xs font-bold uppercase tracking-widest rounded hover:bg-accent hover:text-white transition-all">Abstract / Cite</a>
+                        {{ if .Params.pdf_url }}
+                        <a href="{{ .Params.pdf_url }}" target="_blank" class="px-4 py-1.5 border border-slate-200 text-slate-500 text-xs font-bold uppercase tracking-widest rounded hover:border-slate-400 transition-all">PDF</a>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+        {{ end }}
+
+        {{ if gt $paginator.TotalPages 1 }}
+        <div class="flex items-center justify-center gap-3 mt-10 pt-10 border-t border-blue-50">
+            {{ if $paginator.HasPrev }}
+            <a href="{{ $paginator.Prev.URL }}" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest rounded-xl hover:border-accent hover:text-accent shadow-sm transition-all">&larr; Newer Papers</a>
+            {{ else }}
+            <span class="px-5 py-2.5 bg-slate-50 border border-slate-100 text-slate-300 font-bold text-xs uppercase tracking-widest rounded-xl cursor-not-allowed">&larr; Newer Papers</span>
+            {{ end }}
+
+            <span class="px-4 py-2 text-sm font-bold text-slate-500">
+                Page <span class="text-accent">{{ $paginator.PageNumber }}</span> of {{ $paginator.TotalPages }}
+            </span>
+
+            {{ if $paginator.HasNext }}
+            <a href="{{ $paginator.Next.URL }}" class="px-5 py-2.5 bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest rounded-xl hover:border-accent hover:text-accent shadow-sm transition-all">Older Papers &rarr;</a>
+            {{ else }}
+            <span class="px-5 py-2.5 bg-slate-50 border border-slate-100 text-slate-300 font-bold text-xs uppercase tracking-widest rounded-xl cursor-not-allowed">Older Papers &rarr;</span>
+            {{ end }}
+        </div>
+        {{ end }}
+    </main>
+
+    <footer class="bg-white border-t border-blue-50 py-8 text-center text-xs text-slate-400 mt-auto">&copy; 2026 MIKE Research Clusters.</footer>
+</body>
+</html>
