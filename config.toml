@@ -1,4 +1,4 @@
-baseURL = "https://prayat-pu.github.io/mike-lab/"
+baseURL = ""
 languageCode = "en-us"
 title = "MIKE Research Clusters"
 #theme = "mike-minimal" # Custom theme directory
