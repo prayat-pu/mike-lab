@@ -242,12 +242,16 @@
                 <div class="swiper-pagination"></div>
             </div>
             
-            <div class="swiper-button-next !text-accent drop-shadow-md bg-white w-10 h-10 md:w-12 md:h-12 rounded-full border border-blue-50 flex items-center justify-center after:!text-sm md:after:!text-lg"></div>
-            <div class="swiper-button-prev !text-accent drop-shadow-md bg-white w-10 h-10 md:w-12 md:h-12 rounded-full border border-blue-50 flex items-center justify-center after:!text-sm md:after:!text-lg"></div>
+            <div class="swiper-button-prev !text-accent drop-shadow-md bg-white w-10 h-10 md:w-12 md:h-12 rounded-full border border-blue-50 flex items-center justify-center hover:bg-blue-50 transition-colors after:hidden">
+                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+            </div>
+            <div class="swiper-button-next !text-accent drop-shadow-md bg-white w-10 h-10 md:w-12 md:h-12 rounded-full border border-blue-50 flex items-center justify-center hover:bg-blue-50 transition-colors after:hidden">
+                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+            </div>
             
             <div class="mt-8 text-center relative z-20">
                 <a href="{{ "life" | relURL }}" class="inline-flex items-center justify-center px-10 py-4 bg-white border border-blue-100 text-accent font-bold hover:bg-blue-50 transition-all duration-300 text-sm uppercase tracking-widest rounded-xl shadow-soft-blue">
-                    View the Full MIKE Lab Gallery &rarr;
+                    View the Full MIKE Lab Gallery
                 </a>
             </div>
         </div>
