@@ -76,9 +76,9 @@
                         {{ $img := .Params.image | default "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=500" }}
                         
                         {{ if hasPrefix $img "http" }}
-                            <img src="{{ $img }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <img src="{{ $img }}" alt="{{ .Title }}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
                         {{ else }}
-                            <img src="{{ trim $img "/" | absURL }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <img src="{{ trim $img "/" | absURL }}" alt="{{ .Title }}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
                         {{ end }}
                         
                         <div class="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
@@ -87,7 +87,6 @@
                             </span>
                         </div>
                     </div>
-                    
                     <div class="text-center mt-auto">
                         <h3 class="text-xl font-bold text-slate-900 tracking-tight mb-1">{{ .Title }}</h3>
                         <p class="text-accent text-sm font-bold uppercase tracking-widest mb-3">{{ .Params.role }}</p>
