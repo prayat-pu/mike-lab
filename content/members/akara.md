@@ -1,5 +1,5 @@
 ---
-title: "Assistant Professor Dr."
+title: "Assistant Professor Dr. Akara Supratak"
 role: #"Researcher"
 email: "akara.sup@mahidol.ac.th"
 image: "/images/members/akara.jpg"
