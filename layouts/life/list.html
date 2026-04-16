@@ -21,32 +21,55 @@
 <body class="antialiased selection:bg-[#004B87] selection:text-white min-h-screen flex flex-col">
 
     <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="{{ "" | relURL }}" class="text-2xl font-extrabold text-gray-900 display-font tracking-tight flex items-center gap-2">
-                &larr; <span class="text-lg">MIKE</span>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+            <a href="{{ "" | relURL }}" class="text-xl md:text-2xl font-extrabold text-accent display-font tracking-tight flex items-center gap-2">
+                <div class="w-8 h-8 rounded bg-gradient-to-br from-blue-600 to-accent text-white flex items-center justify-center text-sm shadow-md">M</div>
+                <span class="hidden sm:inline">IKE Lab</span><span class="sm:hidden">IKE</span>
             </a>
-            <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">Gallery</span>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="{{ "members" | relURL }}" class="hover:text-accent transition-colors">Team</a>
+                <a href="{{ "news" | relURL }}" class="hover:text-accent transition-colors">News</a>
+                <a href="{{ "publications" | relURL }}" class="hover:text-accent transition-colors">Publications</a>
+                <a href="{{ "" | relURL }}#join" class="px-6 py-2.5 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-lg text-xs uppercase tracking-widest font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">Join Us</a>
+            </div> 
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-accent focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div> 
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-blue-50 bg-white absolute left-0 top-full w-full shadow-xl transition-all duration-300">
+            <div class="flex flex-col px-6 py-6 space-y-4 text-center font-bold text-slate-600">
+                <a href="{{ "members" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">Team</a>
+                <a href="{{ "news" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">News</a>
+                <a href="{{ "publications" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">Publications</a>
+                <a href="{{ "" | relURL }}#join" class="mobile-link block py-4 mt-4 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-xl text-xs uppercase tracking-widest font-bold shadow-md">Join Us</a>
+            </div>
         </div>
     </nav>
 
-    <header class="py-20 bg-white border-b border-gray-100 text-center px-6">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">{{ .Title }}</h1>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto font-light">{{ .Params.description }}</p>
+    <div id="mobile-menu-backdrop" class="hidden md:hidden fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 transition-opacity"></div>
+
+    <header class="py-12 md:py-20 bg-white border-b border-gray-100 text-center px-4 md:px-6">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">{{ .Title }}</h1>
+        <p class="text-base md:text-lg text-gray-500 max-w-2xl mx-auto font-light">{{ .Params.description }}</p>
     </header>
 
-    <main class="flex-grow max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+    <main class="flex-grow max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 w-full">
         
-        <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-            
-            {{ $imageDir := "static/images/life" }}
-            {{ if fileExists $imageDir }}
+        {{ $imageDir := "static/images/life" }}
+        {{ if fileExists $imageDir }}
+            <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
                 {{ $images := readDir $imageDir }}
                 {{ range $images }}
                     {{ if in (slice ".jpg" ".jpeg" ".png" ".webp") (path.Ext .Name | lower) }}
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
                             
                             <img 
-                                src="{{ printf "images/life/%s" .Name | relURL }}" 
+                                src="{{ printf "images/life/%s" .Name | absURL }}" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
@@ -55,16 +78,50 @@
                         </div>
                     {{ end }}
                 {{ end }}
-            {{ else }}
-                <p class="text-red-500">System Architect Notice: Directory '/static/images/life/' not found. Please create it and add your images.</p>
-            {{ end }}
+            </div>
+        {{ else }}
+            <p class="text-red-500 text-center">System Architect Notice: Directory '/static/images/life/' not found. Please create it and add your images.</p>
+        {{ end }}
 
-        </div>
     </main>
 
-    <footer class="bg-white border-t border-gray-100 py-8 px-6 text-center text-xs font-medium text-gray-400 mt-auto">
+    <footer class="bg-white border-t border-gray-100 py-8 px-4 md:px-6 text-center text-xs font-medium text-gray-400 mt-auto">
         &copy; 2026 MIKE Research Clusters.
     </footer>
 
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+        const backdrop = document.getElementById('mobile-menu-backdrop');
+
+        // Function to Open/Close Menu
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            backdrop.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden'); // Stops page scrolling in background
+        }
+
+        // Function to explicitly Close Menu
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+            backdrop.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // 1. Tapping Hamburger Icon
+        mobileBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleMenu();
+        });
+
+        // 2. Tapping any Menu Link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // 3. Tapping the empty background space (Backdrop)
+        backdrop.addEventListener('click', closeMenu);
+    </script>
 </body>
 </html>

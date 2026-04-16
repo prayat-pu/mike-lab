@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Space Exploration on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/tags/space-exploration/</link>
+    <description>Recent content in Space Exploration on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/tags/space-exploration/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MIKE Lab Awarded International Grant for Autonomous Satellite Analysis</title>
+      <link>https://prayat-pu.github.io/mikelab/news/mike-lab-awarded-international-grant-for-autonomous-satellite-analysis/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/mike-lab-awarded-international-grant-for-autonomous-satellite-analysis/</guid>
+      <description>We are pleased to announce a new partnership with the Space Research Foundation. This grant will fund the development of low-latency, on-board AI architectures capable of identifying Near-Earth Objects directly from satellite hardware, reducing the data bottleneck between space and ground stations.</description>
+    </item>
+    
+    <item>
+      <title>Contrastive Learning for Near-Earth Object Detection in Deep Space Exposures</title>
+      <link>https://prayat-pu.github.io/mikelab/publications/contrastive-learning-for-near-earth-object-detection-in-deep-space-exposures/</link>
+      <pubDate>Sat, 15 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/publications/contrastive-learning-for-near-earth-object-detection-in-deep-space-exposures/</guid>
+      <description>Summary of Contribution By applying temporal knowledge graphs (TeReKG) to link sequential exposures, our architecture successfully identified three previously uncatalogued near-Earth objects during our validation phase at the regional observatory.</description>
+    </item>
+    
+  </channel>
+</rss>

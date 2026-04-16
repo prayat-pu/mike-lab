@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dermatology on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/tags/dermatology/</link>
+    <description>Recent content in Dermatology on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 28 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/tags/dermatology/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Precision Health Pillar Initiates Multi-Site Clinical Validation</title>
+      <link>https://prayat-pu.github.io/mikelab/news/precision-health-pillar-initiates-multi-site-clinical-validation/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/precision-health-pillar-initiates-multi-site-clinical-validation/</guid>
+      <description>Bridging the gap from lab to clinic, our diagnostic AI is now being tested by practicing dermatologists. This phase of research focuses on model interpretability and the reduction of inter-observer variability in high-pressure clinical environments.</description>
+    </item>
+    
+  </channel>
+</rss>

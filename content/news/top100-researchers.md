@@ -1,21 +1,14 @@
 ---
-title: "Strategic Research Retreat: Khao Yai 2026"
-date: 2026-03-25
-draft: false
-
-# Visuals
-# This matches the images you uploaded earlier
-image: "/images/life/lab_seminar_kao_yai_2023_all.jpg" 
-
-# Metadata for the Ticker/Badge
-teaser: "The MIKE team spent a week at Khao Yai National Park for a combined research seminar and strategic planning retreat."
-venue: "MIKE Annual Retreat"
-
-# Categorization
-categories: ["Seminar"]
-tags: ["Lab Culture", "Strategic Planning", "Team Building"]
+title: "Congratulations to Assoc. Prof. Dr. Suppawong Tuarob on Being Named a Top 100 Researcher in Thailand!"
+date: 2026-04-16
+image: "/images/news/ajtop100.jpg"
+categories: ["Awards & Honors", "Milestones"]
+tags: ["Top 100 Researchers", "Suppawong Tuarob", "MIKE Lab", "Mahidol University"]
+summary: "The MIKE Research Clusters proudly congratulates our Principal Investigator, Assoc. Prof. Dr. Suppawong Tuarob, on his remarkable recognition as one of the Top 100 Researchers in Thailand."
 ---
 
-The MIKE Lab recently concluded its **Annual Strategic Research Retreat** at Khao Yai. Moving beyond the screen, the team engaged in intensive whiteboard sessions focused on our 2027 research roadmap, specifically targeting frontiers in autonomous space exploration and personalized healthcare.
+The Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters is incredibly proud to announce that our Principal Investigator and Head of Lab, **Assoc. Prof. Dr. Suppawong Tuarob**, has been officially recognized as one of the **Top 100 Researchers in Thailand**.
 
-Beyond the science, the retreat served as a vital team-building exercise, featuring board game marathons and nature treks, reinforcing the multidisciplinary bond that defines our research clusters.
+This prestigious milestone is a testament to Assoc. Prof. Dr. Suppawong's relentless dedication to bridging the gap between theoretical machine learning and practical utility. Under his leadership, the MIKE Lab has consistently pushed the boundaries of AI research across diverse, high-impact domains—from precision health and social intelligence to software engineering and systemic discovery.
+
+His vision continues to inspire our PhD, Master's, and undergraduate researchers to engineer AI systems that solve critical, real-world global challenges. 

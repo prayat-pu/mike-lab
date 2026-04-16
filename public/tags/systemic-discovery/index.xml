@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Systemic Discovery on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/tags/systemic-discovery/</link>
+    <description>Recent content in Systemic Discovery on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/tags/systemic-discovery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Version 2.0 Release: Temporal Knowledge Graph (TeReKG) Toolkit</title>
+      <link>https://prayat-pu.github.io/mikelab/news/version-2.0-release-temporal-knowledge-graph-terekg-toolkit/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/version-2.0-release-temporal-knowledge-graph-terekg-toolkit/</guid>
+      <description>The MIKE Lab is committed to open science. Version 2.0 of our TeReKG toolkit provides enhanced support for linking GitHub repositories to academic citations, helping software teams maintain architectural consistency over long-term development cycles.&amp;mdash; title: &amp;ldquo;Version 2.0 Release: Temporal Knowledge Graph (TeReKG) Toolkit&amp;rdquo; date: 2026-02-15 draft: false image: &amp;ldquo;/images/news/software-release.jpg&amp;rdquo; teaser: &amp;ldquo;The lab releases an updated open-source framework for linking scholarly code to technical documentation using contrastive learning.&amp;rdquo; venue: &amp;ldquo;Open Source Initiative&amp;rdquo; categories: [&amp;ldquo;Software&amp;rdquo;] tags: [&amp;ldquo;Systemic Discovery&amp;rdquo;, &amp;ldquo;Software Engineering&amp;rdquo;, &amp;ldquo;TeReKG&amp;rdquo;] The MIKE Lab is committed to open science.</description>
+    </item>
+    
+  </channel>
+</rss>

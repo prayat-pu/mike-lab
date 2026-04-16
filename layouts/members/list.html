@@ -28,38 +28,57 @@
 <body class="antialiased selection:bg-accent selection:text-white min-h-screen flex flex-col">
 
     <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 transition-all duration-300 shadow-sm">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="{{ "" | relURL }}" class="text-2xl font-extrabold text-accent display-font tracking-tight flex items-center gap-2 hover:opacity-80 transition-opacity">
-                <span class="text-lg mr-1">&larr;</span>
+        <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
+            <a href="{{ "" | relURL }}" class="text-xl md:text-2xl font-extrabold text-accent display-font tracking-tight flex items-center gap-2">
                 <div class="w-8 h-8 rounded bg-gradient-to-br from-blue-600 to-accent text-white flex items-center justify-center text-sm shadow-md">M</div>
-                IKE
+                <span class="hidden sm:inline">IKE Lab</span><span class="sm:hidden">IKE</span>
             </a>
-            <span class="text-sm font-bold text-slate-400 uppercase tracking-widest">{{ .Title }}</span>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+                <a href="{{ "members" | relURL }}" class="text-accent transition-colors">Team</a>
+                <a href="{{ "news" | relURL }}" class="hover:text-accent transition-colors">News</a>
+                <a href="{{ "publications" | relURL }}" class="hover:text-accent transition-colors">Publications</a>
+                <a href="{{ "" | relURL }}#join" class="px-6 py-2.5 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-lg text-xs uppercase tracking-widest font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">Join Us</a>
+            </div> 
+
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-accent focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div> 
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-blue-50 bg-white absolute left-0 top-full w-full shadow-xl transition-all duration-300">
+            <div class="flex flex-col px-6 py-6 space-y-4 text-center font-bold text-slate-600">
+                <a href="{{ "members" | relURL }}" class="mobile-link block py-2 text-accent transition-colors border-b border-slate-100">Team</a>
+                <a href="{{ "news" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">News</a>
+                <a href="{{ "publications" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">Publications</a>
+                <a href="{{ "" | relURL }}#join" class="mobile-link block py-4 mt-4 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-xl text-xs uppercase tracking-widest font-bold shadow-md">Join Us</a>
+            </div>
         </div>
     </nav>
-
-    <header class="py-24 bg-gradient-to-b from-[#e6f0fa]/50 to-transparent text-center px-6 border-b border-blue-50">
+    <div id="mobile-menu-backdrop" class="hidden md:hidden fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 transition-opacity"></div>
+    <header class="py-12 md:py-24 bg-gradient-to-b from-[#e6f0fa]/50 to-transparent text-center px-4 md:px-6 border-b border-blue-50">
         <div class="max-w-3xl mx-auto space-y-4">
-            <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight">{{ .Title }}</h1>
-            <p class="text-lg text-slate-500 font-light leading-relaxed">{{ .Params.description }}</p>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">{{ .Title }}</h1>
+            <p class="text-base md:text-lg text-slate-500 font-light leading-relaxed">{{ .Params.description }}</p>
         </div>
     </header>
 
-    <main class="flex-grow max-w-7xl mx-auto px-6 py-20 w-full">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+    <main class="flex-grow max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 w-full">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             
             {{ range .Pages.ByWeight }}
             <a href="{{ .Permalink }}" class="block group">
                 <div class="bg-white rounded-3xl p-6 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 hover:-translate-y-1 h-full flex flex-col">
                     
                     <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100 relative">
-    
                         {{ $img := .Params.image | default "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=500" }}
                         
                         {{ if hasPrefix $img "http" }}
                             <img src="{{ $img }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         {{ else }}
-                            <img src="{{ trim $img "/" | relURL }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                            <img src="{{ trim $img "/" | absURL }}" alt="{{ .Title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         {{ end }}
                         
                         <div class="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
@@ -81,9 +100,43 @@
         </div>
     </main>
 
-    <footer class="bg-white border-t border-blue-50 py-8 px-6 text-center text-xs font-medium text-slate-400 mt-auto">
-        &copy; 2026 MIKE Research Clusters.
+    <footer class="bg-white border-t border-blue-50 py-8 px-4 md:px-6 text-center text-xs font-medium text-slate-400 mt-auto">
+        &copy; 2026 MIKE Research Clusters. All rights reserved.
     </footer>
 
+    <script>
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+        const backdrop = document.getElementById('mobile-menu-backdrop');
+
+        // Function to Open/Close Menu
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            backdrop.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden'); // Stops page scrolling in background
+        }
+
+        // Function to explicitly Close Menu
+        function closeMenu() {
+            mobileMenu.classList.add('hidden');
+            backdrop.classList.add('hidden');
+            document.body.classList.remove('overflow-hidden');
+        }
+
+        // 1. Tapping Hamburger Icon
+        mobileBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleMenu();
+        });
+
+        // 2. Tapping any Menu Link
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        // 3. Tapping the empty background space (Backdrop)
+        backdrop.addEventListener('click', closeMenu);
+    </script>
 </body>
 </html>

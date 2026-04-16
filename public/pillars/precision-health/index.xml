@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Precision Health on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/pillars/precision-health/</link>
+    <description>Recent content in Precision Health on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/pillars/precision-health/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Automated Acne Severity Grading via Label Distribution Learning</title>
+      <link>https://prayat-pu.github.io/mikelab/publications/automated-acne-severity-grading-via-label-distribution-learning/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/publications/automated-acne-severity-grading-via-label-distribution-learning/</guid>
+      <description>Summary of Contribution In this paper, we introduce a robust training protocol that utilizes cross-dataset normalization to mitigate the high variance in human-expert labeling. Our results demonstrate a 14% improvement in mean squared error compared to traditional CNN-based grading systems.</description>
+    </item>
+    
+  </channel>
+</rss>

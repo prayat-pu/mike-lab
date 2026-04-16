@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lab Updates on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/news/</link>
+    <description>Recent content in Lab Updates on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 12 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/news/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>MIKE Lab Secures Multiple Acceptances at NeurIPS 2026</title>
+      <link>https://prayat-pu.github.io/mikelab/news/mike-lab-secures-multiple-acceptances-at-neurips-2026/</link>
+      <pubDate>Sun, 12 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/mike-lab-secures-multiple-acceptances-at-neurips-2026/</guid>
+      <description>We are thrilled to announce that the MIKE Research Clusters will be well-represented at NeurIPS 2026 in Vancouver. Three of our primary research tracks—Precision Health, Social Intelligence, and Systemic Discovery—each secured a spot in the main track.
+These papers highlight our commitment to engineering AI solutions that are not only theoretically sound but also ready for real-world deployment. Congratulations to the student leads and faculty mentors involved in these high-impact projects.</description>
+    </item>
+    
+    <item>
+      <title>Strategic Research Retreat: Khao Yai 2026</title>
+      <link>https://prayat-pu.github.io/mikelab/news/strategic-research-retreat-khao-yai-2026/</link>
+      <pubDate>Wed, 25 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/strategic-research-retreat-khao-yai-2026/</guid>
+      <description>The MIKE Lab recently concluded its Annual Strategic Research Retreat at Khao Yai. Moving beyond the screen, the team engaged in intensive whiteboard sessions focused on our 2027 research roadmap, specifically targeting frontiers in autonomous space exploration and personalized healthcare.
+Beyond the science, the retreat served as a vital team-building exercise, featuring board game marathons and nature treks, reinforcing the multidisciplinary bond that defines our research clusters.</description>
+    </item>
+    
+    <item>
+      <title>MIKE Lab Awarded International Grant for Autonomous Satellite Analysis</title>
+      <link>https://prayat-pu.github.io/mikelab/news/mike-lab-awarded-international-grant-for-autonomous-satellite-analysis/</link>
+      <pubDate>Tue, 10 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/mike-lab-awarded-international-grant-for-autonomous-satellite-analysis/</guid>
+      <description>We are pleased to announce a new partnership with the Space Research Foundation. This grant will fund the development of low-latency, on-board AI architectures capable of identifying Near-Earth Objects directly from satellite hardware, reducing the data bottleneck between space and ground stations.</description>
+    </item>
+    
+    <item>
+      <title>Precision Health Pillar Initiates Multi-Site Clinical Validation</title>
+      <link>https://prayat-pu.github.io/mikelab/news/precision-health-pillar-initiates-multi-site-clinical-validation/</link>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/precision-health-pillar-initiates-multi-site-clinical-validation/</guid>
+      <description>Bridging the gap from lab to clinic, our diagnostic AI is now being tested by practicing dermatologists. This phase of research focuses on model interpretability and the reduction of inter-observer variability in high-pressure clinical environments.</description>
+    </item>
+    
+    <item>
+      <title>Version 2.0 Release: Temporal Knowledge Graph (TeReKG) Toolkit</title>
+      <link>https://prayat-pu.github.io/mikelab/news/version-2.0-release-temporal-knowledge-graph-terekg-toolkit/</link>
+      <pubDate>Sun, 15 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/version-2.0-release-temporal-knowledge-graph-terekg-toolkit/</guid>
+      <description>The MIKE Lab is committed to open science. Version 2.0 of our TeReKG toolkit provides enhanced support for linking GitHub repositories to academic citations, helping software teams maintain architectural consistency over long-term development cycles.&amp;mdash; title: &amp;ldquo;Version 2.0 Release: Temporal Knowledge Graph (TeReKG) Toolkit&amp;rdquo; date: 2026-02-15 draft: false image: &amp;ldquo;/images/news/software-release.jpg&amp;rdquo; teaser: &amp;ldquo;The lab releases an updated open-source framework for linking scholarly code to technical documentation using contrastive learning.&amp;rdquo; venue: &amp;ldquo;Open Source Initiative&amp;rdquo; categories: [&amp;ldquo;Software&amp;rdquo;] tags: [&amp;ldquo;Systemic Discovery&amp;rdquo;, &amp;ldquo;Software Engineering&amp;rdquo;, &amp;ldquo;TeReKG&amp;rdquo;] The MIKE Lab is committed to open science.</description>
+    </item>
+    
+    <item>
+      <title>AI &amp; Equity: MIKE Lab Contributes to Regional Policy Brief</title>
+      <link>https://prayat-pu.github.io/mikelab/news/ai-equity-mike-lab-contributes-to-regional-policy-brief/</link>
+      <pubDate>Mon, 02 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/ai-equity-mike-lab-contributes-to-regional-policy-brief/</guid>
+      <description>Our work on abusive language detection in low-resource languages has led to a collaborative policy brief. We are providing computational insights to ensure that digital social environments remain safe and inclusive as AI integration accelerates across the region.</description>
+    </item>
+    
+  </channel>
+</rss>
