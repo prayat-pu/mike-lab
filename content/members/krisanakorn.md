@@ -3,9 +3,9 @@ title: "KRISANAKORN RUGBUMROONG"
 role: "PhD Student"
 email: "krisanakorn.rub@student.mahidol.ac.th"
 website: #"https://linkedin.com/in/prahyat-puangjaktha-039135185"
-image: "/images/members/krisanakorn.jpg"
+image: "/images/members/unknown_member.png" #"/images/members/krisanakorn.jpg"
 focus: #"AI & Remote Sensing for Environmental Challenges"
-weight: 30
+# weight: 14
 ---
 
 ### Biography

@@ -3,9 +3,9 @@ title: "Prahyat Puangjaktha"
 role: "PhD Student"
 email: "prahyat.puangjaktha@gmail.com"
 website: "https://linkedin.com/in/prahyat-puangjaktha-039135185"
-image: "/images/members/prahyat.jpg"
+image: "/images/members/unknown_member.png" #"/images/members/prahyat.jpg"
 focus: "AI & Remote Sensing for Environmental Challenges"
-weight: 20
+# weight: 15
 ---
 
 ### Biography

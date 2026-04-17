@@ -3,9 +3,9 @@ title: "Phaphontee Yamchote"
 role: "PhD Student"
 email: "phaphontee.yam@student.mahidol.edu"
 website: "https://yamchote-ppt.github.io/"
-image: "/images/members/phaphontee.jpg"
+image: "/images/members/unknown_member.png" #"/images/members/phaphontee.jpg"
 focus: "Computational Logic, Algorithmic ML & Data Science"
-weight: 22
+# weight: 10
 ---
 
 ### Biography
