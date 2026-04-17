@@ -49,11 +49,11 @@
 
         {{ if .Params.image }}
             {{ $img := .Params.image }}
-            <div class="w-full aspect-video md:aspect-[16/9] rounded-2xl md:rounded-3xl overflow-hidden mb-8 md:mb-12 shadow-lg shadow-blue-900/5">
+            <div class="w-full aspect-video md:aspect-[16/9] rounded-2xl md:rounded-3xl overflow-hidden mb-8 md:mb-12 shadow-lg shadow-blue-900/5 bg-slate-50 relative">
                 {{ if hasPrefix $img "http" }}
-                    <img src="{{ $img }}" class="w-full h-full object-cover">
+                    <img src="{{ $img }}" class="absolute inset-0 w-full h-full object-contain">
                 {{ else }}
-                    <img src="{{ trim $img "/" | absURL }}" class="w-full h-full object-cover">
+                    <img src="{{ trim $img "/" | absURL }}" class="absolute inset-0 w-full h-full object-contain">
                 {{ end }}
             </div>
         {{ end }}
