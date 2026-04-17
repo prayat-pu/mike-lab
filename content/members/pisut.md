@@ -3,7 +3,7 @@ title: "Pisut Manorat"
 role: "PhD Student"
 email: "pisut.man@student.mahidol.edu"
 website: "https://www.linkedin.com/in/pisut-manorat/"
-image: "/images/members/unknown_member.png" #"/images/members/pisut.jpg"
+image: "/images/members/pisut.jpg"
 focus: "Causality in Continuous-Time Event Streams"
 # weight: 13
 ---
