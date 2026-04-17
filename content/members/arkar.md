@@ -3,7 +3,7 @@ title: "Ar Kar"
 role: "Master's Student"
 email: "ar.kar@student.mahidol.ac.th"
 website: "https://arkar-portfolio.netlify.app/"
-image: "/images/members/unknown_member.png" #"/images/members/arkar.jpg"
+image: "/images/members/arkar_v2.png" #"/images/members/arkar.jpg"
 focus: "AI-Driven Educational Technologies"
 # weight: 24
 ---
