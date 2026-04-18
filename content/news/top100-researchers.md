@@ -1,7 +1,7 @@
 ---
 title: "Congratulations to Assoc. Prof. Dr. Suppawong Tuarob on Being Named a Top 100 Researcher in Thailand!"
 date: 2026-04-16
-image: "/images/news/ajtop100.jpg"
+image: "/images/news/ajtop100v2.jpg"
 categories: ["Awards & Honors", "Milestones"]
 tags: ["Top 100 Researchers", "Suppawong Tuarob", "MIKE Lab", "Mahidol University"]
 summary: "The MIKE Research Clusters proudly congratulates our Principal Investigator, Assoc. Prof. Dr. Suppawong Tuarob, on his remarkable recognition as one of the Top 100 Researchers in Thailand."
