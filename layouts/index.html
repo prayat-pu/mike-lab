@@ -45,18 +45,16 @@
         }
     </style>
 </head>
-<body class="antialiased selection:bg-accent selection:text-white">
+<body class="antialiased min-h-screen flex flex-col selection:bg-blue-200 selection:text-blue-900">
 
     <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 transition-all duration-300 shadow-sm relative">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="{{ "" | relURL }}" class="text-2xl font-extrabold text-accent display-font tracking-tight flex items-center gap-2">
-                <div class="w-8 h-8 rounded bg-gradient-to-br from-blue-600 to-accent text-white flex items-center justify-center text-sm shadow-md">M</div>
-                IKE
+            
+            <a href="{{ "" | relURL }}" class="flex items-center">
+                <img src="{{ "images/logo/Logo_MIKE_LightBG.png" | relURL }}" alt="MIKE Lab Logo" class="h-14 w-auto object-contain">
             </a>
             
             <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-                <!-- <a href="#about" class="hover:text-accent transition-colors">About</a>
-                <a href="#research" class="hover:text-accent transition-colors">Research</a> -->
                 <a href="{{ "members" | relURL }}" class="hover:text-accent transition-colors">Team</a>
                 <a href="{{ "news" | relURL }}" class="hover:text-accent transition-colors">News</a>
                 <a href="{{ "publications" | relURL }}" class="hover:text-accent transition-colors">Publications</a>
@@ -72,8 +70,6 @@
 
         <div id="mobile-menu" class="hidden md:hidden border-t border-blue-50 bg-white absolute left-0 top-full w-full shadow-xl transition-all duration-300">
             <div class="flex flex-col px-6 py-6 space-y-4 text-center font-bold text-slate-600">
-                <!-- <a href="#about" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">About</a>
-                <a href="#research" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">Research</a> -->
                 <a href="{{ "members" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">Team</a>
                 <a href="{{ "news" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">News</a>
                 <a href="{{ "publications" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">Publications</a>
@@ -88,16 +84,19 @@
     
         <div id="hero-slider" class="absolute inset-0 z-0">
             <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
-                <img src="{{ "images/life/lab_seminar_kao_sam_y_2024_2.jpg" | absURL }}" alt="Lab Background 1" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000" alt="Lab Background 1" class="w-full h-full object-cover">
             </div>
+            
             <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
-                <img src="{{ "images/life/lab_seminar_kaoyai_2025.jpg" | absURL }}" alt="Lab Background 2" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=2000" alt="Lab Background 2" class="w-full h-full object-cover">
             </div>
+            
             <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
-                <img src="{{ "images/life/kao_yai_2023_2.jpg" | absURL }}" alt="Lab Background 3" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2000" alt="Lab Background 3" class="w-full h-full object-cover">
             </div>
+            
             <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
-                <img src="{{ "images/life/last-lab_eating.jpg" | absURL }}" alt="Lab Background 4" class="w-full h-full object-cover">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=2000" alt="Data Visualization and Statistics" class="w-full h-full object-cover">
             </div>
         </div>
 
@@ -134,69 +133,171 @@
     </header>
 
     <div class="bg-white/80 backdrop-blur-md border-y border-blue-100/50 py-4 shadow-[0_4px_20px_rgb(0,0,0,0.02)] relative z-20">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center text-sm gap-2 md:gap-0">
-        
-        <span class="font-extrabold text-accent md:mr-5 letter-spacing-widest academic-h2 text-xs flex items-center gap-2 shrink-0">
-            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> LATEST
-        </span>
-        
-        {{ range first 1 (where .Site.RegularPages "Section" "news") }}
-        <a href="{{ .Permalink }}" class="hover:text-accent text-slate-700 font-medium transition-colors leading-relaxed block md:inline">
-            {{ .Title }} 
-            {{ if .Params.venue }}accepted to {{ .Params.venue }}!{{ end }} 
-            <span class="text-slate-400 font-normal ml-1 whitespace-nowrap">#{{ index .Params.categories 0 | default "Update" }}</span>
-        </a>
-        {{ end }}
-        
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center text-sm gap-2 md:gap-0">
+            
+            <span class="font-extrabold text-accent md:mr-5 letter-spacing-widest academic-h2 text-xs flex items-center gap-2 shrink-0">
+                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> LATEST
+            </span>
+            
+            {{ range first 1 (where .Site.RegularPages "Section" "news") }}
+            <a href="{{ .Permalink }}" class="hover:text-accent text-slate-700 font-medium transition-colors leading-relaxed block md:inline">
+                {{ .Title }} 
+                {{ if .Params.venue }}accepted to {{ .Params.venue }}!{{ end }} 
+                <span class="text-slate-400 font-normal ml-1 whitespace-nowrap">#{{ index .Params.categories 0 | default "Update" }}</span>
+            </a>
+            {{ end }}
+            
+        </div>
     </div>
-</div>
 
-    <section id="research" class="py-24 md:py-32 relative">
+    <section id="mission-vision" class="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-white to-[#f8fafc] border-b border-blue-50/50">
+        
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNlNGRmZmYiLz48L3N2Zz4=')] opacity-60 z-0"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-300/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-indigo-300/10 rounded-full blur-[80px] pointer-events-none z-0"></div>
+        
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+                
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="relative">
+                        <div class="absolute -left-6 top-2 bottom-2 w-1 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full hidden md:block"></div>
+                        
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-accent text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                            Our Purpose
+                        </div>
+                        <h3 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-deep-charcoal academic-h1 leading-[1.1] tracking-tight">
+                            Translating Computation <br/> Into <span class="text-transparent bg-clip-text bg-gradient-to-r from-accent to-indigo-500">Human Impact.</span>
+                        </h3>
+                    </div>
+                    <p class="text-lg md:text-xl text-slate-600 font-light leading-relaxed">
+                        At MIKE Lab, we believe that algorithms are only as valuable as the real-world problems they solve. We operate at the intersection of theoretical computer science and applied societal challenges.
+                    </p>
+                </div>
+
+                <div class="lg:col-span-7 space-y-6 md:space-y-8 lg:pl-10">
+                    
+                    <div class="group relative bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,75,135,0.1)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden">
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-blue-50 rounded-full blur-3xl group-hover:bg-blue-100 transition-colors duration-700 opacity-50"></div>
+                        <div class="absolute -bottom-4 -right-2 text-[10rem] font-black text-slate-50 leading-none pointer-events-none group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700">01</div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-5 mb-6">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-accent rounded-2xl blur group-hover:blur-md transition-all opacity-40"></div>
+                                    <div class="relative w-14 h-14 bg-gradient-to-br from-[#004B87] to-blue-600 text-white flex items-center justify-center rounded-2xl shadow-lg border border-white/20">
+                                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                </div>
+                                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">Our Mission</h4>
+                            </div>
+                            <p class="text-slate-600 text-base md:text-lg font-light leading-relaxed relative pl-4 border-l-2 border-blue-100 group-hover:border-accent transition-colors duration-300">
+                                To engineer robust, ethically grounded AI and knowledge representation systems that bridge the gap between academic theory and urgent industry needs, specifically in <strong class="font-semibold text-slate-800">healthcare, public safety, and systemic data exploration</strong>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="group relative bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(79,70,229,0.1)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden">
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-indigo-50 rounded-full blur-3xl group-hover:bg-indigo-100 transition-colors duration-700 opacity-50"></div>
+                        <div class="absolute -bottom-4 -right-2 text-[10rem] font-black text-slate-50 leading-none pointer-events-none group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700">02</div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-5 mb-6">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-indigo-600 rounded-2xl blur group-hover:blur-md transition-all opacity-40"></div>
+                                    <div class="relative w-14 h-14 bg-gradient-to-br from-indigo-600 to-indigo-500 text-white flex items-center justify-center rounded-2xl shadow-lg border border-white/20">
+                                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                    </div>
+                                </div>
+                                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">Our Vision</h4>
+                            </div>
+                            <p class="text-slate-600 text-base md:text-lg font-light leading-relaxed relative pl-4 border-l-2 border-indigo-100 group-hover:border-indigo-500 transition-colors duration-300">
+                                To be a premier research cluster where pioneering machine intelligence continuously <strong class="font-semibold text-slate-800">empowers human decision-making, democratizes data accessibility</strong>, and secures a safer, more informed global society.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="research" class="py-24 md:py-32 relative overflow-hidden bg-[#fbfdff]">
+    
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNlNGRmZmYiLz48L3N2Zz4=')] opacity-30 z-0"></div>
+        <div class="absolute right-0 top-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-[100px] pointer-events-none z-0"></div>
+        <div class="absolute left-0 bottom-1/4 w-96 h-96 bg-indigo-100/40 rounded-full blur-[100px] pointer-events-none z-0"></div>
+
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="mb-16 md:mb-20 text-center space-y-4">
                 <h2 class="text-xs font-extrabold text-blue-500 academic-h2 uppercase tracking-[0.2em]">Core Specializations</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-deep-charcoal academic-h1">Bridging Data and Knowledge</h3>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-deep-charcoal academic-h1 tracking-tight">Bridging Data and Knowledge</h3>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-                <div class="bg-white rounded-3xl p-8 md:p-10 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 group relative overflow-hidden cursor-default">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10 space-y-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center rounded-2xl text-accent shadow-sm group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                
+                <a href="#" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,75,135,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-700 ease-out group-hover:scale-[2] group-hover:bg-blue-50 z-0"></div>
+                    
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="w-16 h-16 bg-white border border-slate-100 flex items-center justify-center rounded-2xl text-blue-600 shadow-sm group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-500 mb-8">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight">Precision Health <br />& Wellness</h4>
-                        <p class="text-slate-600 font-light leading-relaxed">
+
+                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight mb-4 group-hover:text-blue-600 transition-colors duration-300">Precision Health <br />& Wellness</h4>
+                        
+                        <p class="text-slate-600 font-light leading-relaxed flex-grow">
                             Utilizing Label Distribution Learning (LDL) to overcome subjectivity in medical diagnostics and grading in Dermatology and Aesthetic Medicine.
                         </p>
+
+                        <!-- <div class="mt-8 flex items-center text-sm font-bold text-blue-600 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
+                            Explore Pillar <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div> -->
                     </div>
-                </div>
+                </a>
                 
-                <div class="bg-white rounded-3xl p-8 md:p-10 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 group relative overflow-hidden cursor-default">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10 space-y-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-100 to-indigo-50 flex items-center justify-center rounded-2xl text-accent shadow-sm group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                <a href="#" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-indigo-50 to-indigo-100/50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-700 ease-out group-hover:scale-[2] group-hover:bg-indigo-50 z-0"></div>
+                    
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="w-16 h-16 bg-white border border-slate-100 flex items-center justify-center rounded-2xl text-indigo-600 shadow-sm group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-all duration-500 mb-8">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight">Social Intelligence <br />& Public Safety</h4>
-                        <p class="text-slate-600 font-light leading-relaxed">
+
+                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight mb-4 group-hover:text-indigo-600 transition-colors duration-300">Social Intelligence <br />& Public Safety</h4>
+                        
+                        <p class="text-slate-600 font-light leading-relaxed flex-grow">
                             Developing co-training protocols for low-resource languages, abusive language detection, and mining online news for spatiotemporal crime visualization.
                         </p>
+
+                        <!-- <div class="mt-8 flex items-center text-sm font-bold text-indigo-600 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
+                            Explore Pillar <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div> -->
                     </div>
-                </div>
+                </a>
                 
-                <div class="bg-white rounded-3xl p-8 md:p-10 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 group relative overflow-hidden cursor-default">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-sky-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10 space-y-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-sky-100 to-sky-50 flex items-center justify-center rounded-2xl text-accent shadow-sm group-hover:bg-accent group-hover:text-white transition-colors duration-300">
+                <a href="#" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-sky-50 to-sky-100/50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-700 ease-out group-hover:scale-[2] group-hover:bg-sky-50 z-0"></div>
+                    
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="w-16 h-16 bg-white border border-slate-100 flex items-center justify-center rounded-2xl text-sky-500 shadow-sm group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white group-hover:border-sky-500 transition-all duration-500 mb-8">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
                         </div>
-                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight">Systemic Discovery <br />& Exploration</h4>
-                        <p class="text-slate-600 font-light leading-relaxed">
+
+                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight mb-4 group-hover:text-sky-500 transition-colors duration-300">Systemic Discovery <br />& Exploration</h4>
+                        
+                        <p class="text-slate-600 font-light leading-relaxed flex-grow">
                             Building Temporal Knowledge Graphs (TeReKG) and scholarly-code linking (SPECTER) to bridge software engineering, AI in education, and Space Exploration.
                         </p>
+
+                        <!-- <div class="mt-8 flex items-center text-sm font-bold text-sky-500 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
+                            Explore Pillar <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div> -->
                     </div>
-                </div>
+                </a>
+                
             </div>
         </div>
     </section>
@@ -341,8 +442,8 @@
     <footer class="bg-white py-16 px-6 text-sm text-slate-500 border-t border-blue-50">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
-                <h5 class="font-extrabold text-accent text-3xl display-font mb-3 tracking-tight flex items-center gap-2">
-                    <div class="w-6 h-6 rounded bg-accent text-white flex items-center justify-center text-xs">M</div>IKE
+                <h5 class="mb-3 flex items-center">
+                    <img src="{{ "images/logo/Logo_MIKE_LightBG.png" | relURL }}" alt="MIKE Lab Logo" class="h-8 md:h-14 w-auto object-contain">
                 </h5>
                 <p class="font-medium text-slate-600">Machine Intelligence &<br>Knowledge Engineering Research Clusters</p>
             </div>
@@ -369,118 +470,118 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      // 4. Initialize Swiper
-      document.addEventListener('DOMContentLoaded', function () {
-        var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 1,
-          spaceBetween: 24,
-          loop: true,
-          autoplay: {
-            delay: 4000, 
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          breakpoints: {
-            640: { slidesPerView: 2, spaceBetween: 24 },
-            1024: { slidesPerView: 3, spaceBetween: 32 },
-          },
-        });
-      });
-
-        const mobileBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
-        const backdrop = document.getElementById('mobile-menu-backdrop');
-
-        // Function to Open/Close Menu
-        function toggleMenu() {
-            mobileMenu.classList.toggle('hidden');
-            backdrop.classList.toggle('hidden');
-            document.body.classList.toggle('overflow-hidden'); // Stops page scrolling in background
-        }
-
-        // Function to explicitly Close Menu
-        function closeMenu() {
-            mobileMenu.classList.add('hidden');
-            backdrop.classList.add('hidden');
-            document.body.classList.remove('overflow-hidden');
-        }
-
-        // 1. Tapping Hamburger Icon
-        mobileBtn.addEventListener('click', (event) => {
-            event.stopPropagation();
-            toggleMenu();
+        <script>
+        // 4. Initialize Swiper
+        document.addEventListener('DOMContentLoaded', function () {
+            var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: true,
+            autoplay: {
+                delay: 4000, 
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 32 },
+            },
+            });
         });
 
-        // 2. Tapping any Menu Link
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+            const backdrop = document.getElementById('mobile-menu-backdrop');
 
-        // 3. Tapping the empty background space (Backdrop)
-        backdrop.addEventListener('click', closeMenu);
+            // Function to Open/Close Menu
+            function toggleMenu() {
+                mobileMenu.classList.toggle('hidden');
+                backdrop.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden'); // Stops page scrolling in background
+            }
 
-      function openJoinModal() {
-            const modal = document.getElementById('joinModal');
-            const modalInner = modal.querySelector('div');
-            
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modalInner.classList.remove('scale-95');
-                modalInner.classList.add('scale-100');
-            }, 10);
-        }
+            // Function to explicitly Close Menu
+            function closeMenu() {
+                mobileMenu.classList.add('hidden');
+                backdrop.classList.add('hidden');
+                document.body.classList.remove('overflow-hidden');
+            }
 
-        function closeJoinModal() {
-            const modal = document.getElementById('joinModal');
-            const modalInner = modal.querySelector('div');
-            
-            modal.classList.add('opacity-0');
-            modalInner.classList.remove('scale-100');
-            modalInner.classList.add('scale-95');
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }, 300);
-        }
+            // 1. Tapping Hamburger Icon
+            mobileBtn.addEventListener('click', (event) => {
+                event.stopPropagation();
+                toggleMenu();
+            });
 
-        document.getElementById('joinModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeJoinModal();
+            // 2. Tapping any Menu Link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+
+            // 3. Tapping the empty background space (Backdrop)
+            backdrop.addEventListener('click', closeMenu);
+
+        function openJoinModal() {
+                const modal = document.getElementById('joinModal');
+                const modalInner = modal.querySelector('div');
+                
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modalInner.classList.remove('scale-95');
+                    modalInner.classList.add('scale-100');
+                }, 10);
+            }
+
+            function closeJoinModal() {
+                const modal = document.getElementById('joinModal');
+                const modalInner = modal.querySelector('div');
+                
+                modal.classList.add('opacity-0');
+                modalInner.classList.remove('scale-100');
+                modalInner.classList.add('scale-95');
+                
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                }, 300);
+            }
+
+            document.getElementById('joinModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeJoinModal();
+                }
+            });
+
+            document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
+
+            if (slides.length > 1) {
+                setInterval(() => {
+                    // Fade out current slide
+                    slides[currentSlide].classList.remove('opacity-100');
+                    slides[currentSlide].classList.add('opacity-0');
+
+                    // Move to next slide (looping back to 0)
+                    currentSlide = (currentSlide + 1) % slides.length;
+
+                    // Fade in next slide
+                    slides[currentSlide].classList.remove('opacity-0');
+                    slides[currentSlide].classList.add('opacity-100');
+                }, 5000); // Changes image every 5 seconds (5000ms)
             }
         });
-
-        document.addEventListener('DOMContentLoaded', function() {
-        const slides = document.querySelectorAll('.hero-slide');
-        let currentSlide = 0;
-
-        if (slides.length > 1) {
-            setInterval(() => {
-                // Fade out current slide
-                slides[currentSlide].classList.remove('opacity-100');
-                slides[currentSlide].classList.add('opacity-0');
-
-                // Move to next slide (looping back to 0)
-                currentSlide = (currentSlide + 1) % slides.length;
-
-                // Fade in next slide
-                slides[currentSlide].classList.remove('opacity-0');
-                slides[currentSlide].classList.add('opacity-100');
-            }, 5000); // Changes image every 5 seconds (5000ms)
-        }
-    });
-    </script>
-</body>
+        </script>
+    </body>
 </html>
