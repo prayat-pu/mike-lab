@@ -66,75 +66,97 @@
     </header>
 
     <main class="flex-grow max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 w-full">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+    
+    {{/* 1. Group members by checking their exact roles */}}
+    {{ $head := where .Pages "Params.role" "in" (slice "Head of MIKE | Researcher" "Principal Investigator" "Head" "Head of Lab" "Director" "Lab Director" "Professor" "Assoc. Prof.") }}
+    {{ $researchers := where .Pages "Params.role" "in" (slice "Researcher" "Postdoctoral Researcher" "Research Assistant") }}
+    {{ $phds := where .Pages "Params.role" "in" (slice "Ph.D. Student" "PhD Student" "Ph.D. Candidate") }}
+    {{ $masters := where .Pages "Params.role" "in" (slice "Master Student" "Master's Student" "M.Sc. Student" "Master" "Undergraduate Student") }}
+    
+    {{/* NEW: Alumni Group */}}
+    {{ $alumni := where .Pages "Params.role" "in" (slice "Alumni" "Former Member" "Former Student") }}
+
+    {{/* Catch-all for anyone who didn't match the spelling above */}}
+    {{ $others := .Pages | complement $head $researchers $phds $masters $alumni }}
+
+    {{/* 2. Define our visually separated Sections */}}
+    {{ $sections := slice 
+        (dict "title" "Professors & Researchers" "groups" (slice $head $researchers $others))
+        (dict "title" "Students" "groups" (slice $phds $masters))
+        (dict "title" "Alumni" "groups" (slice $alumni))
+    }}
+
+    {{/* 3. Loop through each Section (Professors -> Students -> Alumni) */}}
+    {{ range $section := $sections }}
+        
+        {{/* Only render the section if there are actually members inside it */}}
+        {{ $hasMembers := false }}
+        {{ range $section.groups }}
+            {{ if len . }}{{ $hasMembers = true }}{{ end }}
+        {{ end }}
+
+        {{ if $hasMembers }}
+        <div class="mb-16 md:mb-24 last:mb-0">
             
-            {{/* 1. Group members by checking their exact roles */}}
-            {{ $head := where .Pages "Params.role" "in" (slice "Head of MIKE | Researcher" "Principal Investigator" "Head" "Head of Lab" "Director" "Lab Director") }}
-            {{ $researchers := where .Pages "Params.role" "in" (slice "Researcher" "Postdoctoral Researcher" "Research Assistant") }}
-            {{ $phds := where .Pages "Params.role" "in" (slice "Ph.D. Student" "PhD Student" "Ph.D. Candidate") }}
-            {{ $masters := where .Pages "Params.role" "in" (slice "Master Student" "Master's Student" "M.Sc. Student" "Master") }}
-
-            {{/* Catch-all for anyone who didn't match */}}
-            {{ $others := .Pages | complement $head $researchers $phds $masters }}
-
-            {{/* 2. Create a slice containing the grouped collections in the exact priority order */}}
-            {{ $orderedGroups := slice $head $researchers $phds $masters $others }}
-
-            {{/* 3. Loop through each group, extract the real name, sort it, and render */}}
-            {{ range $group := $orderedGroups }}
+            <div class="flex items-center mb-8 md:mb-10">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-deep-charcoal tracking-tight">{{ $section.title }}</h2>
+                <div class="h-px bg-blue-100 flex-grow ml-6"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
                 
-                {{/* Only process if the group actually has members */}}
-                {{ if len $group }}
-                    
-                    {{/* Create a dictionary to hold the clean names for sorting THIS specific group */}}
-                    {{ $groupWithCleanNames := slice }}
-                    {{ range $group }}
-                        {{/* Convert to lowercase for case-insensitive sorting */}}
-                        {{ $lowerTitle := lower .Title }}
+                {{/* Loop through the groups within this specific section */}}
+                {{ range $group := $section.groups }}
+                    {{ if len $group }}
                         
-                        {{/* THE FIX: Aggressively strip fully spelled-out titles AND abbreviations */}}
-                        {{ $cleanName := replaceRE "^((assistant|associate|association|assoc|asst|professor|prof|doctor|dr|mr|ms|mrs|miss|lecturer|lect)\\.?\\s*)+" "" $lowerTitle }}
-                        
-                        {{/* Add to our custom sorting dictionary */}}
-                        {{ $groupWithCleanNames = $groupWithCleanNames | append (dict "Page" . "CleanName" $cleanName) }}
-                    {{ end }}
+                        {{/* Sorting Algorithm (Extracts clean names) */}}
+                        {{ $groupWithCleanNames := slice }}
+                        {{ range $group }}
+                            {{ $lowerTitle := lower .Title }}
+                            {{ $cleanName := replaceRE "^((assistant|associate|association|assoc|asst|professor|prof|doctor|dr|mr|ms|mrs|miss|lecturer|lect)\\.?\\s*)+" "" $lowerTitle }}
+                            {{ $groupWithCleanNames = $groupWithCleanNames | append (dict "Page" . "CleanName" $cleanName) }}
+                        {{ end }}
 
-                    {{/* Sort this specific group by the clean real name alphabetically */}}
-                    {{ $sortedGroup := sort $groupWithCleanNames "CleanName" "asc" }}
+                        {{ $sortedGroup := sort $groupWithCleanNames "CleanName" "asc" }}
 
-                    {{/* Render the HTML cards for the sorted members */}}
-                    {{ range $sortedGroup }}
-                    <a href="{{ .Page.Permalink }}" class="block group">
-                        <div class="bg-white rounded-3xl p-6 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 hover:-translate-y-1 h-full flex flex-col">
-                            
-                            <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100 relative">
-                                {{ $img := .Page.Params.image | default "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=500" }}
+                        {{/* Render the HTML cards */}}
+                        {{ range $sortedGroup }}
+                        <a href="{{ .Page.Permalink }}" class="block group">
+                            <div class="bg-white rounded-3xl p-6 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 hover:-translate-y-1 h-full flex flex-col">
                                 
-                                {{ if hasPrefix $img "http" }}
-                                    <img src="{{ $img }}" alt="{{ .Page.Title }}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
-                                {{ else }}
-                                    <img src="{{ trim $img "/" | absURL }}" alt="{{ .Page.Title }}" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700">
-                                {{ end }}
-                                
-                                <div class="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
-                                    <span class="text-white text-sm font-medium leading-snug">
-                                        {{ .Page.Params.focus | default "View Full Profile" }}
-                                    </span>
+                                <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100 relative">
+                                    {{ $img := .Page.Params.image | default "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=500" }}
+                                    
+                                    {{ if hasPrefix $img "http" }}
+                                        <img src="{{ $img }}" alt="{{ .Page.Title }}" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                                    {{ else }}
+                                        <img src="{{ trim $img "/" | absURL }}" alt="{{ .Page.Title }}" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                                    {{ end }}
+                                    
+                                    <div class="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+                                        <span class="text-white text-sm font-medium leading-snug">
+                                            {{ .Page.Params.focus | default "View Full Profile" }}
+                                        </span>
+                                    </div>
                                 </div>
+                                <div class="text-center mt-auto">
+                                    <h3 class="text-xl font-bold text-slate-900 tracking-tight mb-1">{{ .Page.Title }}</h3>
+                                    <p class="text-accent text-sm font-bold uppercase tracking-widest mb-3">{{ .Page.Params.role }}</p>
+                                </div>
+                                
                             </div>
-                            <div class="text-center mt-auto">
-                                <h3 class="text-xl font-bold text-slate-900 tracking-tight mb-1">{{ .Page.Title }}</h3>
-                                <p class="text-accent text-sm font-bold uppercase tracking-widest mb-3">{{ .Page.Params.role }}</p>
-                            </div>
-                            
-                        </div>
-                    </a>
+                        </a>
+                        {{ end }}
                     {{ end }}
                 {{ end }}
-            {{ end }}
-
+                
+            </div>
         </div>
-    </main>
+        {{ end }}
+    {{ end }}
+
+</main>
+
 
     <footer class="bg-white border-t border-blue-50 py-8 px-4 md:px-6 text-center text-xs font-medium text-slate-400 mt-auto">
         &copy; 2026 MIKE Research Clusters. All rights reserved.
