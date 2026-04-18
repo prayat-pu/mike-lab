@@ -3,7 +3,7 @@ title: "Pat Vatiwutipong"
 role: "PhD Student"
 email: "pat.vai@student.mahidol.edu"
 website: "https://linkedin.com/in/pvatiwutipong/"
-image: "/images/members/unknown_member.png" #"/images/members/pat.jpg"
+image: "/images/members/pat.jpg" #"/images/members/pat.jpg"
 focus: "Explainable Machine Learning & Healthcare Data Modeling"
 # weight: 11
 ---
