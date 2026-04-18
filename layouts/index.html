@@ -1,103 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Site.Title }} | MIKE Research Clusters</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-        
-        /* Apply Base Body Font & Soft Pearl Background */
-        body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: #fbfdff; 
-            color: #1e293b; 
-        }
-        
-        /* Apply Display Font to Headers */
-        h1, h2, h3, h4, h5, h6, .display-font {
-            font-family: 'Outfit', sans-serif;
-        }
-        
-        /* Master Color Variables */
-        .text-deep-charcoal { color: #0f172a; }
-        .bg-accent { background-color: #004B87; } 
-        .text-accent { color: #004B87; }
-        .border-accent { border-color: #004B87; }
-
-        /* Modern Colored Shadows */
-        .shadow-soft-blue { box-shadow: 0 10px 40px -10px rgba(0, 75, 135, 0.08); }
-        .shadow-hover-blue:hover { box-shadow: 0 20px 40px -10px rgba(0, 75, 135, 0.15); }
-
-        /* Typography spacing */
-        .academic-h1 { letter-spacing: -0.03em; line-height: 1.1; }
-        .academic-h2 { letter-spacing: 0.15em; font-weight: 600; }
-        
-        /* Glassmorphism utilities for Navigation */
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-    </style>
+    {{ partial "head.html" . }}
 </head>
 <body class="antialiased min-h-screen flex flex-col selection:bg-blue-200 selection:text-blue-900">
 
-    <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 transition-all duration-300 shadow-sm relative">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            
-            <a href="{{ "" | relURL }}" class="flex items-center">
-                <img src="{{ "images/logo/Logo_MIKE_LightBG.png" | relURL }}" alt="MIKE Lab Logo" class="h-14 w-auto object-contain">
-            </a>
-            
-            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
-                <a href="{{ "members" | relURL }}" class="hover:text-accent transition-colors">Team</a>
-                <a href="{{ "news" | relURL }}" class="hover:text-accent transition-colors">News</a>
-                <a href="{{ "publications" | relURL }}" class="hover:text-accent transition-colors">Publications</a>
-                <a href="#join" class="px-6 py-2.5 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-lg text-xs uppercase tracking-widest font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">Join Us</a>
-            </div> 
-
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-accent focus:outline-none">
-                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div> 
-
-        <div id="mobile-menu" class="hidden md:hidden border-t border-blue-50 bg-white absolute left-0 top-full w-full shadow-xl transition-all duration-300">
-            <div class="flex flex-col px-6 py-6 space-y-4 text-center font-bold text-slate-600">
-                <a href="{{ "members" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">Team</a>
-                <a href="{{ "news" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">News</a>
-                <a href="{{ "publications" | relURL }}" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100">Publications</a>
-                <a href="#join" class="mobile-link block py-4 mt-4 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-xl text-xs uppercase tracking-widest font-bold shadow-md">Join Us</a>
-            </div>
-        </div>
-    </nav>
-
-    <div id="mobile-menu-backdrop" class="hidden md:hidden fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 transition-opacity"></div>
+    {{ partial "nav.html" . }}
 
     <header class="relative min-h-[85vh] flex items-center overflow-hidden">
     
         <div id="hero-slider" class="absolute inset-0 z-0">
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000" alt="Lab Background 1" class="w-full h-full object-cover">
-            </div>
-            
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
-                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?auto=format&fit=crop&q=80&w=2000" alt="Lab Background 2" class="w-full h-full object-cover">
-            </div>
-            
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=2000" alt="Lab Background 3" class="w-full h-full object-cover">
-            </div>
-            
-            <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
-                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=2000" alt="Data Visualization and Statistics" class="w-full h-full object-cover">
-            </div>
+            {{ $life_images := readDir "static/images/life" }}
+            {{ $count := 0 }}
+            {{ range $life_images }}
+                {{ if and (lt $count 5) (in (slice ".jpg" ".jpeg" ".png") (path.Ext .Name | lower)) }}
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out {{ if eq $count 0 }}opacity-100{{ else }}opacity-0{{ end }}">
+                        <img src="{{ printf "images/life/%s" .Name | absURL }}" alt="Lab Background" class="w-full h-full object-cover">
+                    </div>
+                    {{ $count = add $count 1 }}
+                {{ end }}
+            {{ end }}
+            {{ if eq $count 0 }}
+                <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
+                    <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=2000" alt="Lab Background 1" class="w-full h-full object-cover">
+                </div>
+            {{ end }}
         </div>
 
         <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#e6f0fa]/95 via-[#f4f8fc]/80 to-white/20"></div>
@@ -139,7 +66,7 @@
                 <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> LATEST
             </span>
             
-            {{ range first 1 (where .Site.RegularPages "Section" "news") }}
+            {{ range first 1 (where .Site.RegularPages "Section" "news").ByDate.Reverse }}
             <a href="{{ .Permalink }}" class="hover:text-accent text-slate-700 font-medium transition-colors leading-relaxed block md:inline">
                 {{ .Title }} 
                 {{ if .Params.venue }}accepted to {{ .Params.venue }}!{{ end }} 
@@ -149,6 +76,7 @@
             
         </div>
     </div>
+
 
     <section id="mission-vision" class="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-white to-[#f8fafc] border-b border-blue-50/50">
         
@@ -238,7 +166,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
                 
-                <a href="#" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,75,135,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+                <a href="{{ "pillars/precision-health" | relURL }}" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,75,135,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
                     <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-700 ease-out group-hover:scale-[2] group-hover:bg-blue-50 z-0"></div>
                     
                     <div class="relative z-10 flex flex-col h-full">
@@ -252,13 +180,13 @@
                             Utilizing Label Distribution Learning (LDL) to overcome subjectivity in medical diagnostics and grading in Dermatology and Aesthetic Medicine.
                         </p>
 
-                        <!-- <div class="mt-8 flex items-center text-sm font-bold text-blue-600 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
+                        <div class="mt-8 flex items-center text-sm font-bold text-blue-600 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
                             Explore Pillar <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
-                        </div> -->
+                        </div>
                     </div>
                 </a>
                 
-                <a href="#" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+                <a href="{{ "pillars/social-intelligence" | relURL }}" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
                     <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-indigo-50 to-indigo-100/50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-700 ease-out group-hover:scale-[2] group-hover:bg-indigo-50 z-0"></div>
                     
                     <div class="relative z-10 flex flex-col h-full">
@@ -272,13 +200,13 @@
                             Developing co-training protocols for low-resource languages, abusive language detection, and mining online news for spatiotemporal crime visualization.
                         </p>
 
-                        <!-- <div class="mt-8 flex items-center text-sm font-bold text-indigo-600 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
+                        <div class="mt-8 flex items-center text-sm font-bold text-indigo-600 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
                             Explore Pillar <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
-                        </div> -->
+                        </div>
                     </div>
                 </a>
                 
-                <a href="#" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+                <a href="{{ "pillars/systemic-discovery" | relURL }}" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
                     <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-sky-50 to-sky-100/50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-700 ease-out group-hover:scale-[2] group-hover:bg-sky-50 z-0"></div>
                     
                     <div class="relative z-10 flex flex-col h-full">
@@ -292,12 +220,49 @@
                             Building Temporal Knowledge Graphs (TeReKG) and scholarly-code linking (SPECTER) to bridge software engineering, AI in education, and Space Exploration.
                         </p>
 
-                        <!-- <div class="mt-8 flex items-center text-sm font-bold text-sky-500 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
+                        <div class="mt-8 flex items-center text-sm font-bold text-sky-500 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
                             Explore Pillar <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
-                        </div> -->
+                        </div>
                     </div>
                 </a>
                 
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-publications" class="py-24 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
+                <div class="space-y-4">
+                    <h2 class="text-xs font-extrabold text-blue-500 academic-h2 uppercase tracking-[0.2em]">Latest Research</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-deep-charcoal academic-h1 tracking-tight">Featured Publications</h3>
+                </div>
+                <a href="{{ "publications" | relURL }}" class="text-accent font-bold uppercase tracking-widest text-sm hover:translate-x-2 transition-transform inline-flex items-center gap-2">
+                    View Archive &rarr;
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{ range first 3 (where (where .Site.RegularPages "Section" "publications") "Params.featured" true).ByDate.Reverse }}
+                <div class="group bg-white rounded-3xl border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-500 flex flex-col h-full">
+                    <div class="mb-6 flex items-center justify-between">
+                        <span class="px-3 py-1 bg-blue-50 text-accent text-[10px] font-bold uppercase tracking-widest rounded-md">{{ .Params.venue }}</span>
+                        <span class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">{{ .Date.Format "2006" }}</span>
+                    </div>
+                    <a href="{{ .Permalink }}" class="block flex-grow">
+                        <h4 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-accent transition-colors leading-snug line-clamp-3">{{ .Title }}</h4>
+                    </a>
+                    <p class="text-slate-500 text-sm font-light mb-8 line-clamp-3">{{ .Summary }}</p>
+                    <div class="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
+                        <a href="{{ .Permalink }}" class="text-accent text-xs font-bold uppercase tracking-widest hover:underline">Details</a>
+                        {{ if .Params.pdf_url }}
+                        <a href="{{ .Params.pdf_url }}" target="_blank" class="text-slate-400 hover:text-accent transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                        </a>
+                        {{ end }}
+                    </div>
+                </div>
+                {{ end }}
             </div>
         </div>
     </section>
@@ -324,7 +289,7 @@
 
                     <div class="swiper-slide group cursor-pointer">
                         <div class="relative overflow-hidden rounded-2xl bg-white p-2 shadow-soft-blue aspect-[4/3] border border-white">
-                            <img src="{{ "images/life/lab_seminar_kao_yai_2023_all.jpg" | absURL }}" alt="Lab Seminar Kao Yai 2023" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+                            <img src="{{ "images/life/lab_seminar_kao_yai_2023_all.jpg" | absURL }}" alt="Lab Seminar Khao Yai 2023" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-2 rounded-xl bg-gradient-to-t from-[#004B87]/95 via-[#004B87]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span class="text-blue-200 text-xs font-bold tracking-widest uppercase mb-1">Retreat</span>
                                 <h4 class="text-white text-xl font-extrabold font-['Outfit'] leading-tight">Khao Yai Seminar 2023</h4>
@@ -344,7 +309,7 @@
 
                     <div class="swiper-slide group cursor-pointer">
                         <div class="relative overflow-hidden rounded-2xl bg-white p-2 shadow-soft-blue aspect-[4/3] border border-white">
-                            <img src="{{ "images/life/lab_seminar_kao_sam_y_2024.jpg" | absURL }}" alt="Lab Seminar Kao Sam Y 2024" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+                            <img src="{{ "images/life/lab_seminar_kao_sam_y_2024.jpg" | absURL }}" alt="Lab Seminar Khao Sam Y 2024" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-2 rounded-xl bg-gradient-to-t from-[#004B87]/95 via-[#004B87]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span class="text-blue-200 text-xs font-bold tracking-widest uppercase mb-1">Retreat</span>
                                 <h4 class="text-white text-xl font-extrabold font-['Outfit'] leading-tight">Khao Sam Yot Seminar 2024</h4>
@@ -353,7 +318,7 @@
                     </div>
 
                     <div class="swiper-slide group cursor-pointer">
-                        <div class="relative overflow-hidden rounded-2xl bg-white p-2 shadow-soft-white aspect-[4/3] border border-white">
+                        <div class="relative overflow-hidden rounded-2xl bg-white p-2 shadow-soft-blue aspect-[4/3] border border-white">
                             <img src="{{ "images/life/last-lab_eating.jpg" | absURL }}" alt="Lab Dining Together" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-2 rounded-xl bg-gradient-to-t from-[#004B87]/95 via-[#004B87]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span class="text-blue-200 text-xs font-bold tracking-widest uppercase mb-1">Celebration</span>
@@ -400,78 +365,11 @@
         </div>
     </section>
 
-    <div id="joinModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300">
-        <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transform scale-95 transition-transform duration-300 p-6 md:p-8 relative">
-            
-            <button onclick="closeJoinModal()" class="absolute top-6 right-6 text-slate-400 hover:text-accent transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
+    {{ partial "join_modal.html" . }}
+    {{ partial "footer.html" . }}
 
-            <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                </div>
-                <h3 class="text-2xl font-bold text-deep-charcoal display-font">Application Instructions</h3>
-                <p class="text-slate-500 mt-2 text-sm leading-relaxed">We are actively seeking passionate researchers driven by practical utility to join the clusters.</p>
-            </div>
-
-            <div class="bg-[#f8fafc] rounded-xl p-5 md:p-6 border border-slate-100 mb-6 text-left space-y-5">
-                <div>
-                    <h4 class="font-bold text-accent text-xs uppercase tracking-widest mb-2">Required Documents</h4>
-                    <ul class="list-disc list-inside text-slate-600 text-sm space-y-1.5 font-medium">
-                        <li>Current Curriculum Vitae (CV)</li>
-                        <li>A brief statement of research interests</li>
-                        <li>Academic transcripts (for prospective students)</li>
-                    </ul>
-                </div>
-                <div class="pt-2 border-t border-slate-200">
-                    <h4 class="font-bold text-accent text-xs uppercase tracking-widest mb-2 mt-2">Submission</h4>
-                    <p class="text-slate-600 text-sm font-medium">Please email your complete application materials directly to the PI at:</p>
-                    <a href="mailto:{{ .Site.Params.contact_email | default "e.rostova@university.edu" }}" class="block mt-2 font-extrabold text-accent text-lg hover:underline break-all">
-                        {{ .Site.Params.contact_email | default "e.rostova@university.edu" }}
-                    </a>
-                </div>
-            </div>
-
-            <button onclick="closeJoinModal()" class="w-full py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors duration-300 text-sm uppercase tracking-widest">
-                Close
-            </button>
-        </div>
-    </div>
-
-    <footer class="bg-white py-16 px-6 text-sm text-slate-500 border-t border-blue-50">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div>
-                <h5 class="mb-3 flex items-center">
-                    <img src="{{ "images/logo/Logo_MIKE_LightBG.png" | relURL }}" alt="MIKE Lab Logo" class="h-8 md:h-14 w-auto object-contain">
-                </h5>
-                <p class="font-medium text-slate-600">Machine Intelligence &<br>Knowledge Engineering Research Clusters</p>
-            </div>
-            <div>
-                <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Location</h6>
-                <p>999 Phuttamonthon 4 Road, Salaya</p>
-                <p>Nakhon Pathom, Thailand, 73130</p>
-                <a href="mailto:{{ .Site.Params.contact_email | default "e.rostova@university.edu" }}" class="text-accent hover:text-blue-800 font-semibold mt-2 inline-block break-all">
-                    {{ .Site.Params.contact_email | default "e.rostova@university.edu" }}
-                </a>
-            </div>
-            <!-- <div>
-                <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Connect</h6>
-                <div class="space-y-3 font-medium">
-                    <a href="#" class="block hover:text-accent transition-colors">Google Scholar</a>
-                    <a href="#" class="block hover:text-accent transition-colors">LinkedIn</a>
-                    <a href="#" class="block hover:text-accent transition-colors">Twitter / X</a>
-                </div>
-            </div> -->
-        </div>
-        <div class="max-w-7xl mx-auto mt-16 border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between text-xs font-medium text-gray-400 text-center md:text-left">
-            <p>&copy; 2026 MIKE Research Clusters.</p>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script>
-        // 4. Initialize Swiper
+        // Initialize Swiper
         document.addEventListener('DOMContentLoaded', function () {
             var swiper = new Swiper(".mySwiper", {
             slidesPerView: 1,
@@ -494,92 +392,18 @@
                 1024: { slidesPerView: 3, spaceBetween: 32 },
             },
             });
-        });
 
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
-            const backdrop = document.getElementById('mobile-menu-backdrop');
-
-            // Function to Open/Close Menu
-            function toggleMenu() {
-                mobileMenu.classList.toggle('hidden');
-                backdrop.classList.toggle('hidden');
-                document.body.classList.toggle('overflow-hidden'); // Stops page scrolling in background
-            }
-
-            // Function to explicitly Close Menu
-            function closeMenu() {
-                mobileMenu.classList.add('hidden');
-                backdrop.classList.add('hidden');
-                document.body.classList.remove('overflow-hidden');
-            }
-
-            // 1. Tapping Hamburger Icon
-            mobileBtn.addEventListener('click', (event) => {
-                event.stopPropagation();
-                toggleMenu();
-            });
-
-            // 2. Tapping any Menu Link
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-
-            // 3. Tapping the empty background space (Backdrop)
-            backdrop.addEventListener('click', closeMenu);
-
-        function openJoinModal() {
-                const modal = document.getElementById('joinModal');
-                const modalInner = modal.querySelector('div');
-                
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                
-                setTimeout(() => {
-                    modal.classList.remove('opacity-0');
-                    modalInner.classList.remove('scale-95');
-                    modalInner.classList.add('scale-100');
-                }, 10);
-            }
-
-            function closeJoinModal() {
-                const modal = document.getElementById('joinModal');
-                const modalInner = modal.querySelector('div');
-                
-                modal.classList.add('opacity-0');
-                modalInner.classList.remove('scale-100');
-                modalInner.classList.add('scale-95');
-                
-                setTimeout(() => {
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                }, 300);
-            }
-
-            document.getElementById('joinModal').addEventListener('click', function(e) {
-                if (e.target === this) {
-                    closeJoinModal();
-                }
-            });
-
-            document.addEventListener('DOMContentLoaded', function() {
             const slides = document.querySelectorAll('.hero-slide');
             let currentSlide = 0;
 
             if (slides.length > 1) {
                 setInterval(() => {
-                    // Fade out current slide
                     slides[currentSlide].classList.remove('opacity-100');
                     slides[currentSlide].classList.add('opacity-0');
-
-                    // Move to next slide (looping back to 0)
                     currentSlide = (currentSlide + 1) % slides.length;
-
-                    // Fade in next slide
                     slides[currentSlide].classList.remove('opacity-0');
                     slides[currentSlide].classList.add('opacity-100');
-                }, 5000); // Changes image every 5 seconds (5000ms)
+                }, 5000);
             }
         });
         </script>

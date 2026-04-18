@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Systematic Literature Review on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/tags/systematic-literature-review/</link>
+    <description>Recent content in Systematic Literature Review on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Jan 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/tags/systematic-literature-review/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Artificial intelligence in computer programming education: A systematic literature review</title>
+      <link>https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-computer-programming-education-a-systematic-literature-review/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-computer-programming-education-a-systematic-literature-review/</guid>
+      <description>Abstract The demand for skilled programmers and the increasing complexity of coding skills have led to a rise in the adoption of artificial intelligence (AI) and machine learning (ML) technologies in computer programming education. Previous research has explored the potential of AI in aspects such as grading assignments, generating feedback, detecting plagiarism, and identifying at-risk students, but there is a lack of systematic reviews focused on AI-powered teaching processes in computer programming classes[cite: 1576].</description>
+    </item>
+    
+  </channel>
+</rss>

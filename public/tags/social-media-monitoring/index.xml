@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Social Media Monitoring on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/tags/social-media-monitoring/</link>
+    <description>Recent content in Social Media Monitoring on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 01 May 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/tags/social-media-monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>FALCON: Detecting and classifying abusive language in social networks using context features and unlabeled data</title>
+      <link>https://prayat-pu.github.io/mikelab/publications/falcon-detecting-and-classifying-abusive-language-in-social-networks-using-context-features-and-unlabeled-data/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/publications/falcon-detecting-and-classifying-abusive-language-in-social-networks-using-context-features-and-unlabeled-data/</guid>
+      <description>Abstract Social networks have grown into a widespread form of communication that allows a large number of users to participate in conversations and consume information at any time. The casual nature of social media allows for nonstandard terminology, some of which may be considered rude and derogatory. As a result, a significant portion of social media users is found to express disrespectful language. This problem may intensify in certain developing countries where young children are granted unsupervised access to social media platforms.</description>
+    </item>
+    
+  </channel>
+</rss>

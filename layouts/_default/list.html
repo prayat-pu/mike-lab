@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-blue-200 selection:text-blue-900">
+
+    {{ partial "nav.html" . }}
+
+    <header class="py-12 md:py-20 text-center bg-gradient-to-b from-[#e6f0fa]/60 to-transparent px-4 md:px-6">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-4">{{ .Title }}</h1>
+        {{ with .Params.description }}
+        <p class="text-base md:text-lg text-slate-500 font-light max-w-2xl mx-auto leading-relaxed">{{ . }}</p>
+        {{ end }}
+    </header>
+
+    <main class="flex-grow max-w-4xl mx-auto px-4 md:px-6 py-10 w-full mb-10 md:mb-20">
+        <div class="space-y-6">
+            {{ range .Pages }}
+            <a href="{{ .Permalink }}" class="block p-6 bg-white rounded-2xl border border-blue-50 shadow-sm hover:shadow-md hover:border-accent transition-all group">
+                <h2 class="text-xl font-bold text-slate-900 group-hover:text-accent transition-colors">{{ .Title }}</h2>
+                <p class="text-slate-500 mt-2 text-sm line-clamp-2">{{ .Summary }}</p>
+                <div class="mt-4 flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-400">
+                    <span>{{ .Date.Format "Jan 02, 2006" }}</span>
+                    <span>{{ .Section | humanize }}</span>
+                </div>
+            </a>
+            {{ end }}
+        </div>
+    </main>
+
+    {{ partial "join_modal.html" . }}
+    {{ partial "footer.html" . }}
+</body>
+</html>

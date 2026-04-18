@@ -2,17 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Life in MIKE Lab | MIKE Research Clusters</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Life in MIKE Lab | MIKE Research Clusters</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
     
-    <script src="https://cdn.tailwindcss.com"></script>
+     
+    body { 
+        font-family: 'Plus Jakarta Sans', sans-serif; 
+        background-color: #fbfdff; 
+        color: #1e293b; 
+    }
+    
+     
+    h1, h2, h3, h4, h5, h6, .display-font {
+        font-family: 'Outfit', sans-serif;
+    }
+    
+     
+    .text-deep-charcoal { color: #0f172a; }
+    .bg-accent { background-color: #004B87; } 
+    .text-accent { color: #004B87; }
+    .border-accent { border-color: #004B87; }
+
+     
+    .shadow-soft-blue { box-shadow: 0 10px 40px -10px rgba(0, 75, 135, 0.08); }
+    .shadow-hover-blue:hover { box-shadow: 0 20px 40px -10px rgba(0, 75, 135, 0.15); }
+
+     
+    .academic-h1 { letter-spacing: -0.03em; line-height: 1.1; }
+    .academic-h2 { letter-spacing: 0.15em; font-weight: 600; }
+    
+     
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+</style>
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-        
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; color: #333333; }
-        h1, h2, h3, .display-font { font-family: 'Outfit', sans-serif; }
-        .text-accent { color: #004B87; }
-        
          
         .masonry-img { filter: grayscale(20%); transition: all 0.4s ease-in-out; }
         .masonry-img:hover { filter: grayscale(0%); transform: scale(1.02); }
@@ -20,309 +53,436 @@
 </head>
 <body class="antialiased selection:bg-[#004B87] selection:text-white min-h-screen flex flex-col">
 
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="/mikelab" class="text-2xl font-extrabold text-gray-900 display-font tracking-tight flex items-center gap-2">
-                &larr; <span class="text-lg">MIKE</span>
-            </a>
-            <span class="text-sm font-bold text-gray-400 uppercase tracking-widest">Gallery</span>
-        </div>
-    </nav>
+    <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 transition-all duration-300 shadow-sm relative">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        
+        <a href="/mikelab" class="flex items-center">
+            <img src="/mikelab/images/logo/Logo_MIKE_LightBG.png" alt="MIKE Lab Logo" class="h-14 w-auto object-contain">
+        </a>
+        
+        <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+            <a href="/mikelab" class="hover:text-accent transition-colors ">Home</a>
+            <a href="/mikelab/members" class="hover:text-accent transition-colors ">Team</a>
+            <a href="/mikelab/news" class="hover:text-accent transition-colors ">News</a>
+            <a href="/mikelab/publications" class="hover:text-accent transition-colors ">Publications</a>
+            <button onclick="openJoinModal()" class="px-6 py-2.5 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-lg text-xs uppercase tracking-widest font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">Join Us</button>
+        </div> 
 
-    <header class="py-20 bg-white border-b border-gray-100 text-center px-6">
-        <h1 class="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">Life in MIKE Lab</h1>
-        <p class="text-lg text-gray-500 max-w-2xl mx-auto font-light">A comprehensive gallery of our academic seminars, team culture, and day-to-day research activities.</p>
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-accent focus:outline-none">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div> 
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-blue-50 bg-white absolute left-0 top-full w-full shadow-xl transition-all duration-300">
+        <div class="flex flex-col px-6 py-6 space-y-4 text-center font-bold text-slate-600">
+            <a href="/mikelab" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100 ">Home</a>
+            <a href="/mikelab/members" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100 ">Team</a>
+            <a href="/mikelab/news" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100 ">News</a>
+            <a href="/mikelab/publications" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100 ">Publications</a>
+            <button onclick="openJoinModal(); closeMenu();" class="mobile-link block py-4 mt-4 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-xl text-xs uppercase tracking-widest font-bold shadow-md">Join Us</button>
+        </div>
+    </div>
+</nav>
+
+<div id="mobile-menu-backdrop" class="hidden md:hidden fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 transition-opacity"></div>
+
+
+    <header class="py-12 md:py-20 bg-white border-b border-gray-100 text-center px-4 md:px-6">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 mb-4 tracking-tight">Life in MIKE Lab</h1>
+        <p class="text-base md:text-lg text-gray-500 max-w-2xl mx-auto font-light">A comprehensive gallery of our academic seminars, team culture, and day-to-day research activities.</p>
     </header>
 
-    <main class="flex-grow max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full">
+    <main class="flex-grow max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 w-full">
         
-        <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
-            
-            
-            
+        
+        
+            <div class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-6 space-y-6">
                 
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/245813.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/245813.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/245817.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/245817.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/245822.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/245822.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/245832.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/245832.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/LINE_ALBUM_%e0%b9%80%e0%b8%97%e0%b8%b5%e0%b9%88%e0%b8%a2%e0%b8%a7%e0%b8%aa%e0%b8%b4%e0%b8%a3%e0%b8%b5%e0%b8%a3%e0%b8%b8%e0%b8%81%e0%b8%82%e0%b8%8a%e0%b8%b2%e0%b8%95%e0%b8%b4_260413_3.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/LINE_ALBUM_%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%AA%E0%B8%B4%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B8%E0%B8%81%E0%B8%82%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4_260413_3.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/LINE_ALBUM_%e0%b9%80%e0%b8%97%e0%b8%b5%e0%b9%88%e0%b8%a2%e0%b8%a7%e0%b8%aa%e0%b8%b4%e0%b8%a3%e0%b8%b5%e0%b8%a3%e0%b8%b8%e0%b8%81%e0%b8%82%e0%b8%8a%e0%b8%b2%e0%b8%95%e0%b8%b4_260413_5.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/LINE_ALBUM_%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%AA%E0%B8%B4%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B8%E0%B8%81%E0%B8%82%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4_260413_5.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/LINE_ALBUM_%e0%b9%80%e0%b8%97%e0%b8%b5%e0%b9%88%e0%b8%a2%e0%b8%a7%e0%b8%aa%e0%b8%b4%e0%b8%a3%e0%b8%b5%e0%b8%a3%e0%b8%b8%e0%b8%81%e0%b8%82%e0%b8%8a%e0%b8%b2%e0%b8%95%e0%b8%b4_260413_%e0%b8%a0.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/LINE_ALBUM_%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%AA%E0%B8%B4%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B8%E0%B8%81%E0%B8%82%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4_260413_%E0%B8%A0.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/kao_yai_2023_2.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/kao_yai_2023_2.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_2023_life.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_2023_life.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_play_boardgame_2023.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_play_boardgame_2023.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_play_boardgame_2023_2.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_play_boardgame_2023_2.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_seminar_kao_sam_y_2024.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_seminar_kao_sam_y_2024.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_seminar_kao_sam_y_2024_2.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_seminar_kao_sam_y_2024_2.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_seminar_kao_sam_y_2024_3.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_seminar_kao_sam_y_2024_3.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_seminar_kao_yai_2023.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_seminar_kao_yai_2023.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_seminar_kao_yai_2023_all.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_seminar_kao_yai_2023_all.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_seminar_kao_yai_2023_sun.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_seminar_kao_yai_2023_sun.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/lab_seminar_kaoyai_2025.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/lab_seminar_kaoyai_2025.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/last-lab_eating.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/last-lab_eating.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/traval_%e0%b8%a3%e0%b8%b8%e0%b8%81%e0%b8%82%e0%b8%8a%e0%b8%b2%e0%b8%95%e0%b8%b4.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/traval_%E0%B8%A3%E0%B8%B8%E0%B8%81%E0%B8%82%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
                     
                         <div class="break-inside-avoid relative overflow-hidden rounded-xl bg-white shadow-sm border border-gray-100 group cursor-pointer">
-                            
                             <img 
-                                src="/mikelab/images/life/travel_%e0%b8%a3%e0%b8%b8%e0%b8%81%e0%b8%82%e0%b8%8a%e0%b8%b2%e0%b8%95%e0%b8%b42.jpg" 
+                                src="https://prayat-pu.github.io/mikelab/images/life/travel_%E0%B8%A3%E0%B8%B8%E0%B8%81%E0%B8%82%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B42.jpg" 
                                 alt="MIKE Lab Activity" 
                                 loading="lazy" 
                                 class="masonry-img w-full h-auto object-cover"
                             >
-                            
                         </div>
                     
                 
-            
+            </div>
+        
 
-        </div>
     </main>
 
-    <footer class="bg-white border-t border-gray-100 py-8 px-6 text-center text-xs font-medium text-gray-400 mt-auto">
-        &copy; 2026 MIKE Research Clusters.
-    </footer>
+    <div id="joinModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300">
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transform scale-95 transition-transform duration-300 p-6 md:p-8 relative">
+        
+        <button onclick="closeJoinModal()" class="absolute top-6 right-6 text-slate-400 hover:text-accent transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+            </div>
+            <h3 class="text-2xl font-bold text-deep-charcoal display-font">Application Instructions</h3>
+            <p class="text-slate-500 mt-2 text-sm leading-relaxed">We are actively seeking passionate researchers driven by practical utility to join the clusters.</p>
+        </div>
+
+        <div class="bg-[#f8fafc] rounded-xl p-5 md:p-6 border border-slate-100 mb-6 text-left space-y-5">
+            <div>
+                <h4 class="font-bold text-accent text-xs uppercase tracking-widest mb-2">Required Documents</h4>
+                <ul class="list-disc list-inside text-slate-600 text-sm space-y-1.5 font-medium">
+                    <li>Current Curriculum Vitae (CV)</li>
+                    <li>A brief statement of research interests</li>
+                    <li>Academic transcripts (for prospective students)</li>
+                </ul>
+            </div>
+            <div class="pt-2 border-t border-slate-200">
+                <h4 class="font-bold text-accent text-xs uppercase tracking-widest mb-2 mt-2">Submission</h4>
+                <p class="text-slate-600 text-sm font-medium">Please email your complete application materials directly to the PI at:</p>
+                <a href="mailto:suppawong.tua@mahidol.ac.th" class="block mt-2 font-extrabold text-accent text-lg hover:underline break-all">
+                    suppawong.tua@mahidol.ac.th
+                </a>
+            </div>
+        </div>
+
+        <button onclick="closeJoinModal()" class="w-full py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors duration-300 text-sm uppercase tracking-widest">
+            Close
+        </button>
+    </div>
+</div>
+
+    <footer class="bg-white py-16 px-6 text-sm text-slate-500 border-t border-blue-50">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+        <div>
+            <h5 class="mb-3 flex items-center">
+                <img src="/mikelab/images/logo/Logo_MIKE_LightBG.png" alt="MIKE Lab Logo" class="h-8 md:h-14 w-auto object-contain">
+            </h5>
+            <p class="font-medium text-slate-600">Machine Intelligence &<br>Knowledge Engineering Research Clusters</p>
+        </div>
+        <div>
+            <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Location</h6>
+            <p>999 Phuttamonthon 4 Road, Salaya, Nakhon Pathom, Thailand, 73130</p>
+            <a href="mailto:suppawong.tua@mahidol.ac.th" class="text-accent hover:text-blue-800 font-semibold mt-2 inline-block break-all">
+                suppawong.tua@mahidol.ac.th
+            </a>
+        </div>
+        <div>
+            <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Quick Links</h6>
+            <div class="space-y-3 font-medium">
+                <a href="/mikelab/members" class="block hover:text-accent transition-colors">Team</a>
+                <a href="/mikelab/news" class="block hover:text-accent transition-colors">News</a>
+                <a href="/mikelab/publications" class="block hover:text-accent transition-colors">Publications</a>
+                <a href="/mikelab/life" class="block hover:text-accent transition-colors">Gallery</a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-16 border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between text-xs font-medium text-gray-400 text-center md:text-left">
+        <p>&copy; 2026 MIKE Research Clusters. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        backdrop.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
+    }
+
+    function closeMenu() {
+        if (mobileMenu) mobileMenu.classList.add('hidden');
+        if (backdrop) backdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleMenu();
+        });
+    }
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    if (backdrop) {
+        backdrop.addEventListener('click', closeMenu);
+    }
+
+    function openJoinModal() {
+        const modal = document.getElementById('joinModal');
+        if (!modal) {
+            
+            window.location.href = "\/mikelab#join";
+            return;
+        }
+        const modalInner = modal.querySelector('div');
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modalInner.classList.remove('scale-95');
+            modalInner.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeJoinModal() {
+        const modal = document.getElementById('joinModal');
+        if (!modal) return;
+        const modalInner = modal.querySelector('div');
+        
+        modal.classList.add('opacity-0');
+        modalInner.classList.remove('scale-100');
+        modalInner.classList.add('scale-95');
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+
+    const joinModal = document.getElementById('joinModal');
+    if (joinModal) {
+        joinModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeJoinModal();
+            }
+        });
+    }
+</script>
 
 </body>
 </html>

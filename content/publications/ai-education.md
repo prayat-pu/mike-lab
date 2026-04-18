@@ -6,6 +6,7 @@ venue: "Computers and Education: Artificial Intelligence"
 doi: "https://doi.org/10.1016/j.caeai.2024.100403"
 image: #"/images/publications/ai-edu-review.png"
 categories: ["Artificial Intelligence", "Education Technology"]
+pillars: ["Systemic Discovery"]
 tags: ["Computer Programming Education", "Systematic Literature Review", "Machine Learning", "Pedagogical Process"]
 featured: true
 ---

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Machine Learning on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/tags/machine-learning/</link>
+    <description>Recent content in Machine Learning on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 17 Apr 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Call for Proposals: 2026 Google Awards for ML Research and Education with TPUs</title>
+      <link>https://prayat-pu.github.io/mikelab/news/call-for-proposals-2026-google-awards-for-ml-research-and-education-with-tpus/</link>
+      <pubDate>Fri, 17 Apr 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/news/call-for-proposals-2026-google-awards-for-ml-research-and-education-with-tpus/</guid>
+      <description>Unlock Funding and Compute for Your ML Research! Google has officially announced its 2026 Awards for Machine Learning Research and Education with TPUs! This is an incredible opportunity for our lab members to secure significant funding and top-tier computing power.
+Google is inviting proposals to advance machine learning through foundational research, applied science, and the integration of Google TPUs into educational courses.
+What is the Award? Selected proposals will receive a fantastic support package:</description>
+    </item>
+    
+    <item>
+      <title>Artificial intelligence in computer programming education: A systematic literature review</title>
+      <link>https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-computer-programming-education-a-systematic-literature-review/</link>
+      <pubDate>Wed, 01 Jan 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-computer-programming-education-a-systematic-literature-review/</guid>
+      <description>Abstract The demand for skilled programmers and the increasing complexity of coding skills have led to a rise in the adoption of artificial intelligence (AI) and machine learning (ML) technologies in computer programming education. Previous research has explored the potential of AI in aspects such as grading assignments, generating feedback, detecting plagiarism, and identifying at-risk students, but there is a lack of systematic reviews focused on AI-powered teaching processes in computer programming classes[cite: 1576].</description>
+    </item>
+    
+    <item>
+      <title>Artificial Intelligence in Cosmetic Dermatology: A Systematic Literature Review</title>
+      <link>https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-cosmetic-dermatology-a-systematic-literature-review/</link>
+      <pubDate>Thu, 13 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-cosmetic-dermatology-a-systematic-literature-review/</guid>
+      <description>Abstract Over the last ten years, the field of dermatology has experienced significant advancements through the utilization of artificial intelligence (AI) technologies. The adoption of such technologies is multifaceted, encompassing tasks such as screening, diagnosis, treatment, and prediction of treatment outcomes. The majority of prior systematic reviews in this domain were centered on medical dermatology, with the aim of detecting and managing serious skin diseases such as skin cancer. However, the adoption of AI in cosmetic dermatology, which focuses on improving skin conditions for cosmetic purposes, has not been comprehensively reviewed.</description>
+    </item>
+    
+  </channel>
+</rss>

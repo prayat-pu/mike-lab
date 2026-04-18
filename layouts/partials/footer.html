@@ -1,0 +1,107 @@
+<footer class="bg-white py-16 px-6 text-sm text-slate-500 border-t border-blue-50">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+        <div>
+            <h5 class="mb-3 flex items-center">
+                <img src="{{ "images/logo/Logo_MIKE_LightBG.png" | relURL }}" alt="MIKE Lab Logo" class="h-8 md:h-14 w-auto object-contain">
+            </h5>
+            <p class="font-medium text-slate-600">Machine Intelligence &<br>Knowledge Engineering Research Clusters</p>
+        </div>
+        <div>
+            <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Location</h6>
+            <p>{{ .Site.Params.lab_location }}</p>
+            <a href="mailto:{{ .Site.Params.contact_email }}" class="text-accent hover:text-blue-800 font-semibold mt-2 inline-block break-all">
+                {{ .Site.Params.contact_email }}
+            </a>
+        </div>
+        <div>
+            <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Quick Links</h6>
+            <div class="space-y-3 font-medium">
+                <a href="{{ "members" | relURL }}" class="block hover:text-accent transition-colors">Team</a>
+                <a href="{{ "news" | relURL }}" class="block hover:text-accent transition-colors">News</a>
+                <a href="{{ "publications" | relURL }}" class="block hover:text-accent transition-colors">Publications</a>
+                <a href="{{ "life" | relURL }}" class="block hover:text-accent transition-colors">Gallery</a>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-16 border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between text-xs font-medium text-gray-400 text-center md:text-left">
+        <p>&copy; {{ now.Format "2006" }} MIKE Research Clusters. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        backdrop.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
+    }
+
+    function closeMenu() {
+        if (mobileMenu) mobileMenu.classList.add('hidden');
+        if (backdrop) backdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleMenu();
+        });
+    }
+
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    if (backdrop) {
+        backdrop.addEventListener('click', closeMenu);
+    }
+
+    function openJoinModal() {
+        const modal = document.getElementById('joinModal');
+        if (!modal) {
+            // If on a page without modal, redirect to home with anchor
+            window.location.href = "{{ "" | relURL }}#join";
+            return;
+        }
+        const modalInner = modal.querySelector('div');
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modalInner.classList.remove('scale-95');
+            modalInner.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeJoinModal() {
+        const modal = document.getElementById('joinModal');
+        if (!modal) return;
+        const modalInner = modal.querySelector('div');
+        
+        modal.classList.add('opacity-0');
+        modalInner.classList.remove('scale-100');
+        modalInner.classList.add('scale-95');
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+
+    const joinModal = document.getElementById('joinModal');
+    if (joinModal) {
+        joinModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeJoinModal();
+            }
+        });
+    }
+</script>

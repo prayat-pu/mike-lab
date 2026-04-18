@@ -6,6 +6,7 @@ venue: "Information Processing and Management"
 doi: "https://doi.org/10.1016/j.ipm.2022.103381"
 image: "/images/publications/falcon-framework.png"
 categories: ["Deep Learning", "Social Intelligence"]
+pillars: ["Social Intelligence"]
 tags: ["Abusive Language Detection", "Co-training", "Social Media Monitoring", "NLP"]
 featured: true
 ---

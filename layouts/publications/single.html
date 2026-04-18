@@ -1,29 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Title }} | MIKE Research Clusters</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{ partial "head.html" . }}
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap'); /* Monospace for code */
-        
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fbfdff; color: #1e293b; }
-        h1, h2, .display-font { font-family: 'Outfit', sans-serif; }
-        .text-accent { color: #004B87; }
-        .bg-accent { background-color: #004B87; }
-        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); }
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
         .bibtex-code { font-family: 'Fira Code', monospace; }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col selection:bg-blue-200 selection:text-blue-900">
 
-    <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto py-4 px-4 md:px-6 flex items-center justify-between">
-            <a href="{{ "publications" | relURL }}" class="text-sm font-bold text-accent uppercase tracking-widest flex items-center gap-2 hover:opacity-80 transition-opacity">&larr; Back to Publications</a>
-        </div>
-    </nav>
+    {{ partial "nav.html" . }}
 
     <main class="flex-grow max-w-4xl mx-auto px-4 md:px-6 py-10 md:py-16 w-full">
         <header class="mb-10 md:mb-12 border-b border-blue-50 pb-8 md:pb-10">
@@ -39,7 +25,11 @@
             
             <div class="flex flex-col sm:flex-row flex-wrap gap-3 md:gap-4">
                 {{ if .Params.doi }}
-                <a href="https://doi.org/{{ .Params.doi }}" target="_blank" class="w-full sm:w-auto text-center px-6 py-3 bg-accent text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:shadow-lg hover:-translate-y-0.5 transition-all">View Publisher (DOI)</a>
+                {{ $doi_url := .Params.doi }}
+                {{ if not (hasPrefix $doi_url "http") }}
+                    {{ $doi_url = printf "https://doi.org/%s" .Params.doi }}
+                {{ end }}
+                <a href="{{ $doi_url }}" target="_blank" class="w-full sm:w-auto text-center px-6 py-3 bg-accent text-white text-xs font-bold uppercase tracking-widest rounded-lg hover:shadow-lg hover:-translate-y-0.5 transition-all">View Publisher (DOI)</a>
                 {{ end }}
                 {{ if .Params.pdf_url }}
                 <a href="{{ .Params.pdf_url }}" target="_blank" class="w-full sm:w-auto text-center px-6 py-3 border border-slate-200 bg-white text-slate-700 text-xs font-bold uppercase tracking-widest rounded-lg hover:border-accent hover:text-accent transition-all shadow-sm">Download PDF</a>
@@ -64,19 +54,26 @@
             <div class="bg-[#0f172a] rounded-2xl p-5 pt-14 md:p-6 md:pt-6 overflow-x-auto relative group">
                 <button onclick="copyBibtex(this)" class="absolute top-3 right-3 md:top-4 md:right-4 text-xs font-bold uppercase tracking-widest bg-white/10 text-white px-3 py-1.5 rounded hover:bg-white/20 transition-colors">Copy</button>
                 
+                {{/* Clean DOI for BibTeX */}}
+                {{ $clean_doi := .Params.doi }}
+                {{ if hasPrefix $clean_doi "https://doi.org/" }}
+                    {{ $clean_doi = replace $clean_doi "https://doi.org/" "" }}
+                {{ end }}
+                
                 <pre><code id="bibtex-content" class="bibtex-code text-blue-200 text-xs md:text-sm whitespace-pre-wrap">@article{ {{ replace (lower .File.BaseFileName) "-" "" }},
   title={ {{ .Title }} },
   author={ {{ if .Params.authors }}{{ delimit .Params.authors " and " }}{{ else }}MIKE Lab{{ end }} },
   journal={ {{ .Params.venue }} },
   year={ {{ .Date.Format "2006" }} },
-  doi={ {{ .Params.doi | default "N/A" }} },
+  doi={ {{ $clean_doi | default "N/A" }} },
   url={ {{ .Permalink }} }
 }</code></pre>
             </div>
         </section>
     </main>
 
-    <footer class="bg-white border-t border-blue-50 py-8 px-4 md:px-6 text-center text-xs text-slate-400 mt-auto font-medium">&copy; 2026 MIKE Research Clusters.</footer>
+    {{ partial "join_modal.html" . }}
+    {{ partial "footer.html" . }}
 
     <script>
         function copyBibtex(button) {

@@ -1,17 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Title }} | MIKE Research Clusters</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    {{ partial "head.html" . }}
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;800&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fbfdff; color: #1e293b; }
-        h1, h2, h3, .display-font { font-family: 'Outfit', sans-serif; }
-        .text-accent { color: #004B87; }
-        .glass-panel { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-        
         /* Mobile-First Typography for Article Body */
         .academic-prose p { margin-bottom: 1.25rem; line-height: 1.8; font-weight: 300; color: #334155; font-size: 1rem; }
         .academic-prose h2, .academic-prose h3 { font-family: 'Outfit', sans-serif; font-weight: 700; color: #0f172a; margin-top: 2rem; margin-bottom: 1rem; }
@@ -20,7 +11,6 @@
         .academic-prose ul { list-style-type: disc; padding-left: 1.25rem; margin-bottom: 1.5rem; color: #334155; }
         .academic-prose strong { font-weight: 600; color: #1e293b; }
         
-        /* Scale up text for tablets and desktops */
         @media (min-width: 768px) {
             .academic-prose p { font-size: 1.1rem; margin-bottom: 1.5rem; }
             .academic-prose h2 { font-size: 1.8rem; margin-top: 2.5rem; }
@@ -30,9 +20,13 @@
 </head>
 <body class="antialiased min-h-screen flex flex-col selection:bg-blue-200 selection:text-blue-900">
 
-    <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto py-4 px-4 md:px-6 flex items-center justify-between">
-            <a href="{{ "news" | relURL }}" class="text-sm font-bold text-accent uppercase tracking-widest flex items-center gap-2 hover:opacity-80 transition-opacity">&larr; Back to News</a>
+    {{ partial "nav.html" . }}
+
+    <nav class="bg-white/50 border-b border-blue-50/50 py-3">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <a href="{{ "news" | relURL }}" class="text-xs font-bold text-accent uppercase tracking-widest flex items-center gap-2 hover:opacity-80 transition-opacity">
+                &larr; Back to News
+            </a>
         </div>
     </nav>
 
@@ -53,11 +47,9 @@
                 
                 {{ if hasPrefix $img "http" }}
                     <img src="{{ $img }}" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-60 scale-110 pointer-events-none z-0">
-                    
                     <img src="{{ $img }}" class="absolute inset-0 w-full h-full object-contain p-2 md:p-4 relative z-10 drop-shadow-2xl">
                 {{ else }}
                     <img src="{{ trim $img "/" | absURL }}" class="absolute inset-0 w-full h-full object-cover blur-2xl opacity-60 scale-110 pointer-events-none z-0">
-                    
                     <img src="{{ trim $img "/" | absURL }}" class="absolute inset-0 w-full h-full object-contain p-2 md:p-4 relative z-10 drop-shadow-2xl">
                 {{ end }}
                 
@@ -69,6 +61,7 @@
         </article>
     </main>
 
-    <footer class="bg-white border-t border-blue-50 py-8 px-4 md:px-6 text-center text-xs text-slate-400 mt-auto font-medium">&copy; 2026 MIKE Research Clusters.</footer>
+    {{ partial "join_modal.html" . }}
+    {{ partial "footer.html" . }}
 </body>
 </html>

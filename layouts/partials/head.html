@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+    
+    /* Apply Base Body Font & Soft Pearl Background */
+    body { 
+        font-family: 'Plus Jakarta Sans', sans-serif; 
+        background-color: #fbfdff; 
+        color: #1e293b; 
+    }
+    
+    /* Apply Display Font to Headers */
+    h1, h2, h3, h4, h5, h6, .display-font {
+        font-family: 'Outfit', sans-serif;
+    }
+    
+    /* Master Color Variables */
+    .text-deep-charcoal { color: #0f172a; }
+    .bg-accent { background-color: #004B87; } 
+    .text-accent { color: #004B87; }
+    .border-accent { border-color: #004B87; }
+
+    /* Modern Colored Shadows */
+    .shadow-soft-blue { box-shadow: 0 10px 40px -10px rgba(0, 75, 135, 0.08); }
+    .shadow-hover-blue:hover { box-shadow: 0 20px 40px -10px rgba(0, 75, 135, 0.15); }
+
+    /* Typography spacing */
+    .academic-h1 { letter-spacing: -0.03em; line-height: 1.1; }
+    .academic-h2 { letter-spacing: 0.15em; font-weight: 600; }
+    
+    /* Glassmorphism utilities for Navigation */
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+</style>

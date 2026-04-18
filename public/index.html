@@ -1,37 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.92.2" />
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MIKE Research Clusters</title>
 
-                
-                <a href="/mikelab/members" class="hover:text-accent transition-colors">Team</a>
-                <a href="/mikelab/news" class="hover:text-accent transition-colors">News</a>
-                <a href="/mikelab/publications" class="hover:text-accent transition-colors">Publications</a>
-                <a href="#join" class="px-6 py-2.5 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-lg text-xs uppercase tracking-widest font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">Join Us</a>
-            </div>
-        </div>
-    </nav>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-    <header class="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-br from-[#e6f0fa] via-[#f4f8fc] to-white">
-        <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-200/40 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
-        <div class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-3xl opacity-60 pointer-events-none"></div>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
+    
+     
+    body { 
+        font-family: 'Plus Jakarta Sans', sans-serif; 
+        background-color: #fbfdff; 
+        color: #1e293b; 
+    }
+    
+     
+    h1, h2, h3, h4, h5, h6, .display-font {
+        font-family: 'Outfit', sans-serif;
+    }
+    
+     
+    .text-deep-charcoal { color: #0f172a; }
+    .bg-accent { background-color: #004B87; } 
+    .text-accent { color: #004B87; }
+    .border-accent { border-color: #004B87; }
+
+     
+    .shadow-soft-blue { box-shadow: 0 10px 40px -10px rgba(0, 75, 135, 0.08); }
+    .shadow-hover-blue:hover { box-shadow: 0 20px 40px -10px rgba(0, 75, 135, 0.15); }
+
+     
+    .academic-h1 { letter-spacing: -0.03em; line-height: 1.1; }
+    .academic-h2 { letter-spacing: 0.15em; font-weight: 600; }
+    
+     
+    .glass-panel {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+    }
+</style>
+
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-blue-200 selection:text-blue-900">
+
+    <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 transition-all duration-300 shadow-sm relative">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         
-        <div class="relative z-10 max-w-7xl mx-auto px-6 text-left py-20">
+        <a href="/mikelab" class="flex items-center">
+            <img src="/mikelab/images/logo/Logo_MIKE_LightBG.png" alt="MIKE Lab Logo" class="h-14 w-auto object-contain">
+        </a>
+        
+        <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+            <a href="/mikelab" class="hover:text-accent transition-colors text-accent">Home</a>
+            <a href="/mikelab/members" class="hover:text-accent transition-colors ">Team</a>
+            <a href="/mikelab/news" class="hover:text-accent transition-colors ">News</a>
+            <a href="/mikelab/publications" class="hover:text-accent transition-colors ">Publications</a>
+            <button onclick="openJoinModal()" class="px-6 py-2.5 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-lg text-xs uppercase tracking-widest font-bold hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">Join Us</button>
+        </div> 
+
+        <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-accent focus:outline-none">
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div> 
+
+    <div id="mobile-menu" class="hidden md:hidden border-t border-blue-50 bg-white absolute left-0 top-full w-full shadow-xl transition-all duration-300">
+        <div class="flex flex-col px-6 py-6 space-y-4 text-center font-bold text-slate-600">
+            <a href="/mikelab" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100 text-accent">Home</a>
+            <a href="/mikelab/members" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100 ">Team</a>
+            <a href="/mikelab/news" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100 ">News</a>
+            <a href="/mikelab/publications" class="mobile-link block py-2 hover:text-accent transition-colors border-b border-slate-100 ">Publications</a>
+            <button onclick="openJoinModal(); closeMenu();" class="mobile-link block py-4 mt-4 bg-gradient-to-r from-[#004B87] to-blue-700 text-white rounded-xl text-xs uppercase tracking-widest font-bold shadow-md">Join Us</button>
+        </div>
+    </div>
+</nav>
+
+<div id="mobile-menu-backdrop" class="hidden md:hidden fixed inset-0 bg-slate-900/20 backdrop-blur-sm z-40 transition-opacity"></div>
+
+
+    <header class="relative min-h-[85vh] flex items-center overflow-hidden">
+    
+        <div id="hero-slider" class="absolute inset-0 z-0">
+            
+            
+            
+                
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100">
+                        <img src="https://prayat-pu.github.io/mikelab/images/life/245813.jpg" alt="Lab Background" class="w-full h-full object-cover">
+                    </div>
+                    
+                
+            
+                
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://prayat-pu.github.io/mikelab/images/life/245817.jpg" alt="Lab Background" class="w-full h-full object-cover">
+                    </div>
+                    
+                
+            
+                
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://prayat-pu.github.io/mikelab/images/life/245822.jpg" alt="Lab Background" class="w-full h-full object-cover">
+                    </div>
+                    
+                
+            
+                
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://prayat-pu.github.io/mikelab/images/life/245832.jpg" alt="Lab Background" class="w-full h-full object-cover">
+                    </div>
+                    
+                
+            
+                
+                    <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0">
+                        <img src="https://prayat-pu.github.io/mikelab/images/life/LINE_ALBUM_%E0%B9%80%E0%B8%97%E0%B8%B5%E0%B9%88%E0%B8%A2%E0%B8%A7%E0%B8%AA%E0%B8%B4%E0%B8%A3%E0%B8%B5%E0%B8%A3%E0%B8%B8%E0%B8%81%E0%B8%82%E0%B8%8A%E0%B8%B2%E0%B8%95%E0%B8%B4_260413_3.jpg" alt="Lab Background" class="w-full h-full object-cover">
+                    </div>
+                    
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            
+        </div>
+
+        <div class="absolute inset-0 z-0 bg-gradient-to-r from-[#e6f0fa]/95 via-[#f4f8fc]/80 to-white/20"></div>
+
+        <div class="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-200/40 rounded-full blur-3xl opacity-60 pointer-events-none z-0"></div>
+        <div class="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-indigo-100/40 rounded-full blur-3xl opacity-60 pointer-events-none z-0"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-6 text-left py-20 w-full">
             <div class="space-y-6 max-w-4xl">
-                <div class="inline-block px-4 py-1.5 rounded-full bg-blue-100/50 border border-blue-200 text-accent text-xs font-bold tracking-widest uppercase mb-4 shadow-sm">
+                <div class="inline-block px-4 py-1.5 rounded-full bg-blue-100/50 border border-blue-200 text-accent text-xs font-bold tracking-widest uppercase mb-4 shadow-sm backdrop-blur-sm">
                     Research Excellence
                 </div>
-                <h1 class="text-6xl md:text-[5rem] font-extrabold text-deep-charcoal academic-h1 drop-shadow-sm leading-tight">
+                <h1 class="text-5xl sm:text-6xl md:text-[5rem] font-extrabold text-deep-charcoal academic-h1 drop-shadow-sm leading-tight">
                     Machine Intelligence & <br />
                     Knowledge Engineering
                 </h1>
-                <h2 class="text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-500 font-bold mt-2 display-font">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-blue-500 font-bold mt-2 display-font">
                     Research Clusters (MIKE)
                 </h2>
-                <p class="text-xl text-slate-600 font-light leading-relaxed mt-6 max-w-2xl">
+                <p class="text-lg md:text-xl text-slate-800 font-medium leading-relaxed mt-6 max-w-2xl drop-shadow-sm">
                     Engineering high-impact AI systems to bridge the gap between theoretical research and practical utility in academia and industry.
                 </p>
-                <div class="pt-8 flex gap-4">
+                <div class="pt-8 flex flex-col sm:flex-row gap-4">
                     <a href="#research" class="inline-flex items-center justify-center px-8 py-4 bg-accent text-white font-bold hover:bg-blue-800 transition-all duration-300 text-sm uppercase tracking-widest rounded-xl shadow-lg shadow-blue-900/20 hover:-translate-y-1">
                         Explore Pillars
                     </a>
-                    <a href="/publications" class="inline-flex items-center justify-center px-8 py-4 bg-white border border-blue-100 text-accent font-bold hover:bg-blue-50 transition-all duration-300 text-sm uppercase tracking-widest rounded-xl shadow-sm">
+                    <a href="/mikelab/publications" class="inline-flex items-center justify-center px-8 py-4 bg-white/90 backdrop-blur border border-blue-100 text-accent font-bold hover:bg-white transition-all duration-300 text-sm uppercase tracking-widest rounded-xl shadow-sm">
                         Read Papers
                     </a>
                 </div>
@@ -40,81 +194,252 @@
     </header>
 
     <div class="bg-white/80 backdrop-blur-md border-y border-blue-100/50 py-4 shadow-[0_4px_20px_rgb(0,0,0,0.02)] relative z-20">
-        <div class="max-w-7xl mx-auto px-6 flex items-center text-sm">
-            <span class="font-extrabold text-accent mr-5 letter-spacing-widest academic-h2 text-xs flex items-center gap-2">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row md:items-center text-sm gap-2 md:gap-0">
+            
+            <span class="font-extrabold text-accent md:mr-5 letter-spacing-widest academic-h2 text-xs flex items-center gap-2 shrink-0">
                 <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span> LATEST
             </span>
             
-            <a href="https://prayat-pu.github.io/mikelab/news/mike-lab-secures-multiple-acceptances-at-neurips-2026/" class="hover:text-accent text-slate-700 font-medium transition-colors truncate">
-                MIKE Lab Secures Multiple Acceptances at NeurIPS 2026 accepted to NeurIPS 2026! <span class="text-slate-400 font-normal ml-2">#[Conference]</span>
+            
+            <a href="https://prayat-pu.github.io/mikelab/news/call-for-proposals-2026-google-awards-for-ml-research-and-education-with-tpus/" class="hover:text-accent text-slate-700 font-medium transition-colors leading-relaxed block md:inline">
+                Call for Proposals: 2026 Google Awards for ML Research and Education with TPUs 
+                 
+                <span class="text-slate-400 font-normal ml-1 whitespace-nowrap">#Funding Opportunities</span>
             </a>
+            
             
         </div>
     </div>
 
-    <section id="research" class="py-32 relative">
+
+    <section id="mission-vision" class="py-24 md:py-32 relative overflow-hidden bg-gradient-to-b from-white to-[#f8fafc] border-b border-blue-50/50">
+        
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNlNGRmZmYiLz48L3N2Zz4=')] opacity-60 z-0"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-blue-300/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] bg-indigo-300/10 rounded-full blur-[80px] pointer-events-none z-0"></div>
+        
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="mb-20 text-center space-y-4">
-                <h2 class="text-xs font-extrabold text-blue-500 academic-h2 uppercase tracking-[0.2em]">Core Specializations</h2>
-                <h3 class="text-4xl md:text-5xl font-extrabold text-deep-charcoal academic-h1">Bridging Data and Knowledge</h3>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-                <div class="bg-white rounded-3xl p-10 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 group relative overflow-hidden cursor-default">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10 space-y-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-50 flex items-center justify-center rounded-2xl text-accent shadow-sm group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
-                        </div>
-                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight">Precision Health <br />& Wellness</h4>
-                        <p class="text-slate-600 font-light leading-relaxed">
-                            Utilizing Label Distribution Learning (LDL) to overcome subjectivity in medical diagnostics and grading in Dermatology and Aesthetic Medicine.
-                        </p>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
                 
-                <div class="bg-white rounded-3xl p-10 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 group relative overflow-hidden cursor-default">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10 space-y-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-indigo-100 to-indigo-50 flex items-center justify-center rounded-2xl text-accent shadow-sm group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                <div class="lg:col-span-5 space-y-8">
+                    <div class="relative">
+                        <div class="absolute -left-6 top-2 bottom-2 w-1 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full hidden md:block"></div>
+                        
+                        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-accent text-xs font-bold tracking-widest uppercase mb-6 shadow-sm">
+                            <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
+                            Our Purpose
                         </div>
-                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight">Social Intelligence <br />& Public Safety</h4>
-                        <p class="text-slate-600 font-light leading-relaxed">
-                            Developing co-training protocols for low-resource languages, abusive language detection, and mining online news for spatiotemporal crime visualization.
-                        </p>
+                        <h3 class="text-4xl md:text-5xl lg:text-[3.5rem] font-extrabold text-deep-charcoal academic-h1 leading-[1.1] tracking-tight">
+                            Translating Computation <br/> Into <span class="bg-clip-text bg-gradient-to-r from-accent to-indigo-500">Human Impact.</span>
+                        </h3>
                     </div>
+                    <p class="text-lg md:text-xl text-slate-600 font-light leading-relaxed">
+                        At MIKE Lab, we believe that algorithms are only as valuable as the real-world problems they solve. We operate at the intersection of theoretical computer science and applied societal challenges.
+                    </p>
                 </div>
-                
-                <div class="bg-white rounded-3xl p-10 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 group relative overflow-hidden cursor-default">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-sky-50 rounded-bl-full -mr-4 -mt-4 transition-transform group-hover:scale-110"></div>
-                    <div class="relative z-10 space-y-6">
-                        <div class="w-16 h-16 bg-gradient-to-br from-sky-100 to-sky-50 flex items-center justify-center rounded-2xl text-accent shadow-sm group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+
+                <div class="lg:col-span-7 space-y-6 md:space-y-8 lg:pl-10">
+                    
+                    <div class="group relative bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,75,135,0.1)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden">
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-blue-50 rounded-full blur-3xl group-hover:bg-blue-100 transition-colors duration-700 opacity-50"></div>
+                        <div class="absolute -bottom-4 -right-2 text-[10rem] font-black text-slate-50 leading-none pointer-events-none group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700">01</div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-5 mb-6">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-accent rounded-2xl blur group-hover:blur-md transition-all opacity-40"></div>
+                                    <div class="relative w-14 h-14 bg-gradient-to-br from-[#004B87] to-blue-600 text-white flex items-center justify-center rounded-2xl shadow-lg border border-white/20">
+                                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                </div>
+                                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">Our Mission</h4>
+                            </div>
+                            <p class="text-slate-600 text-base md:text-lg font-light leading-relaxed relative pl-4 border-l-2 border-blue-100 group-hover:border-accent transition-colors duration-300">
+                                To engineer robust, ethically grounded AI and knowledge representation systems that bridge the gap between academic theory and urgent industry needs, specifically in <strong class="font-semibold text-slate-800">healthcare, public safety, and systemic data exploration</strong>.
+                            </p>
                         </div>
-                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight">Systemic Discovery <br />& Exploration</h4>
-                        <p class="text-slate-600 font-light leading-relaxed">
-                            Building Temporal Knowledge Graphs (TeReKG) and scholarly-code linking (SPECTER) to bridge software engineering, AI in education, and Space Exploration.
-                        </p>
                     </div>
+
+                    <div class="group relative bg-white rounded-3xl p-8 md:p-10 border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(79,70,229,0.1)] hover:-translate-y-1.5 transition-all duration-500 overflow-hidden">
+                        <div class="absolute -right-20 -top-20 w-64 h-64 bg-indigo-50 rounded-full blur-3xl group-hover:bg-indigo-100 transition-colors duration-700 opacity-50"></div>
+                        <div class="absolute -bottom-4 -right-2 text-[10rem] font-black text-slate-50 leading-none pointer-events-none group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-700">02</div>
+                        
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-5 mb-6">
+                                <div class="relative">
+                                    <div class="absolute inset-0 bg-indigo-600 rounded-2xl blur group-hover:blur-md transition-all opacity-40"></div>
+                                    <div class="relative w-14 h-14 bg-gradient-to-br from-indigo-600 to-indigo-500 text-white flex items-center justify-center rounded-2xl shadow-lg border border-white/20">
+                                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path></svg>
+                                    </div>
+                                </div>
+                                <h4 class="text-2xl md:text-3xl font-extrabold text-slate-800 tracking-tight">Our Vision</h4>
+                            </div>
+                            <p class="text-slate-600 text-base md:text-lg font-light leading-relaxed relative pl-4 border-l-2 border-indigo-100 group-hover:border-indigo-500 transition-colors duration-300">
+                                To be a premier research cluster where pioneering machine intelligence continuously <strong class="font-semibold text-slate-800">empowers human decision-making, democratizes data accessibility</strong>, and secures a safer, more informed global society.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
+
             </div>
         </div>
     </section>
 
-    <section id="life" class="bg-gradient-to-b from-[#f8fafc] to-[#eef4f9] py-32 px-6 border-y border-blue-100/40">
+    <section id="research" class="py-24 md:py-32 relative overflow-hidden bg-[#fbfdff]">
+    
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNlNGRmZmYiLz48L3N2Zz4=')] opacity-30 z-0"></div>
+        <div class="absolute right-0 top-1/4 w-96 h-96 bg-blue-100/40 rounded-full blur-[100px] pointer-events-none z-0"></div>
+        <div class="absolute left-0 bottom-1/4 w-96 h-96 bg-indigo-100/40 rounded-full blur-[100px] pointer-events-none z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="mb-16 md:mb-20 text-center space-y-4">
+                <h2 class="text-xs font-extrabold text-blue-500 academic-h2 uppercase tracking-[0.2em]">Core Specializations</h2>
+                <h3 class="text-4xl md:text-5xl font-extrabold text-deep-charcoal academic-h1 tracking-tight">Bridging Data and Knowledge</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                
+                <a href="/mikelab/pillars/precision-health" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(0,75,135,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-blue-50 to-blue-100/50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-700 ease-out group-hover:scale-[2] group-hover:bg-blue-50 z-0"></div>
+                    
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="w-16 h-16 bg-white border border-slate-100 flex items-center justify-center rounded-2xl text-blue-600 shadow-sm group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white group-hover:border-blue-600 transition-all duration-500 mb-8">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                        </div>
+
+                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight mb-4 group-hover:text-blue-600 transition-colors duration-300">Precision Health <br />& Wellness</h4>
+                        
+                        <p class="text-slate-600 font-light leading-relaxed flex-grow">
+                            Utilizing Label Distribution Learning (LDL) to overcome subjectivity in medical diagnostics and grading in Dermatology and Aesthetic Medicine.
+                        </p>
+
+                        <div class="mt-8 flex items-center text-sm font-bold text-blue-600 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
+                            Explore Pillar <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="/mikelab/pillars/social-intelligence" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(79,70,229,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-indigo-50 to-indigo-100/50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-700 ease-out group-hover:scale-[2] group-hover:bg-indigo-50 z-0"></div>
+                    
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="w-16 h-16 bg-white border border-slate-100 flex items-center justify-center rounded-2xl text-indigo-600 shadow-sm group-hover:scale-110 group-hover:bg-indigo-600 group-hover:text-white group-hover:border-indigo-600 transition-all duration-500 mb-8">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                        </div>
+
+                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight mb-4 group-hover:text-indigo-600 transition-colors duration-300">Social Intelligence <br />& Public Safety</h4>
+                        
+                        <p class="text-slate-600 font-light leading-relaxed flex-grow">
+                            Developing co-training protocols for low-resource languages, abusive language detection, and mining online news for spatiotemporal crime visualization.
+                        </p>
+
+                        <div class="mt-8 flex items-center text-sm font-bold text-indigo-600 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
+                            Explore Pillar <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div>
+                    </div>
+                </a>
+                
+                <a href="/mikelab/pillars/systemic-discovery" class="group relative bg-white rounded-[2rem] p-8 md:p-10 border border-slate-100 shadow-sm hover:shadow-[0_20px_40px_-15px_rgba(14,165,233,0.15)] hover:-translate-y-2 transition-all duration-500 overflow-hidden flex flex-col h-full z-10">
+                    <div class="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-sky-50 to-sky-100/50 rounded-bl-full -mr-10 -mt-10 transition-transform duration-700 ease-out group-hover:scale-[2] group-hover:bg-sky-50 z-0"></div>
+                    
+                    <div class="relative z-10 flex flex-col h-full">
+                        <div class="w-16 h-16 bg-white border border-slate-100 flex items-center justify-center rounded-2xl text-sky-500 shadow-sm group-hover:scale-110 group-hover:bg-sky-500 group-hover:text-white group-hover:border-sky-500 transition-all duration-500 mb-8">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                        </div>
+
+                        <h4 class="text-2xl font-bold text-deep-charcoal tracking-tight mb-4 group-hover:text-sky-500 transition-colors duration-300">Systemic Discovery <br />& Exploration</h4>
+                        
+                        <p class="text-slate-600 font-light leading-relaxed flex-grow">
+                            Building Temporal Knowledge Graphs (TeReKG) and scholarly-code linking (SPECTER) to bridge software engineering, AI in education, and Space Exploration.
+                        </p>
+
+                        <div class="mt-8 flex items-center text-sm font-bold text-sky-500 uppercase tracking-widest opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-75">
+                            Explore Pillar <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300">&rarr;</span>
+                        </div>
+                    </div>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="featured-publications" class="py-24 md:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 md:mb-16 gap-6">
+                <div class="space-y-4">
+                    <h2 class="text-xs font-extrabold text-blue-500 academic-h2 uppercase tracking-[0.2em]">Latest Research</h2>
+                    <h3 class="text-4xl md:text-5xl font-extrabold text-deep-charcoal academic-h1 tracking-tight">Featured Publications</h3>
+                </div>
+                <a href="/mikelab/publications" class="text-accent font-bold uppercase tracking-widest text-sm hover:translate-x-2 transition-transform inline-flex items-center gap-2">
+                    View Archive &rarr;
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="group bg-white rounded-3xl border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-500 flex flex-col h-full">
+                    <div class="mb-6 flex items-center justify-between">
+                        <span class="px-3 py-1 bg-blue-50 text-accent text-[10px] font-bold uppercase tracking-widest rounded-md">ACM Transactions on Computing for Healthcare (HEALTH)</span>
+                        <span class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">2026</span>
+                    </div>
+                    <a href="https://prayat-pu.github.io/mikelab/publications/xd-ldl-improving-generalization-in-acne-severity-classification-via-cross-dataset-label-distribution-learning/" class="block flex-grow">
+                        <h4 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-accent transition-colors leading-snug line-clamp-3">XD-LDL: Improving Generalization in Acne Severity Classification via Cross-Dataset Label Distribution Learning</h4>
+                    </a>
+                    <p class="text-slate-500 text-sm font-light mb-8 line-clamp-3">Abstract This study introduces a novel approach to enhance acne severity classification by leveraging cross-dataset training within a Label Distribution Learning (LDL) framework. Traditional acne grading methods are often subjective and inconsistent, while automated systems struggle to generalize across diverse datasets, limiting their real-world applicability. This research addresses this challenge by integrating data from multiple sources (Acne04 and AcneSCU) to train a robust model capable of accurately classifying acne severity despite variations in image quality, lighting, and skin tone.</p>
+                    <div class="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
+                        <a href="https://prayat-pu.github.io/mikelab/publications/xd-ldl-improving-generalization-in-acne-severity-classification-via-cross-dataset-label-distribution-learning/" class="text-accent text-xs font-bold uppercase tracking-widest hover:underline">Details</a>
+                        
+                    </div>
+                </div>
+                
+                <div class="group bg-white rounded-3xl border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-500 flex flex-col h-full">
+                    <div class="mb-6 flex items-center justify-between">
+                        <span class="px-3 py-1 bg-blue-50 text-accent text-[10px] font-bold uppercase tracking-widest rounded-md">Computers and Education: Artificial Intelligence</span>
+                        <span class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">2025</span>
+                    </div>
+                    <a href="https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-computer-programming-education-a-systematic-literature-review/" class="block flex-grow">
+                        <h4 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-accent transition-colors leading-snug line-clamp-3">Artificial intelligence in computer programming education: A systematic literature review</h4>
+                    </a>
+                    <p class="text-slate-500 text-sm font-light mb-8 line-clamp-3">Abstract The demand for skilled programmers and the increasing complexity of coding skills have led to a rise in the adoption of artificial intelligence (AI) and machine learning (ML) technologies in computer programming education. Previous research has explored the potential of AI in aspects such as grading assignments, generating feedback, detecting plagiarism, and identifying at-risk students, but there is a lack of systematic reviews focused on AI-powered teaching processes in computer programming classes[cite: 1576].</p>
+                    <div class="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
+                        <a href="https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-computer-programming-education-a-systematic-literature-review/" class="text-accent text-xs font-bold uppercase tracking-widest hover:underline">Details</a>
+                        
+                    </div>
+                </div>
+                
+                <div class="group bg-white rounded-3xl border border-slate-100 p-8 shadow-sm hover:shadow-xl hover:border-blue-100 transition-all duration-500 flex flex-col h-full">
+                    <div class="mb-6 flex items-center justify-between">
+                        <span class="px-3 py-1 bg-blue-50 text-accent text-[10px] font-bold uppercase tracking-widest rounded-md">Publications of the Astronomical Society of the Pacific (PASP)</span>
+                        <span class="text-slate-400 text-[10px] font-bold uppercase tracking-widest">2024</span>
+                    </div>
+                    <a href="https://prayat-pu.github.io/mikelab/publications/leveraging-movement-representation-from-contrastive-learning-for-asteroid-detection/" class="block flex-grow">
+                        <h4 class="text-xl font-bold text-slate-900 mb-4 group-hover:text-accent transition-colors leading-snug line-clamp-3">Leveraging Movement Representation from Contrastive Learning for Asteroid Detection</h4>
+                    </a>
+                    <p class="text-slate-500 text-sm font-light mb-8 line-clamp-3">Abstract Asteroid detection is a critical task in astronomy for planetary defense and understanding the solar system&rsquo;s evolution. Traditional methods often struggle with low signal-to-noise ratios and the vast amount of data generated by modern sky surveys. This study introduces a novel deep learning approach that leverages movement representation learned through contrastive learning to improve the accuracy and efficiency of asteroid detection. By training the model to recognize the specific spatiotemporal patterns of moving objects against a static stellar background, the proposed framework enhances the ability to distinguish true asteroids from artifacts and noise.</p>
+                    <div class="mt-auto pt-6 border-t border-slate-50 flex items-center justify-between">
+                        <a href="https://prayat-pu.github.io/mikelab/publications/leveraging-movement-representation-from-contrastive-learning-for-asteroid-detection/" class="text-accent text-xs font-bold uppercase tracking-widest hover:underline">Details</a>
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section id="life" class="bg-gradient-to-b from-[#f8fafc] to-[#eef4f9] py-24 md:py-32 px-6 border-y border-blue-100/40">
         <div class="max-w-7xl mx-auto mb-16 text-center space-y-4">
             <h2 class="text-xs font-extrabold text-blue-500 academic-h2 uppercase tracking-[0.2em]">Inside the Clusters</h2>
             <h3 class="text-4xl md:text-5xl font-extrabold text-deep-charcoal academic-h1">Life in MIKE Lab</h3>
         </div>
         
-        <div class="max-w-7xl mx-auto relative px-10">
+        <div class="max-w-7xl mx-auto relative px-4 md:px-10">
             <div class="swiper mySwiper pb-14">
                 <div class="swiper-wrapper">
                     
                     <div class="swiper-slide group cursor-pointer">
                         <div class="relative overflow-hidden rounded-2xl bg-white p-2 shadow-soft-blue aspect-[4/3] border border-white">
-                            <img src="/mikelab/images/life/lab_2023_life.jpg" alt="Lab Life 2023" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+                            <img src="https://prayat-pu.github.io/mikelab/images/life/lab_2023_life.jpg" alt="Lab Life 2023" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-2 rounded-xl bg-gradient-to-t from-[#004B87]/95 via-[#004B87]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span class="text-blue-200 text-xs font-bold tracking-widest uppercase mb-1">Activity</span>
                                 <h4 class="text-white text-xl font-extrabold font-['Outfit'] leading-tight">Lab Life 2023</h4>
@@ -124,7 +449,7 @@
 
                     <div class="swiper-slide group cursor-pointer">
                         <div class="relative overflow-hidden rounded-2xl bg-white p-2 shadow-soft-blue aspect-[4/3] border border-white">
-                            <img src="/mikelab/images/life/lab_seminar_kao_yai_2023_all.jpg" alt="Lab Seminar Kao Yai 2023" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+                            <img src="https://prayat-pu.github.io/mikelab/images/life/lab_seminar_kao_yai_2023_all.jpg" alt="Lab Seminar Khao Yai 2023" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-2 rounded-xl bg-gradient-to-t from-[#004B87]/95 via-[#004B87]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span class="text-blue-200 text-xs font-bold tracking-widest uppercase mb-1">Retreat</span>
                                 <h4 class="text-white text-xl font-extrabold font-['Outfit'] leading-tight">Khao Yai Seminar 2023</h4>
@@ -134,7 +459,7 @@
 
                     <div class="swiper-slide group cursor-pointer">
                         <div class="relative overflow-hidden rounded-2xl bg-white p-2 shadow-soft-blue aspect-[4/3] border border-white">
-                            <img src="/mikelab/images/life/lab_play_boardgame_2023.jpg" alt="Team Building Boardgames" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+                            <img src="https://prayat-pu.github.io/mikelab/images/life/lab_play_boardgame_2023.jpg" alt="Team Building Boardgames" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-2 rounded-xl bg-gradient-to-t from-[#004B87]/95 via-[#004B87]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span class="text-blue-200 text-xs font-bold tracking-widest uppercase mb-1">Culture</span>
                                 <h4 class="text-white text-xl font-extrabold font-['Outfit'] leading-tight">Team Boardgames</h4>
@@ -144,7 +469,7 @@
 
                     <div class="swiper-slide group cursor-pointer">
                         <div class="relative overflow-hidden rounded-2xl bg-white p-2 shadow-soft-blue aspect-[4/3] border border-white">
-                            <img src="/mikelab/images/life/lab_seminar_kao_sam_y_2024.jpg" alt="Lab Seminar Kao Sam Y 2024" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+                            <img src="https://prayat-pu.github.io/mikelab/images/life/lab_seminar_kao_sam_y_2024.jpg" alt="Lab Seminar Khao Sam Y 2024" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-2 rounded-xl bg-gradient-to-t from-[#004B87]/95 via-[#004B87]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span class="text-blue-200 text-xs font-bold tracking-widest uppercase mb-1">Retreat</span>
                                 <h4 class="text-white text-xl font-extrabold font-['Outfit'] leading-tight">Khao Sam Yot Seminar 2024</h4>
@@ -154,7 +479,7 @@
 
                     <div class="swiper-slide group cursor-pointer">
                         <div class="relative overflow-hidden rounded-2xl bg-white p-2 shadow-soft-blue aspect-[4/3] border border-white">
-                            <img src="/mikelab/images/life/last-lab_eating.jpg" alt="Lab Dining Together" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
+                            <img src="https://prayat-pu.github.io/mikelab/images/life/last-lab_eating.jpg" alt="Lab Dining Together" class="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-700">
                             <div class="absolute inset-2 rounded-xl bg-gradient-to-t from-[#004B87]/95 via-[#004B87]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
                                 <span class="text-blue-200 text-xs font-bold tracking-widest uppercase mb-1">Celebration</span>
                                 <h4 class="text-white text-xl font-extrabold font-['Outfit'] leading-tight">Lab Dining Together</h4>
@@ -166,26 +491,30 @@
                 <div class="swiper-pagination"></div>
             </div>
             
-            <div class="swiper-button-next !text-accent drop-shadow-md bg-white w-12 h-12 rounded-full border border-blue-50 flex items-center justify-center after:!text-lg"></div>
-            <div class="swiper-button-prev !text-accent drop-shadow-md bg-white w-12 h-12 rounded-full border border-blue-50 flex items-center justify-center after:!text-lg"></div>
+            <div class="swiper-button-prev !text-accent drop-shadow-md bg-white w-10 h-10 md:w-12 md:h-12 rounded-full border border-blue-50 flex items-center justify-center hover:bg-blue-50 transition-colors after:hidden">
+                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"></path></svg>
+            </div>
+            <div class="swiper-button-next !text-accent drop-shadow-md bg-white w-10 h-10 md:w-12 md:h-12 rounded-full border border-blue-50 flex items-center justify-center hover:bg-blue-50 transition-colors after:hidden">
+                <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path></svg>
+            </div>
             
             <div class="mt-8 text-center relative z-20">
                 <a href="/mikelab/life" class="inline-flex items-center justify-center px-10 py-4 bg-white border border-blue-100 text-accent font-bold hover:bg-blue-50 transition-all duration-300 text-sm uppercase tracking-widest rounded-xl shadow-soft-blue">
-                    View the Full MIKE Lab Gallery &rarr;
+                    View the Full MIKE Lab Gallery
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="join" class="bg-gradient-to-br from-[#003B6D] via-[#004B87] to-[#005B9F] text-white py-32 px-6 relative overflow-hidden">
+    <section id="join" class="bg-gradient-to-br from-[#003B6D] via-[#004B87] to-[#005B9F] text-white py-24 md:py-32 px-6 relative overflow-hidden">
         <div class="absolute inset-0 opacity-20 mix-blend-overlay">
             <svg class="w-full h-full" fill="none" viewBox="0 0 100 100"><pattern id="grid" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M 8 0 L 0 0 0 8" stroke="white" stroke-width="0.5"/></pattern><rect width="100" height="100" fill="url(#grid)"/></svg>
         </div>
         
         <div class="max-w-4xl mx-auto text-center relative z-10 space-y-8">
             <h2 class="text-xs font-extrabold uppercase tracking-[0.2em] academic-h2 text-blue-200">Opportunities</h2>
-            <h3 class="text-5xl md:text-6xl font-extrabold academic-h1 tracking-tight drop-shadow-md">Join MIKE Lab</h3>
-            <p class="text-lg md:text-xl font-light text-blue-50 max-w-2xl mx-auto leading-relaxed">
+            <h3 class="text-4xl md:text-6xl font-extrabold academic-h1 tracking-tight drop-shadow-md">Join MIKE Lab</h3>
+            <p class="text-base md:text-xl font-light text-blue-50 max-w-2xl mx-auto leading-relaxed">
                 We operate at a unique multidisciplinary intersection, seeking PhD candidates, postdoctoral researchers, and industrial collaborators. If you are passionate about engineering AI solutions to solve critical global challenges, we want to hear from you.
             </p>
             <div class="pt-8 flex justify-center">
@@ -197,223 +526,191 @@
     </section>
 
     <div id="joinModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 sm:p-6 bg-slate-900/60 backdrop-blur-sm opacity-0 transition-opacity duration-300">
-        <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transform scale-95 transition-transform duration-300 p-8 relative">
-            
-            <button onclick="closeJoinModal()" class="absolute top-6 right-6 text-slate-400 hover:text-accent transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
+    <div class="bg-white rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transform scale-95 transition-transform duration-300 p-6 md:p-8 relative">
+        
+        <button onclick="closeJoinModal()" class="absolute top-6 right-6 text-slate-400 hover:text-accent transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
 
-            <div class="text-center mb-6">
-                <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                </div>
-                <h3 class="text-2xl font-bold text-deep-charcoal display-font">Application Instructions</h3>
-                <p class="text-slate-500 mt-2 text-sm leading-relaxed">We are actively seeking passionate researchers driven by practical utility to join the clusters.</p>
+        <div class="text-center mb-6">
+            <div class="w-16 h-16 bg-blue-50 text-accent rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
             </div>
-
-            <div class="bg-[#f8fafc] rounded-xl p-6 border border-slate-100 mb-6 text-left space-y-5">
-                <div>
-                    <h4 class="font-bold text-accent text-xs uppercase tracking-widest mb-2">Required Documents</h4>
-                    <ul class="list-disc list-inside text-slate-600 text-sm space-y-1.5 font-medium">
-                        <li>Current Curriculum Vitae (CV)</li>
-                        <li>A brief statement of research interests</li>
-                        <li>Academic transcripts (for prospective students)</li>
-                    </ul>
-                </div>
-                <div class="pt-2 border-t border-slate-200">
-                    <h4 class="font-bold text-accent text-xs uppercase tracking-widest mb-2 mt-2">Submission</h4>
-                    <p class="text-slate-600 text-sm font-medium">Please email your complete application materials directly to the PI at:</p>
-                    <a href="mailto:suppawong.tua@mahidol.ac.th" class="block mt-2 font-extrabold text-accent text-lg hover:underline">
-                        suppawong.tua@mahidol.ac.th
-                    </a>
-                </div>
-            </div>
-
-            <button onclick="closeJoinModal()" class="w-full py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors duration-300 text-sm uppercase tracking-widest">
-                Close
-            </button>
+            <h3 class="text-2xl font-bold text-deep-charcoal display-font">Application Instructions</h3>
+            <p class="text-slate-500 mt-2 text-sm leading-relaxed">We are actively seeking passionate researchers driven by practical utility to join the clusters.</p>
         </div>
-    </div>
 
-    <footer class="bg-white py-16 px-6 text-sm text-slate-500 border-t border-blue-50">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div class="bg-[#f8fafc] rounded-xl p-5 md:p-6 border border-slate-100 mb-6 text-left space-y-5">
             <div>
-                <h5 class="font-extrabold text-accent text-3xl display-font mb-3 tracking-tight flex items-center gap-2">
-                    <div class="w-6 h-6 rounded bg-accent text-white flex items-center justify-center text-xs">M</div>IKE
-                </h5>
-                <p class="font-medium text-slate-600">Machine Intelligence &<br>Knowledge Engineering Research Clusters</p>
+                <h4 class="font-bold text-accent text-xs uppercase tracking-widest mb-2">Required Documents</h4>
+                <ul class="list-disc list-inside text-slate-600 text-sm space-y-1.5 font-medium">
+                    <li>Current Curriculum Vitae (CV)</li>
+                    <li>A brief statement of research interests</li>
+                    <li>Academic transcripts (for prospective students)</li>
+                </ul>
             </div>
-            <div>
-                <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Location</h6>
-                <p>999 Phuttamonthon 4 Road, Salaya</p>
-                <p>Nakhon Pathom, Thailand, 73130</p>
-                <a href="mailto:suppawong.tua@mahidol.ac.th" class="text-accent hover:text-blue-800 font-semibold mt-2 inline-block">
+            <div class="pt-2 border-t border-slate-200">
+                <h4 class="font-bold text-accent text-xs uppercase tracking-widest mb-2 mt-2">Submission</h4>
+                <p class="text-slate-600 text-sm font-medium">Please email your complete application materials directly to the PI at:</p>
+                <a href="mailto:suppawong.tua@mahidol.ac.th" class="block mt-2 font-extrabold text-accent text-lg hover:underline break-all">
                     suppawong.tua@mahidol.ac.th
                 </a>
             </div>
-            <div>
-                <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Connect</h6>
-                <div class="space-y-3 font-medium">
-                    
-                    <a href="#" class="block hover:text-accent transition-colors">LinkedIn</a>
-                    
-                </div>
+        </div>
+
+        <button onclick="closeJoinModal()" class="w-full py-3.5 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold rounded-xl transition-colors duration-300 text-sm uppercase tracking-widest">
+            Close
+        </button>
+    </div>
+</div>
+
+    <footer class="bg-white py-16 px-6 text-sm text-slate-500 border-t border-blue-50">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+        <div>
+            <h5 class="mb-3 flex items-center">
+                <img src="/mikelab/images/logo/Logo_MIKE_LightBG.png" alt="MIKE Lab Logo" class="h-8 md:h-14 w-auto object-contain">
+            </h5>
+            <p class="font-medium text-slate-600">Machine Intelligence &<br>Knowledge Engineering Research Clusters</p>
+        </div>
+        <div>
+            <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Location</h6>
+            <p>999 Phuttamonthon 4 Road, Salaya, Nakhon Pathom, Thailand, 73130</p>
+            <a href="mailto:suppawong.tua@mahidol.ac.th" class="text-accent hover:text-blue-800 font-semibold mt-2 inline-block break-all">
+                suppawong.tua@mahidol.ac.th
+            </a>
+        </div>
+        <div>
+            <h6 class="font-bold text-deep-charcoal mb-4 academic-h2 text-xs uppercase tracking-widest">Quick Links</h6>
+            <div class="space-y-3 font-medium">
+                <a href="/mikelab/members" class="block hover:text-accent transition-colors">Team</a>
+                <a href="/mikelab/news" class="block hover:text-accent transition-colors">News</a>
+                <a href="/mikelab/publications" class="block hover:text-accent transition-colors">Publications</a>
+                <a href="/mikelab/life" class="block hover:text-accent transition-colors">Gallery</a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto mt-16 border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between text-xs font-medium text-gray-400">
-            <p>&copy; 2026 MIKE Research Clusters.</p>
-            </div>
-    </footer>
+    </div>
+    <div class="max-w-7xl mx-auto mt-16 border-t border-gray-100 pt-8 flex flex-col md:flex-row items-center justify-between text-xs font-medium text-gray-400 text-center md:text-left">
+        <p>&copy; 2026 MIKE Research Clusters. All rights reserved.</p>
+    </div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        var swiper = new Swiper(".mySwiper", {
-          slidesPerView: 1,
-          spaceBetween: 24,
-          loop: true,
-          autoplay: {
-            delay: 4000, 
-            disableOnInteraction: false,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
-          navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-          },
-          breakpoints: {
-            640: { slidesPerView: 2, spaceBetween: 24 },
-            1024: { slidesPerView: 3, spaceBetween: 32 },
-          },
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = mobileMenu.querySelectorAll('.mobile-link');
+    const backdrop = document.getElementById('mobile-menu-backdrop');
+
+    function toggleMenu() {
+        mobileMenu.classList.toggle('hidden');
+        backdrop.classList.toggle('hidden');
+        document.body.classList.toggle('overflow-hidden');
+    }
+
+    function closeMenu() {
+        if (mobileMenu) mobileMenu.classList.add('hidden');
+        if (backdrop) backdrop.classList.add('hidden');
+        document.body.classList.remove('overflow-hidden');
+    }
+
+    if (mobileBtn) {
+        mobileBtn.addEventListener('click', (event) => {
+            event.stopPropagation();
+            toggleMenu();
         });
-      });
+    }
 
-      function openJoinModal() {
-            const modal = document.getElementById('joinModal');
-            const modalInner = modal.querySelector('div');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    if (backdrop) {
+        backdrop.addEventListener('click', closeMenu);
+    }
+
+    function openJoinModal() {
+        const modal = document.getElementById('joinModal');
+        if (!modal) {
             
-            
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            
-            
-            setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modalInner.classList.remove('scale-95');
-                modalInner.classList.add('scale-100');
-            }, 10);
+            window.location.href = "\/mikelab#join";
+            return;
         }
-
-        function closeJoinModal() {
-            const modal = document.getElementById('joinModal');
-            const modalInner = modal.querySelector('div');
-            
-            
-            modal.classList.add('opacity-0');
-            modalInner.classList.remove('scale-100');
-            modalInner.classList.add('scale-95');
-            
-            
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }, 300);
-        }
-
+        const modalInner = modal.querySelector('div');
         
-        document.getElementById('joinModal').addEventListener('click', function(e) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modalInner.classList.remove('scale-95');
+            modalInner.classList.add('scale-100');
+        }, 10);
+    }
+
+    function closeJoinModal() {
+        const modal = document.getElementById('joinModal');
+        if (!modal) return;
+        const modalInner = modal.querySelector('div');
+        
+        modal.classList.add('opacity-0');
+        modalInner.classList.remove('scale-100');
+        modalInner.classList.add('scale-95');
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+
+    const joinModal = document.getElementById('joinModal');
+    if (joinModal) {
+        joinModal.addEventListener('click', function(e) {
             if (e.target === this) {
                 closeJoinModal();
             }
         });
-    </script>
-</body>
-</html> -->
+    }
+</script>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta name="generator" content="Hugo 0.92.2" />
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MIKE Research Clusters | MIKE Research Clusters</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #fbfdff; color: #1e293b; }
-        h1, h2, h3, h4, .display-font { font-family: 'Outfit', sans-serif; }
-        .text-accent { color: #004B87; }
-        .bg-accent { background-color: #004B87; }
-        .glass-panel {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-    </style>
-</head>
-<body class="antialiased selection:bg-accent selection:text-white min-h-screen flex flex-col">
 
-    <nav class="sticky top-0 z-50 glass-panel border-b border-blue-50/50 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 py-4 flex items-center justify-between">
-            
-            <a href="/mikelab/" class="text-xl md:text-2xl font-extrabold text-accent display-font tracking-tight flex items-center gap-2 hover:opacity-80 transition-opacity">
-                <div class="w-8 h-8 rounded bg-gradient-to-br from-blue-600 to-accent text-white flex items-center justify-center text-sm shadow-md">M</div>
-                <span class="hidden sm:inline">IKE Lab</span><span class="sm:hidden">IKE</span>
-            </a>
-
-            <div class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-600">
-                <a href="/mikelab/members" class="hover:text-accent transition-colors">Team</a>
-                <a href="/mikelab/publications" class="hover:text-accent transition-colors">Publications</a>
-                <a href="/mikelab/news" class="hover:text-accent transition-colors">News</a>
-                <a href="/mikelab/life" class="hover:text-accent transition-colors">Life</a>
-            </div>
-
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-600 hover:text-accent focus:outline-none">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-
-        <div id="mobile-menu" class="hidden md:hidden border-t border-blue-50 bg-white absolute w-full shadow-lg">
-            <div class="flex flex-col px-4 py-4 space-y-4 text-center font-medium text-slate-600 shadow-soft-blue">
-                <a href="/mikelab/members" class="block hover:text-accent transition-colors">Team</a>
-                <a href="/mikelab/publications" class="block hover:text-accent transition-colors">Publications</a>
-                <a href="/mikelab/news" class="block hover:text-accent transition-colors">News</a>
-                <a href="/mikelab/life" class="block hover:text-accent transition-colors">Life</a>
-            </div>
-        </div>
-    </nav>
-
-    <header class="py-12 md:py-24 bg-gradient-to-b from-[#e6f0fa]/50 to-transparent text-center px-4 md:px-6 border-b border-blue-50">
-        <div class="max-w-3xl mx-auto space-y-4">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight">MIKE Research Clusters</h1>
-            <p class="text-base md:text-lg text-slate-500 font-light leading-relaxed"></p>
-        </div>
-    </header>
-
-    <main class="flex-grow max-w-7xl mx-auto px-4 md:px-6 py-12 md:py-20 w-full">
+        <script>
         
-        
+        document.addEventListener('DOMContentLoaded', function () {
+            var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 24,
+            loop: true,
+            autoplay: {
+                delay: 4000, 
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            breakpoints: {
+                640: { slidesPerView: 2, spaceBetween: 24 },
+                1024: { slidesPerView: 3, spaceBetween: 32 },
+            },
+            });
 
-    </main>
+            const slides = document.querySelectorAll('.hero-slide');
+            let currentSlide = 0;
 
-    <footer class="bg-white border-t border-blue-50 py-8 px-4 text-center text-xs md:text-sm font-medium text-slate-400 mt-auto">
-        &copy; 2026 MIKE Research Clusters. All rights reserved.
-    </footer>
-
-    <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+            if (slides.length > 1) {
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('opacity-100');
+                    slides[currentSlide].classList.add('opacity-0');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.remove('opacity-0');
+                    slides[currentSlide].classList.add('opacity-100');
+                }, 5000);
+            }
         });
-    </script>
-
-</body>
+        </script>
+    </body>
 </html>

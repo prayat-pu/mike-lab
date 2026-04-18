@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cross-Dataset Training on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/tags/cross-dataset-training/</link>
+    <description>Recent content in Cross-Dataset Training on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/tags/cross-dataset-training/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>XD-LDL: Improving Generalization in Acne Severity Classification via Cross-Dataset Label Distribution Learning</title>
+      <link>https://prayat-pu.github.io/mikelab/publications/xd-ldl-improving-generalization-in-acne-severity-classification-via-cross-dataset-label-distribution-learning/</link>
+      <pubDate>Sun, 01 Mar 2026 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/publications/xd-ldl-improving-generalization-in-acne-severity-classification-via-cross-dataset-label-distribution-learning/</guid>
+      <description>Abstract This study introduces a novel approach to enhance acne severity classification by leveraging cross-dataset training within a Label Distribution Learning (LDL) framework. Traditional acne grading methods are often subjective and inconsistent, while automated systems struggle to generalize across diverse datasets, limiting their real-world applicability. This research addresses this challenge by integrating data from multiple sources (Acne04 and AcneSCU) to train a robust model capable of accurately classifying acne severity despite variations in image quality, lighting, and skin tone.</description>
+    </item>
+    
+  </channel>
+</rss>

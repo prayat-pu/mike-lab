@@ -6,6 +6,7 @@ venue: "ACM Transactions on Computing for Healthcare (HEALTH)"
 doi: "https://doi.org/10.1145/3793540"
 image: #"/images/publications/xd-ldl-framework.png"
 categories: ["Deep Learning", "Health Informatics"]
+pillars: ["Precision Health"]
 tags: ["Cross-Dataset Training", "Acne Severity Classification", "Label Distribution Learning"]
 featured: true
 ---

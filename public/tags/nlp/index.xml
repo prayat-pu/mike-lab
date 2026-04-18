@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP on MIKE Research Clusters</title>
+    <link>https://prayat-pu.github.io/mikelab/tags/nlp/</link>
+    <description>Recent content in NLP on MIKE Research Clusters</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 13 May 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://prayat-pu.github.io/mikelab/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>&#34;Paper, Meet Code&#34;: A Deep Learning Approach to Linking Scholarly Articles With GitHub Repositories</title>
+      <link>https://prayat-pu.github.io/mikelab/publications/paper-meet-code-a-deep-learning-approach-to-linking-scholarly-articles-with-github-repositories/</link>
+      <pubDate>Mon, 13 May 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/publications/paper-meet-code-a-deep-learning-approach-to-linking-scholarly-articles-with-github-repositories/</guid>
+      <description>Abstract Computer scientists often publish their source code accompanying their publications, prominently using code repositories across various domains. Despite the concurrent existence of scholarly articles and their associated official code repositories, explicit references linking the two are often missing. Traditionally, identifying whether scholarly content and code repositories pertain to the same research project requires manual inspection, a time-consuming task. This paper proposes a deep learning-based algorithm for automatically matching scholarly articles with their corresponding official code repositories.</description>
+    </item>
+    
+    <item>
+      <title>FALCON: Detecting and classifying abusive language in social networks using context features and unlabeled data</title>
+      <link>https://prayat-pu.github.io/mikelab/publications/falcon-detecting-and-classifying-abusive-language-in-social-networks-using-context-features-and-unlabeled-data/</link>
+      <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://prayat-pu.github.io/mikelab/publications/falcon-detecting-and-classifying-abusive-language-in-social-networks-using-context-features-and-unlabeled-data/</guid>
+      <description>Abstract Social networks have grown into a widespread form of communication that allows a large number of users to participate in conversations and consume information at any time. The casual nature of social media allows for nonstandard terminology, some of which may be considered rude and derogatory. As a result, a significant portion of social media users is found to express disrespectful language. This problem may intensify in certain developing countries where young children are granted unsupervised access to social media platforms.</description>
+    </item>
+    
+  </channel>
+</rss>
