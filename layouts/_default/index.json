@@ -1,0 +1,14 @@
+[
+    {{- range $index, $page := where .Site.RegularPages "Section" "in" (slice "members" "news" "publications") -}}
+    {{- if $index -}},{{- end }}
+    {
+        "title": {{ $page.Title | jsonify }},
+        "section": {{ $page.Section | jsonify }},
+        "role": {{ $page.Params.role | default "" | jsonify }},
+        "authors": {{ $page.Params.authors | default (slice) | jsonify }},
+        "summary": {{ $page.Summary | plainify | jsonify }},
+        "permalink": {{ $page.Permalink | jsonify }},
+        "date": {{ $page.Date.Format "Jan 02, 2006" | jsonify }}
+    }
+    {{- end -}}
+]

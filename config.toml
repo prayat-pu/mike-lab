@@ -23,3 +23,6 @@ enableInlineShortcodes = true
 [taxonomies]
   pillar = "pillars"
   tag = "tags"
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

@@ -104,4 +104,154 @@
             }
         });
     }
+
+    let searchIndex = null;
+
+    async function openSearchModal() {
+        const modal = document.getElementById('searchModal');
+        const modalInner = modal.querySelector('div');
+        const input = document.getElementById('searchInput');
+        
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        
+        // Focus input after animation
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+            modalInner.classList.remove('scale-95');
+            modalInner.classList.add('scale-100');
+            input.focus();
+        }, 10);
+
+        // Fetch index if not already loaded
+        if (!searchIndex) {
+            try {
+                const response = await fetch('{{ "index.json" | absURL }}');
+                searchIndex = await response.json();
+            } catch (err) {
+                console.error("Failed to load search index:", err);
+            }
+        }
+    }
+
+    function closeSearchModal() {
+        const modal = document.getElementById('searchModal');
+        const modalInner = modal.querySelector('div');
+        
+        modal.classList.add('opacity-0');
+        modalInner.classList.remove('scale-100');
+        modalInner.classList.add('scale-95');
+        
+        setTimeout(() => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }, 300);
+    }
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeSearchModal();
+        if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+            e.preventDefault();
+            openSearchModal();
+        }
+    });
+
+    // Search Logic
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    const resultsCount = document.getElementById('resultsCount');
+    const filterBtns = document.querySelectorAll('.search-filter-btn');
+    let currentFilter = 'all';
+
+    if (searchInput) {
+        searchInput.addEventListener('input', () => performSearch());
+    }
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentFilter = btn.getAttribute('data-filter');
+            
+            // Update UI
+            filterBtns.forEach(b => {
+                b.classList.remove('bg-accent', 'text-white');
+                b.classList.add('bg-slate-100', 'text-slate-500');
+            });
+            btn.classList.remove('bg-slate-100', 'text-slate-500');
+            btn.classList.add('bg-accent', 'text-white');
+            
+            performSearch();
+        });
+    });
+
+    function performSearch() {
+        const query = searchInput.value.toLowerCase().trim();
+        if (!query) {
+            searchResults.innerHTML = '<p class="text-center text-slate-400 py-10 font-medium">Type to search for content...</p>';
+            resultsCount.classList.add('hidden');
+            return;
+        }
+
+        if (!searchIndex) return;
+
+        let results = searchIndex.filter(item => {
+            const matchesQuery = item.title.toLowerCase().includes(query) || 
+                               item.summary.toLowerCase().includes(query) ||
+                               item.role.toLowerCase().includes(query) ||
+                               (item.authors && item.authors.some(a => a.toLowerCase().includes(query)));
+            
+            if (currentFilter === 'all') return matchesQuery;
+            return matchesQuery && item.section === currentFilter;
+        });
+
+        renderResults(results);
+    }
+
+    function renderResults(results) {
+        if (results.length === 0) {
+            searchResults.innerHTML = '<p class="text-center text-slate-400 py-10 font-medium">No results found matching your search.</p>';
+            resultsCount.innerText = "0 results found";
+            resultsCount.classList.remove('hidden');
+            return;
+        }
+
+        resultsCount.innerText = `${results.length} result${results.length > 1 ? 's' : ''} found`;
+        resultsCount.classList.remove('hidden');
+
+        searchResults.innerHTML = results.map(item => {
+            let sectionColor = "bg-blue-400";
+            if (item.section === "news") sectionColor = "bg-emerald-400";
+            if (item.section === "publications") sectionColor = "bg-indigo-400";
+
+            return `
+                <a href="${item.permalink}" class="block p-4 hover:bg-blue-50/50 rounded-xl transition-colors border border-transparent hover:border-blue-100 group">
+                    <div class="flex items-start gap-4">
+                        <div class="w-1.5 h-10 rounded-full ${sectionColor} mt-1 flex-shrink-0"></div>
+                        <div class="flex-grow min-w-0">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">${item.section}</span>
+                                <span class="text-[10px] text-slate-300">•</span>
+                                <span class="text-[10px] font-medium text-slate-400">${item.date}</span>
+                            </div>
+                            <h4 class="text-base font-bold text-slate-900 group-hover:text-accent transition-colors truncate">${item.title}</h4>
+                            <p class="text-xs text-slate-500 line-clamp-1 mt-1 font-light">${item.summary}</p>
+                        </div>
+                        <div class="self-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <svg class="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }).join('');
+    }
+
+    // Modal Background Clicks
+    const searchModal = document.getElementById('searchModal');
+    if (searchModal) {
+        searchModal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSearchModal();
+            }
+        });
+    }
 </script>
