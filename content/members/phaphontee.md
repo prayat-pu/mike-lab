@@ -3,8 +3,10 @@ title: "Phaphontee Yamchote"
 role: "PhD Student"
 email: "phaphontee.yam@student.mahidol.edu"
 website: "https://yamchote-ppt.github.io/"
-image: "/images/members/unknown_member.png" #"/images/members/phaphontee.jpg"
+image: "/images/members/phaphontee.jpg"
 focus: "Computational Logic, Algorithmic ML & Data Science"
+character_image: "/images/character/phaphotee_character.jpg"
+character_description: "(Reason to make money)"
 # weight: 10
 ---
 

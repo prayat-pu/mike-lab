@@ -102,7 +102,12 @@
                                 <div class="relative shrink-0">
                                     <div class="absolute inset-0 bg-accent rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity animate-pulse"></div>
                                     <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-white shadow-xl overflow-hidden bg-slate-100">
-                                        <img src="{{ .Params.character_image | absURL }}" alt="Digital Character" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                        {{ $charImg := .Params.character_image }}
+                                        {{ if hasPrefix $charImg "http" }}
+                                            <img src="{{ $charImg }}" alt="Digital Character" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                        {{ else }}
+                                            <img src="{{ trim $charImg "/" | absURL }}" alt="Digital Character" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                        {{ end }}
                                     </div>
                                     <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg border-4 border-white">
                                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
