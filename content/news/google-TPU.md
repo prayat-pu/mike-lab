@@ -50,7 +50,7 @@ This track aims to integrate TPUs into university curricula:
 3.  **Open Source Commitment:** Note that Google expects successful projects to be open-sourced under an Apache 2.0 or MIT license.
 4.  **Submit:** Applications are reviewed on a rolling basis until **June 30th, 2026**.
 
-**[Submit Your Application Here](https://docs.google.com/forms/d/e/1FAIpQLSfjK8gWkH_K_lX_q2r9G_m_Y_t_Z_w_w_x_y_z_A_B_C_D_E/viewform)**
+**[More Detail and Submit Your Application Here](https://goo.gle/2026-tpu-rfp)**
 
 For more details on the recommended software stack or to ask specific questions, reach out to Google at `tpu-rfp@google.com`.
 
