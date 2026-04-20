@@ -87,6 +87,56 @@
                         {{ .Content }}
                     </div>
 
+                    {{/* Interesting Digital Persona Section (Below Biography) */}}
+                    {{ $isStudent := in (slice "Ph.D. Student" "PhD Student" "Ph.D. Candidate" "PhD Candidate" "D.Sc. Student" "Master Student" "Master's Student" "M.Sc. Student" "M.S. Student" "Master" "Undergraduate Student" "Bachelor Student") .Params.role }}
+                    
+                    {{ if and $isStudent .Params.character_image }}
+                    <div class="mt-10">
+                        <div class="relative group">
+                            <!-- Background Accent -->
+                            <div class="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-indigo-50/30 rounded-[3rem] -rotate-1 group-hover:rotate-0 transition-transform duration-500"></div>
+                            
+                            <div class="relative bg-white rounded-[2.5rem] p-8 md:p-10 shadow-sm border border-blue-50 flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                                
+                                <!-- Circular Character Image with "Aura" -->
+                                <div class="relative shrink-0">
+                                    <div class="absolute inset-0 bg-accent rounded-full blur-xl opacity-20 group-hover:opacity-40 transition-opacity animate-pulse"></div>
+                                    <div class="relative w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-white shadow-xl overflow-hidden bg-slate-100">
+                                        <img src="{{ .Params.character_image | absURL }}" alt="Digital Character" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                                    </div>
+                                    <div class="absolute -bottom-2 -right-2 w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center shadow-lg border-4 border-white">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                    </div>
+                                </div>
+
+                                <!-- Description Content -->
+                                <div class="flex-grow space-y-4 text-center md:text-left">
+                                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-accent text-[10px] font-bold uppercase tracking-[0.2em] mb-2">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-accent animate-ping"></span>
+                                        Digital Persona
+                                    </div>
+                                    
+                                    <h3 class="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight">The Inspiration Behind the Persona</h3>
+                                    
+                                    <div class="relative">
+                                        <svg class="absolute -top-2 -left-2 w-8 h-8 text-blue-100 opacity-50" fill="currentColor" viewBox="0 0 32 32"><path d="M10 8v8h6v12h-8v-12h-4v-8h6zM24 8v8h6v12h-8v-12h-4v-8h6z"/></svg>
+                                        <p class="text-slate-600 text-base md:text-lg leading-relaxed font-light italic pl-6">
+                                            {{ .Params.character_description | default "This character represents the unique research philosophy and creative drive of our student researchers." }}
+                                        </p>
+                                    </div>
+                                    
+                                    <!-- "Tech" Footer Detail -->
+                                    <div class="flex items-center justify-center md:justify-start gap-4 pt-4 text-[10px] font-bold text-slate-300 uppercase tracking-widest">
+                                        <span class="flex items-center gap-1"><span class="w-1 h-1 bg-slate-200"></span> SYNCED</span>
+                                        <span class="flex items-center gap-1"><span class="w-1 h-1 bg-slate-200"></span> CORE_ID: {{ replace (lower .Title) " " "_" }}</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+
                 </article>
             </div>
         </div>

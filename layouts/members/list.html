@@ -73,16 +73,24 @@
                             <a href="{{ .Page.Permalink }}" class="block group">
                                 <div class="bg-white rounded-3xl p-6 border border-blue-50 shadow-soft-blue shadow-hover-blue transition-all duration-500 hover:-translate-y-1 h-full flex flex-col">
                                     
-                                    <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100 relative">
+                                <div class="aspect-square rounded-2xl overflow-hidden mb-6 bg-slate-100 relative member-card-img-container">
                                         {{ $img := .Page.Params.image | default "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=500" }}
+                                        {{ $charImg := .Page.Params.character_image }}
+                                        {{ $isStudent := in (slice "Ph.D. Student" "PhD Student" "Ph.D. Candidate" "PhD Candidate" "D.Sc. Student" "Master Student" "Master's Student" "M.Sc. Student" "M.S. Student" "Master" "Undergraduate Student" "Bachelor Student") .Page.Params.role }}
                                         
+                                        <!-- Primary Image -->
                                         {{ if hasPrefix $img "http" }}
-                                            <img src="{{ $img }}" alt="{{ .Page.Title }}" class="absolute inset-0 w-full h-full object-cover object-[50%_20%] group-hover:scale-105 transition-transform duration-700">
+                                            <img src="{{ $img }}" alt="{{ .Page.Title }}" class="absolute inset-0 w-full h-full object-cover object-[50%_20%] group-hover:scale-105 transition-all duration-700 main-member-img">
                                         {{ else }}
-                                            <img src="{{ trim $img "/" | absURL }}" alt="{{ .Page.Title }}" class="absolute inset-0 w-full h-full object-cover object-[50%_20%] group-hover:scale-105 transition-transform duration-700">
+                                            <img src="{{ trim $img "/" | absURL }}" alt="{{ .Page.Title }}" class="absolute inset-0 w-full h-full object-cover object-[50%_20%] group-hover:scale-105 transition-all duration-700 main-member-img">
+                                        {{ end }}
+
+                                        <!-- Character Image (Only for students) -->
+                                        {{ if and $isStudent $charImg }}
+                                            <img src="{{ $charImg | absURL }}" class="absolute inset-0 w-full h-full object-cover opacity-0 scale-110 transition-all duration-1000 character-member-img pointer-events-none">
                                         {{ end }}
                                         
-                                        <div class="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center">
+                                        <div class="absolute inset-0 bg-accent/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4 text-center overlay-info">
                                             <span class="text-white text-sm font-medium leading-snug">
                                                 {{ .Page.Params.focus | default "View Full Profile" }}
                                             </span>
@@ -109,5 +117,46 @@
     {{ partial "join_modal.html" . }}
     {{ partial "search_modal.html" . }}
     {{ partial "footer.html" . }}
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const memberCards = document.querySelectorAll('.member-card-img-container');
+            
+            memberCards.forEach(card => {
+                const charImg = card.querySelector('.character-member-img');
+                const mainImg = card.querySelector('.main-member-img');
+                const overlay = card.querySelector('.overlay-info');
+                let hoverTimer;
+
+                if (charImg) {
+                    card.addEventListener('mouseenter', () => {
+                        hoverTimer = setTimeout(() => {
+                            // Hide main elements
+                            mainImg.style.opacity = '0';
+                            overlay.style.opacity = '0';
+                            
+                            // Show character
+                            charImg.classList.remove('opacity-0');
+                            charImg.classList.add('opacity-100');
+                            charImg.classList.remove('scale-110');
+                            charImg.classList.add('scale-100');
+                        }, 1000); // 5 Seconds
+                    });
+
+                    card.addEventListener('mouseleave', () => {
+                        clearTimeout(hoverTimer);
+                        
+                        // Reset to original
+                        mainImg.style.opacity = '';
+                        overlay.style.opacity = '';
+                        
+                        charImg.classList.add('opacity-0');
+                        charImg.classList.remove('opacity-100');
+                        charImg.classList.add('scale-110');
+                        charImg.classList.remove('scale-100');
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
