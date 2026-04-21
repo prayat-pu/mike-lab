@@ -2,15 +2,18 @@
 title: "Assistant Professor Dr. Jidapa Kraisangka"
 role: "Researcher"
 email: "jidapa.kra@mahidol.ac.th"
+website: "https://www.ict.mahidol.ac.th/people/jidapa-kraisangka/"
 image: "/images/members/jidapa.jpg"
-focus: #"Artificial Intelligence & Data Science"
+focus: "AI & Decision Support Systems"
 # weight: 3
 ---
 
 Assistant Professor Dr. Jidapa Kraisangka is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters at Mahidol University.
 
 ### Biography
-[Insert biography and research interests here]
+Assistant Professor Dr. Jidapa Kraisangka is the Assistant Dean for Academic and Curriculum Development at the Faculty of ICT, Mahidol University. Her research focuses on artificial intelligence and decision support systems, specifically probabilistic graphical models.
 
 ### Education
-* [Insert Degree], [Insert University]
+* **Ph.D. in Information Science**, University of Pittsburgh, USA
+* **M.S. in Information Science**, University of Pittsburgh, USA
+* **B.Sc. in Information and Communication Technology (1st Class Honor)**, Mahidol University, Thailand

@@ -2,15 +2,18 @@
 title: "Assistant Professor Dr. Wudhichart Sawangphol"
 role: "Researcher"
 email: "wudhichart.saw@mahidol.ac.th"
+website: "https://wudhichart.github.io/my-profile/"
 image: "/images/members/wudhichart.jpg"
-focus: #"Artificial Intelligence & Data Science"
-# weight: 9
+focus: "Data Analytics, Optimization & Visualization"
+# weight: 12
 ---
 
 Assistant Professor Dr. Wudhichart Sawangphol is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters at Mahidol University.
 
 ### Biography
-[Insert biography and research interests here]
+Assistant Professor Dr. Wudhichart Sawangphol is the Assistant Dean for Research at the Faculty of ICT, Mahidol University. His research primarily focuses on data analytics, machine learning, and visualization for real-world decision-making systems.
 
 ### Education
-* [Insert Degree], [Insert University]
+* **Ph.D. in Information Technology**, Monash University, Australia
+* **Master of Information Technology**, Monash University, Australia
+* **B.Sc. in Information and Communication Technology (1st Class Honor)**, Mahidol University, Thailand

@@ -1,0 +1,244 @@
+[
+    {
+        "title": "Assoc. Prof. Dr. Suppawong Tuarob",
+        "section": "members",
+        "role": "Head of MIKE | Researcher",
+        "authors": [],
+        "summary": "Assoc. Prof. Dr. Suppawong Tuarob is an Associate Professor and the Head of the Machine Intelligence and Knowledge Engineering Research Clusters (MIKE). Recently recognized among the Top 100 Researchers, his work fundamentally targets the intersection of multi-disciplinary AI applications.\nEducation  Ph.D. in Computer Science and Engineering, The Pennsylvania State University M.S. in Science, Industrial Engineering, The Pennsylvania State University B.S. in Computer Science and Engineering, University of Michigan  ",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/assoc.-prof.-dr.-suppawong-tuarob/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Call for Proposals: 2026 Google Awards for ML Research and Education with TPUs",
+        "section": "news",
+        "role": "",
+        "authors": [],
+        "summary": "Unlock Funding and Compute for Your ML Research! Google has officially announced its 2026 Awards for Machine Learning Research and Education with TPUs! This is an incredible opportunity for our lab members to secure significant funding and top-tier computing power.\nGoogle is inviting proposals to advance machine learning through foundational research, applied science, and the integration of Google TPUs into educational courses.\nWhat is the Award? Selected proposals will receive a fantastic support package:",
+        "permalink": "https://prayat-pu.github.io/mikelab/news/call-for-proposals-2026-google-awards-for-ml-research-and-education-with-tpus/",
+        "date": "Apr 17, 2026"
+    },
+    {
+        "title": "Congratulations to Assoc. Prof. Dr. Suppawong Tuarob on Being Named a Top 100 Researcher in Thailand!",
+        "section": "news",
+        "role": "",
+        "authors": [],
+        "summary": "The MIKE Research Clusters proudly congratulates our Principal Investigator, Assoc. Prof. Dr. Suppawong Tuarob, on his remarkable recognition as one of the Top 100 Researchers in Thailand.",
+        "permalink": "https://prayat-pu.github.io/mikelab/news/congratulations-to-assoc.-prof.-dr.-suppawong-tuarob-on-being-named-a-top-100-researcher-in-thailand/",
+        "date": "Apr 16, 2026"
+    },
+    {
+        "title": "MIKE Lab Team Dinner: Enjoying Korean BBQ at Baan Dee",
+        "section": "news",
+        "role": "",
+        "authors": [],
+        "summary": "The MIKE Research Clusters recently gathered for a delightful team dinner at Baan Dee to enjoy some authentic Korean BBQ and celebrate our recent milestones.",
+        "permalink": "https://prayat-pu.github.io/mikelab/news/mike-lab-team-dinner-enjoying-korean-bbq-at-baan-dee/",
+        "date": "Mar 30, 2026"
+    },
+    {
+        "title": "XD-LDL: Improving Generalization in Acne Severity Classification via Cross-Dataset Label Distribution Learning",
+        "section": "publications",
+        "role": "",
+        "authors": ["Sirawich Vachmanus","Teerapong Rattananukrom","Suppawong Tuarob"],
+        "summary": "Abstract This study introduces a novel approach to enhance acne severity classification by leveraging cross-dataset training within a Label Distribution Learning (LDL) framework. Traditional acne grading methods are often subjective and inconsistent, while automated systems struggle to generalize across diverse datasets, limiting their real-world applicability. This research addresses this challenge by integrating data from multiple sources (Acne04 and AcneSCU) to train a robust model capable of accurately classifying acne severity despite variations in image quality, lighting, and skin tone.",
+        "permalink": "https://prayat-pu.github.io/mikelab/publications/xd-ldl-improving-generalization-in-acne-severity-classification-via-cross-dataset-label-distribution-learning/",
+        "date": "Mar 01, 2026"
+    },
+    {
+        "title": "Artificial intelligence in computer programming education: A systematic literature review",
+        "section": "publications",
+        "role": "",
+        "authors": ["Pisut Manorat","Suppawong Tuarob","Siripen Pongpaichet"],
+        "summary": "Abstract The demand for skilled programmers and the increasing complexity of coding skills have led to a rise in the adoption of artificial intelligence (AI) and machine learning (ML) technologies in computer programming education. Previous research has explored the potential of AI in aspects such as grading assignments, generating feedback, detecting plagiarism, and identifying at-risk students, but there is a lack of systematic reviews focused on AI-powered teaching processes in computer programming classes[cite: 1576].",
+        "permalink": "https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-computer-programming-education-a-systematic-literature-review/",
+        "date": "Jan 01, 2025"
+    },
+    {
+        "title": "Leveraging Movement Representation from Contrastive Learning for Asteroid Detection",
+        "section": "publications",
+        "role": "",
+        "authors": ["Noppachanin Kongsathitporn","Akara Supratak","Kanthanakorn Noysena","Supachai Awiphan","Danny Steeghs","Don Pollacco","Krzysztof Ulaczyk","Joseph Lyman","Kendall Ackley","David O'Neill","Amit Kumar","Duncan K. Galloway","Felipe Jiménez-Ibarra","Vik. S. Dhillon","Martin J. Dyer","Paul O'Brien","Gavin Ramsay","Enric Palle","Rubin Kotak","Thomas L. Killestein","Laura K. Nuttall","Rene P. Breton"],
+        "summary": "Abstract Asteroid detection is a critical task in astronomy for planetary defense and understanding the solar system\u0026rsquo;s evolution. Traditional methods often struggle with low signal-to-noise ratios and the vast amount of data generated by modern sky surveys. This study introduces a novel deep learning approach that leverages movement representation learned through contrastive learning to improve the accuracy and efficiency of asteroid detection. By training the model to recognize the specific spatiotemporal patterns of moving objects against a static stellar background, the proposed framework enhances the ability to distinguish true asteroids from artifacts and noise.",
+        "permalink": "https://prayat-pu.github.io/mikelab/publications/leveraging-movement-representation-from-contrastive-learning-for-asteroid-detection/",
+        "date": "Dec 01, 2024"
+    },
+    {
+        "title": "\"Paper, Meet Code\": A Deep Learning Approach to Linking Scholarly Articles With GitHub Repositories",
+        "section": "publications",
+        "role": "",
+        "authors": ["Prahyat Puangjaktha","Morakot Choetkiertikul","Suppawong Tuarob"],
+        "summary": "Abstract Computer scientists often publish their source code accompanying their publications, prominently using code repositories across various domains. Despite the concurrent existence of scholarly articles and their associated official code repositories, explicit references linking the two are often missing. Traditionally, identifying whether scholarly content and code repositories pertain to the same research project requires manual inspection, a time-consuming task. This paper proposes a deep learning-based algorithm for automatically matching scholarly articles with their corresponding official code repositories.",
+        "permalink": "https://prayat-pu.github.io/mikelab/publications/paper-meet-code-a-deep-learning-approach-to-linking-scholarly-articles-with-github-repositories/",
+        "date": "May 13, 2024"
+    },
+    {
+        "title": "TeReKG: A temporal collaborative knowledge graph framework for software team recommendation",
+        "section": "publications",
+        "role": "",
+        "authors": ["Pisol Ruenin","Morakot Choetkiertikul","Akara Supratak","Suppawong Tuarob"],
+        "summary": "Abstract Successful software development requires a cohesive team with the right mix of technical skills and the ability to collaborate effectively. However, forming a software team that can execute tasks with precision and efficiency requires a deep understanding of each member\u0026rsquo;s competence, experience, and cooperation history. Previously, automated software team selection has evaluated technical skills, cohesion, and cooperation history. However, the previous method had some limitations. Particularly, local features directly calculated from team members were subjective to the researchers' views, and the method ignored the temporal aspect of open-source software development.",
+        "permalink": "https://prayat-pu.github.io/mikelab/publications/terekg-a-temporal-collaborative-knowledge-graph-framework-for-software-team-recommendation/",
+        "date": "May 01, 2024"
+    },
+    {
+        "title": "CAMELON: A System for Crime Metadata Extraction and Spatiotemporal Visualization From Online News Articles",
+        "section": "publications",
+        "role": "",
+        "authors": ["Siripen Pongpaichet","Boonyapat Sukosit","Chitchaya Duangtanawat","Jiramed Jamjongdamrongkit","Chancheep Mahacharoensuk","Kantapong Matangkarat","Pattadon Singhajan","Thanapon Noraset","Suppawong Tuarob"],
+        "summary": "Abstract Online news articles serve as a primary source of information for understanding social phenomena, including criminal activities. However, the unstructured nature of news text makes it difficult to systematically analyze and visualize crime patterns across time and space. This paper presents CAMELON, an end-to-end system designed for the automated extraction of crime metadata and spatiotemporal visualization from online news articles. The system utilizes advanced Natural Language Processing (NLP) techniques to identify key crime attributes such as crime types, locations, and timestamps from Thai news reports.",
+        "permalink": "https://prayat-pu.github.io/mikelab/publications/camelon-a-system-for-crime-metadata-extraction-and-spatiotemporal-visualization-from-online-news-articles/",
+        "date": "Feb 07, 2024"
+    },
+    {
+        "title": "Artificial Intelligence in Cosmetic Dermatology: A Systematic Literature Review",
+        "section": "publications",
+        "role": "",
+        "authors": ["Pat Vatiwutipong","Sirawich Vachmanus","Thanapon Noraset","Suppawong Tuarob"],
+        "summary": "Abstract Over the last ten years, the field of dermatology has experienced significant advancements through the utilization of artificial intelligence (AI) technologies. The adoption of such technologies is multifaceted, encompassing tasks such as screening, diagnosis, treatment, and prediction of treatment outcomes. The majority of prior systematic reviews in this domain were centered on medical dermatology, with the aim of detecting and managing serious skin diseases such as skin cancer. However, the adoption of AI in cosmetic dermatology, which focuses on improving skin conditions for cosmetic purposes, has not been comprehensively reviewed.",
+        "permalink": "https://prayat-pu.github.io/mikelab/publications/artificial-intelligence-in-cosmetic-dermatology-a-systematic-literature-review/",
+        "date": "Jul 13, 2023"
+    },
+    {
+        "title": "FALCON: Detecting and classifying abusive language in social networks using context features and unlabeled data",
+        "section": "publications",
+        "role": "",
+        "authors": ["Suppawong Tuarob","Manisa Satravisut","Pochara Sangtunchai","Sakunrat Nunthavanich","Thanapon Noraset"],
+        "summary": "Abstract Social networks have grown into a widespread form of communication that allows a large number of users to participate in conversations and consume information at any time. The casual nature of social media allows for nonstandard terminology, some of which may be considered rude and derogatory. As a result, a significant portion of social media users is found to express disrespectful language. This problem may intensify in certain developing countries where young children are granted unsupervised access to social media platforms.",
+        "permalink": "https://prayat-pu.github.io/mikelab/publications/falcon-detecting-and-classifying-abusive-language-in-social-networks-using-context-features-and-unlabeled-data/",
+        "date": "May 01, 2023"
+    },
+    {
+        "title": "Ar Kar",
+        "section": "members",
+        "role": "Master's Student",
+        "authors": [],
+        "summary": "Biography I am a Master\u0026rsquo;s student in Computer Science (Artificial Intelligence and Machine Learning) at Mahidol University, Faculty of ICT, and working on AI-driven educational technologies. My research focuses on learning analytics, student behavioral analysis, and AI-powered teaching assistants that enhance learning outcomes.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/ar-kar/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Assistant Professor Dr. Akara Supratak",
+        "section": "members",
+        "role": "Researcher",
+        "authors": [],
+        "summary": "Assistant Professor Dr. Akara Supratak is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters at Mahidol University.\nBiography Assistant Professor Dr. Akara Supratak\u0026rsquo;s research primarily focuses on biomedical informatics and deep learning, with specific applications in medical image and signal analysis, including automated sleep stage scoring.\nEducation  Ph.D. in Computing Research, Imperial College London, United Kingdom M.Sc. in Computing, Imperial College London, United Kingdom B.Sc. in Information and Communication Technology, Mahidol University, Thailand  ",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/assistant-professor-dr.-akara-supratak/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Assistant Professor Dr. Jidapa Kraisangka",
+        "section": "members",
+        "role": "Researcher",
+        "authors": [],
+        "summary": "Assistant Professor Dr. Jidapa Kraisangka is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters at Mahidol University.\nBiography Assistant Professor Dr. Jidapa Kraisangka is the Assistant Dean for Academic and Curriculum Development at the Faculty of ICT, Mahidol University. Her research focuses on artificial intelligence and decision support systems, specifically probabilistic graphical models.\nEducation  Ph.D. in Information Science, University of Pittsburgh, USA M.S. in Information Science, University of Pittsburgh, USA B.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/assistant-professor-dr.-jidapa-kraisangka/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Assistant Professor Dr. Siripen Pongpaichet",
+        "section": "members",
+        "role": "Researcher",
+        "authors": [],
+        "summary": "Assistant Professor Dr. Siripen Pongpaichet is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters at Mahidol University.\nBiography Assistant Professor Dr. Siripen Pongpaichet is a faculty member and administrator at the Faculty of ICT, Mahidol University. Her research focuses on data science and intelligent systems, specifically situation recognition and event streams processing.\nEducation  Ph.D. in Computer Science, University of California, Irvine (UCI), USA M.S. in Computer Science, University of California, Irvine (UCI), USA B.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/assistant-professor-dr.-siripen-pongpaichet/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Assistant Professor Dr. Thanapon Noraset",
+        "section": "members",
+        "role": "Researcher",
+        "authors": [],
+        "summary": "Assistant Professor Dr. Thanapon Noraset is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters at Mahidol University.\nBiography Assistant Professor Dr. Thanapon Noraset is the Assistant Dean for Academic Development and Courses at the Faculty of ICT, Mahidol University. His research primarily focuses on Natural Language Processing (NLP) and machine learning applications.\nEducation  Ph.D. in Computer Science, Northwestern University, USA M.S. in Computer Science, Northwestern University, USA B.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/assistant-professor-dr.-thanapon-noraset/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Assistant Professor Dr. Tipajin Thaipisutikul",
+        "section": "members",
+        "role": "Researcher",
+        "authors": [],
+        "summary": "Assistant Professor Dr. Tipajin Thaipisutikul is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters and MVIT Research LAB at Mahidol University.\nBiography Assistant Professor Dr. Tipajin Thaipisutikul\u0026rsquo;s research primarily focuses on advanced artificial intelligence and data science, including deep learning, sequence learning, and applied intelligence.\nEducation  Ph.D. in Computer Science (1st Class Honor), National Central University (NCU), Taiwan M.Sc. in Information Technology (2nd Class Honor), University of Sydney (USYD), Australia B.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/assistant-professor-dr.-tipajin-thaipisutikul/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Assistant Professor Dr. Wudhichart Sawangphol",
+        "section": "members",
+        "role": "Researcher",
+        "authors": [],
+        "summary": "Assistant Professor Dr. Wudhichart Sawangphol is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters at Mahidol University.\nBiography Assistant Professor Dr. Wudhichart Sawangphol is the Assistant Dean for Research at the Faculty of ICT, Mahidol University. His research primarily focuses on data analytics, machine learning, and visualization for real-world decision-making systems.\nEducation  Ph.D. in Information Technology, Monash University, Australia Master of Information Technology, Monash University, Australia B.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/assistant-professor-dr.-wudhichart-sawangphol/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Dr. Petch Sajjacholapunt",
+        "section": "members",
+        "role": "Researcher",
+        "authors": [],
+        "summary": "Dr. Petch Sajjacholapunt is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters at Mahidol University.\nBiography Dr. Petch Sajjacholapunt is a Lecturer and currently serves as the Deputy Dean for Administration and Human Resources at the Faculty of ICT, Mahidol University. His research interests include Technology-Enhanced Learning, Recommendation Systems, and Image Processing.\nEducation  Ph.D. in Computer Science, University of Warwick, United Kingdom M.Phil. in Computer Science, The University of Manchester, United Kingdom M.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/dr.-petch-sajjacholapunt/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Dr. Sirawich Vachmanus",
+        "section": "members",
+        "role": "Researcher",
+        "authors": [],
+        "summary": "Dr. Sirawich Vachmanus is a researcher at the Machine Intelligence and Knowledge Engineering (MIKE) Research Clusters at Mahidol University.\nBiography Dr. Sirawich Vachmanus is a Lecturer in the Computer Science Academic Group at Mahidol University. His research primarily focuses on the intersection of artificial intelligence and robotics, including computer vision and sensor fusion for autonomous systems.\nEducation  Ph.D. in Human Mechanical Systems and Design Engineering, Hokkaido University, Japan M.E. in Human Mechanical Systems and Design Engineering, Hokkaido University, Japan B.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/dr.-sirawich-vachmanus/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "KRISANAKORN RUGBUMROONG",
+        "section": "members",
+        "role": "PhD Student",
+        "authors": [],
+        "summary": "Biography ",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/krisanakorn-rugbumroong/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Noppachanin Kongsathitporn",
+        "section": "members",
+        "role": "PhD Student",
+        "authors": [],
+        "summary": "Biography I am inevitable.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/noppachanin-kongsathitporn/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Pat Vatiwutipong",
+        "section": "members",
+        "role": "PhD Student",
+        "authors": [],
+        "summary": "Biography I am a PhD student working on explainable machine learning and healthcare data modeling. My research focuses on developing interpretable representations of healthcare data, particularly through methods that balance predictive performance with clinical explanation. I am interested in collaborating with researchers in machine learning, medical informatics, and mathematical modeling.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/pat-vatiwutipong/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Phaphontee Yamchote",
+        "section": "members",
+        "role": "PhD Student",
+        "authors": [],
+        "summary": "Biography I am a PhD student in Computer Science with research interests in mathematical logic, computational logic in AI, algorithmic machine learning, and data science. My current work focuses on learning representations of incomplete tabular data using graph neural networks. I am interested in research that combines mathematical rigor with practical machine learning applications, especially in problems involving structured data and feature interactions. I am open to collaboration with researchers and professionals in AI, machine learning, and related fields.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/phaphontee-yamchote/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Pisut Manorat",
+        "section": "members",
+        "role": "PhD Student",
+        "authors": [],
+        "summary": "Biography I am a PhD student working on causality in continuous-time event streams. My research focuses on investigating the assumptions for discovering causal structure from event streams and how to integrate the causal knowledge into machine learning models, allowing them to perform causal reasoning tasks. My research aims to facilitate the development of robust machine learning systems that can be used to support decision-making process in high-stake domains where experiments can be difficult to perform, e.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/pisut-manorat/",
+        "date": "Jan 01, 0001"
+    },
+    {
+        "title": "Prahyat Puangjaktha",
+        "section": "members",
+        "role": "PhD Student",
+        "authors": [],
+        "summary": "Biography I am a PhD Student passionate about using data to understand environmental challenges. My work focuses on the intersection of Environmental Science and Data Science. Currently, I am studying to apply AI and Remote Sensing for Environmental Challenges and Disasters. I am driven to produce research that translates into actionable insights for environmental management in Thailand. I am always open to connecting with fellow researchers, data scientists, and environmental professionals.",
+        "permalink": "https://prayat-pu.github.io/mikelab/members/prahyat-puangjaktha/",
+        "date": "Jan 01, 0001"
+    }]

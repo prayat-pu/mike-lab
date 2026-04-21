@@ -2,6 +2,7 @@
 title: "Assoc. Prof. Dr. Suppawong Tuarob"
 role: "Head of MIKE | Researcher"
 email: "suppawong.tua@mahidol.ac.th"
+website: "https://stuarob.com"
 image: "/images/members/suppawong_v2.jpg"
 focus: #"Bridging theoretical machine learning with practical utility"
 weight: 1

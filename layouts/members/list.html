@@ -31,7 +31,8 @@
         {{/* 2. Define our visually separated Sections */}}
         {{ $sections := slice 
             (dict "title" "Professors & Researchers" "groups" (slice $head $researchers $others))
-            (dict "title" "Students" "groups" (slice $phds $masters))
+            (dict "title" "Ph.D. Students" "groups" (slice $phds))
+            (dict "title" "Master Students" "groups" (slice $masters))
             (dict "title" "Alumni" "groups" (slice $alumni))
         }}
 
