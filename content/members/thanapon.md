@@ -2,7 +2,6 @@
 title: "Assistant Professor Dr. Thanapon Noraset"
 role: "Researcher"
 email: "thanapon.nor@mahidol.ac.th"
-website: "https://www.ict.mahidol.ac.th/people/thanapon-noraset/"
 image: "/images/members/thanapon.jpg"
 focus: "NLP, Deep Learning & Machine Learning"
 # weight: 13

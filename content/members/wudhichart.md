@@ -2,7 +2,6 @@
 title: "Assistant Professor Dr. Wudhichart Sawangphol"
 role: "Researcher"
 email: "wudhichart.saw@mahidol.ac.th"
-website: "https://wudhichart.github.io/my-profile/"
 image: "/images/members/wudhichart.jpg"
 focus: "Data Analytics, Optimization & Visualization"
 # weight: 12

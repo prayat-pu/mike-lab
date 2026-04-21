@@ -2,7 +2,6 @@
 title: "Assistant Professor Dr. Siripen Pongpaichet"
 role: "Researcher"
 email: "siripen.pon@mahidol.ac.th"
-website: "https://www.ict.mahidol.ac.th/people/siripen-pongpaichet/"
 image: "/images/members/siripen.jpg"
 focus: "Situation Recognition & Event Streams Processing"
 # weight: 6

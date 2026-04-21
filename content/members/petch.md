@@ -2,7 +2,6 @@
 title: "Dr. Petch Sajjacholapunt"
 role: "Researcher"
 email: "petch.saj@mahidol.ac.th"
-website: "https://www.ict.mahidol.ac.th/people/petch-sajjacholapunt/"
 image: "/images/members/petch.jpg"
 focus: "Technology-Enhanced Learning & Recommendation Systems"
 # weight: 4

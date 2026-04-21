@@ -2,7 +2,6 @@
 title: "Assistant Professor Dr. Akara Supratak"
 role: "Researcher"
 email: "akara.sup@mahidol.ac.th"
-website: "https://akarasupratak.com"
 image: "/images/members/akara.jpg"
 focus: "Biomedical Informatics & Deep Learning"
 # weight: 7

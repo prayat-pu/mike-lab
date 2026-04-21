@@ -2,7 +2,6 @@
 title: "Dr. Sirawich Vachmanus"
 role: "Researcher"
 email: "sirawich.vac@mahidol.ac.th"
-website: "https://www.ict.mahidol.ac.th/people/sirawich-vachmanus/"
 image: "/images/members/sirawich.jpg"
 focus: "Computer Vision & Sensor Fusion for Robotics"
 # weight: 5

@@ -2,7 +2,6 @@
 title: "Assistant Professor Dr. Jidapa Kraisangka"
 role: "Researcher"
 email: "jidapa.kra@mahidol.ac.th"
-website: "https://www.ict.mahidol.ac.th/people/jidapa-kraisangka/"
 image: "/images/members/jidapa.jpg"
 focus: "AI & Decision Support Systems"
 # weight: 3

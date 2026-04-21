@@ -2,7 +2,6 @@
 title: "Assistant Professor Dr. Tipajin Thaipisutikul"
 role: "Researcher"
 email: "tipajin.tha@mahidol.ac.th"
-website: "https://www.ict.mahidol.ac.th/people/tipajin-tha/"
 image: "/images/members/tipajin.jpg"
 focus: "Deep Learning & sequence Learning"
 # weight: 11
