@@ -2,7 +2,7 @@
 title: "Chawanagorn Sujintawong"
 role: "Master Student"
 email: "chawanagorn.suj@student.mahidol.ac.th"
-website: "www.linkedin.com/in/chawanagorn-sujintawong-172b63250"
+website: "https://www.linkedin.com/in/chawanagorn-sujintawong-172b63250/"
 image: "/images/members/CHAWANAGORN.jpg"
 # character_image: "https://images.unsplash.com/photo-1578632292335-df3abbb0d586?auto=format&fit=crop&q=80&w=800"
 # character_description: "I chose this character because it represents the analytical mindset and perseverance required in environmental data science. Much like a researcher, this persona thrives on uncovering hidden patterns in complex systems."
