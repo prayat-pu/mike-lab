@@ -1,6 +1,6 @@
 ---
 title: "Chawanagorn Sujintawong"
-role: "Master Student"
+role: "Master's Student"
 email: "chawanagorn.suj@student.mahidol.ac.th"
 website: "https://www.linkedin.com/in/chawanagorn-sujintawong-172b63250/"
 image: "/images/members/CHAWANAGORN.jpg"

@@ -173,7 +173,7 @@
     {
         "title": "Chawanagorn Sujintawong",
         "section": "members",
-        "role": "Master Student",
+        "role": "Master's Student",
         "authors": [],
         "summary": "Biography Master’s student in Computer Science interested in AI, machine learning, and data science. My work focuses on learning from incomplete tabular data using graph neural networks. I enjoy combining mathematical rigor with practical ML applications and am open to collaboration.",
         "permalink": "https://prayat-pu.github.io/mikelab/members/chawanagorn-sujintawong/",
@@ -198,9 +198,18 @@
         "date": "Jan 01, 0001"
     },
     {
+        "title": "Historical Archive",
+        "section": "publications",
+        "role": "",
+        "authors": [],
+        "summary": "",
+        "permalink": "https://prayat-pu.github.io/mikelab/publications/historical-archive/",
+        "date": "Jan 01, 0001"
+    },
+    {
         "title": "KRISANAKORN RUGBUMROONG",
         "section": "members",
-        "role": "PhD Student",
+        "role": "Ph.D. Student",
         "authors": [],
         "summary": "Biography ",
         "permalink": "https://prayat-pu.github.io/mikelab/members/krisanakorn-rugbumroong/",
@@ -209,7 +218,7 @@
     {
         "title": "Noppachanin Kongsathitporn",
         "section": "members",
-        "role": "PhD Student",
+        "role": "Ph.D. Student",
         "authors": [],
         "summary": "Biography I am inevitable.",
         "permalink": "https://prayat-pu.github.io/mikelab/members/noppachanin-kongsathitporn/",
@@ -218,16 +227,16 @@
     {
         "title": "Pat Vatiwutipong",
         "section": "members",
-        "role": "PhD Student",
+        "role": "Ph.D. Student",
         "authors": [],
-        "summary": "Biography I am a PhD student working on explainable machine learning and healthcare data modeling. My research focuses on developing interpretable representations of healthcare data, particularly through methods that balance predictive performance with clinical explanation. I am interested in collaborating with researchers in machine learning, medical informatics, and mathematical modeling.",
+        "summary": "Biography My research centers on combining mathematical modeling with machine learning to generate robust statistical inferences from data. The focus of my work is explainable and interpretable AI, developing models that go beyond accurate prediction to reveal how data behaves, identify underlying patterns, and make the decision-making process of AI systems transparent and understandable, particularly in high-stakes domains like healthcare.",
         "permalink": "https://prayat-pu.github.io/mikelab/members/pat-vatiwutipong/",
         "date": "Jan 01, 0001"
     },
     {
         "title": "Phaphontee Yamchote",
         "section": "members",
-        "role": "PhD Student",
+        "role": "Ph.D. Student",
         "authors": [],
         "summary": "Biography I am a PhD student in Computer Science with research interests in mathematical logic, computational logic in AI, algorithmic machine learning, and data science. My current work focuses on learning representations of incomplete tabular data using graph neural networks. I am interested in research that combines mathematical rigor with practical machine learning applications, especially in problems involving structured data and feature interactions. I am open to collaboration with researchers and professionals in AI, machine learning, and related fields.",
         "permalink": "https://prayat-pu.github.io/mikelab/members/phaphontee-yamchote/",
@@ -236,7 +245,7 @@
     {
         "title": "Pisut Manorat",
         "section": "members",
-        "role": "PhD Student",
+        "role": "Ph.D. Student",
         "authors": [],
         "summary": "Biography I am a PhD student working on causality in continuous-time event streams. My research focuses on investigating the assumptions for discovering causal structure from event streams and how to integrate the causal knowledge into machine learning models, allowing them to perform causal reasoning tasks. My research aims to facilitate the development of robust machine learning systems that can be used to support decision-making process in high-stake domains where experiments can be difficult to perform, e.",
         "permalink": "https://prayat-pu.github.io/mikelab/members/pisut-manorat/",
@@ -245,7 +254,7 @@
     {
         "title": "Prahyat Puangjaktha",
         "section": "members",
-        "role": "PhD Student",
+        "role": "Ph.D. Student",
         "authors": [],
         "summary": "Biography I am a PhD Student passionate about using data to understand environmental challenges. My work focuses on the intersection of Environmental Science and Data Science. Currently, I am studying to apply AI and Remote Sensing for Environmental Challenges and Disasters. I am driven to produce research that translates into actionable insights for environmental management in Thailand. I am always open to connecting with fellow researchers, data scientists, and environmental professionals.",
         "permalink": "https://prayat-pu.github.io/mikelab/members/prahyat-puangjaktha/",

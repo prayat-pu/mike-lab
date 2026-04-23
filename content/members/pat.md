@@ -1,12 +1,12 @@
 ---
 title: "Pat Vatiwutipong"
-role: "PhD Student"
+role: "Ph.D. Student"
 email: "pat.vai@student.mahidol.edu"
 website: "https://linkedin.com/in/pvatiwutipong/"
 image: "/images/members/pat.jpg" #"/images/members/pat.jpg"
-focus: "Explainable Machine Learning & Healthcare Data Modeling"
+focus: "Explainable Machine Learning & Interpretable AI"
 # weight: 11
 ---
 
 ### Biography
-I am a PhD student working on explainable machine learning and healthcare data modeling. My research focuses on developing interpretable representations of healthcare data, particularly through methods that balance predictive performance with clinical explanation. I am interested in collaborating with researchers in machine learning, medical informatics, and mathematical modeling.
+My research centers on combining mathematical modeling with machine learning to generate robust statistical inferences from data. The focus of my work is explainable and interpretable AI, developing models that go beyond accurate prediction to reveal how data behaves, identify underlying patterns, and make the decision-making process of AI systems transparent and understandable, particularly in high-stakes domains like healthcare. 

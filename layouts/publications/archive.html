@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ partial "head.html" . }}
+    <style>
+        .pub-row { transition: all 0.2s ease; border-left: 3px solid transparent; }
+        .pub-row:hover { border-left-color: #64748b; background: rgba(100, 116, 139, 0.02); }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col selection:bg-slate-200 selection:text-slate-900">
+
+    {{ partial "nav.html" . }}
+
+    <nav class="bg-white/50 border-b border-slate-50 py-3">
+        <div class="max-w-7xl mx-auto px-6">
+            <a href="{{ "publications" | relURL }}" class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-2 hover:text-accent transition-colors">
+                &larr; Back to Recent Publications
+            </a>
+        </div>
+    </nav>
+
+    <header class="py-12 md:py-16 text-center bg-slate-50 border-b border-slate-100 px-6">
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">{{ .Title }}</h1>
+        <p class="text-base text-slate-500 font-light max-w-2xl mx-auto">{{ .Params.description }}</p>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto px-4 md:px-6 py-10 w-full">
+        
+        {{/* Define 10-year threshold */}}
+        {{ $thresholdDate := now.AddDate -10 0 0 }}
+        {{/* Use .Site.RegularPages because we are on a single page, but we want to filter all publications */}}
+        {{ $archivePages := where (where .Site.RegularPages "Section" "publications") "Date" "<" $thresholdDate }}
+
+        {{ if gt (len $archivePages) 0 }}
+        <div class="space-y-12">
+            {{ range $archivePages.GroupByDate "2006" }}
+            <section>
+                <div class="flex items-center gap-4 mb-6 sticky top-20 bg-[#fbfdff]/95 backdrop-blur-sm py-2 z-10">
+                    <h2 class="text-2xl font-bold text-slate-400 display-font">{{ .Key }}</h2>
+                    <div class="h-px bg-slate-100 flex-grow"></div>
+                </div>
+
+                <div class="divide-y divide-slate-100 border-y border-slate-100">
+                    {{ range .Pages }}
+                    <div class="pub-row py-4 px-4 flex flex-col md:flex-row md:items-center justify-between gap-4 group">
+                        <div class="flex-grow">
+                            <a href="{{ .Permalink }}" class="text-base md:text-lg font-bold text-slate-700 hover:text-slate-900 transition-colors leading-tight block mb-1">
+                                {{ .Title }}
+                            </a>
+                            <div class="text-sm text-slate-400 font-light flex flex-wrap items-center gap-x-3">
+                                <span>{{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}MIKE Lab{{ end }}</span>
+                                <span class="text-slate-200">•</span>
+                                <span class="italic">{{ .Params.venue }}</span>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-2 shrink-0">
+                            <a href="{{ .Permalink }}" class="text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 bg-slate-50 text-slate-400 rounded hover:bg-slate-200 transition-all">Details</a>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            </section>
+            {{ end }}
+        </div>
+        {{ else }}
+        <div class="py-20 text-center">
+            <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-300">
+                <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+            </div>
+            <h2 class="text-xl font-bold text-slate-400">No archived publications found.</h2>
+            <p class="text-slate-400 text-sm mt-2">All current lab research has been published within the last 10 years.</p>
+        </div>
+        {{ end }}
+    </main>
+
+    {{ partial "join_modal.html" . }}
+    {{ partial "search_modal.html" . }}
+    {{ partial "footer.html" . }}
+</body>
+</html>

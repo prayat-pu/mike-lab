@@ -2,76 +2,73 @@
 <html lang="en">
 <head>
     {{ partial "head.html" . }}
+    <style>
+        .pub-row { transition: all 0.15s ease-in-out; }
+        .pub-row:hover { background: rgba(0, 75, 135, 0.03); }
+        .year-marker { writing-mode: vertical-lr; transform: rotate(180deg); }
+    </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col selection:bg-blue-200 selection:text-blue-900">
 
     {{ partial "nav.html" . }}
 
-    <header class="py-16 md:py-24 text-center bg-gradient-to-b from-[#e6f0fa]/60 to-transparent border-b border-blue-50/50 px-6">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-4">{{ .Title }}</h1>
-        <p class="text-base md:text-lg text-slate-500 font-light max-w-2xl mx-auto leading-relaxed">{{ .Params.description }}</p>
+    <header class="py-10 md:py-14 text-center bg-white border-b border-slate-100 px-6">
+        <h1 class="text-3xl md:text-4xl font-black text-slate-900 tracking-tight mb-2 uppercase">{{ .Title }}</h1>
+        <p class="text-sm text-slate-400 font-medium max-w-2xl mx-auto uppercase tracking-widest">{{ .Params.description }}</p>
     </header>
 
-    <main class="flex-grow max-w-5xl mx-auto px-6 py-12 md:py-20 w-full">
+    <main class="flex-grow max-w-6xl mx-auto px-4 md:px-6 py-8 w-full">
         
-        {{ $paginator := .Paginate .Pages.ByDate.Reverse 5 }}
-        
-        <div class="space-y-16 md:space-y-24">
-            {{ range $paginator.Pages.GroupByDate "2006" }}
-            
-            <div class="flex flex-col md:flex-row gap-6 md:gap-12 items-start">
+        {{/* Define 10-year threshold */}}
+        {{ $thresholdDate := now.AddDate -10 0 0 }}
+        {{ $allPubs := .Pages }}
+        {{ $recentPages := where $allPubs "Date" ">=" $thresholdDate }}
+        {{ $archivedPages := where $allPubs "Date" "<" $thresholdDate }}
+
+        <div class="space-y-1">
+            {{ range $recentPages.GroupByDate "2006" }}
+            <div class="flex gap-4 md:gap-8 group/year">
                 
-                <div class="md:w-1/4 shrink-0 sticky top-24 z-10 bg-[#fbfdff]/95 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none py-2 md:py-0 w-full md:w-auto border-b md:border-b-0 border-blue-50">
-                    <h2 class="text-3xl md:text-5xl font-extrabold text-accent display-font drop-shadow-sm">{{ .Key }}</h2>
-                    <div class="hidden md:block w-8 h-1 bg-blue-200 mt-4 rounded-full"></div>
+                <!-- Compact Year Label -->
+                <div class="shrink-0 pt-3">
+                    <div class="sticky top-24">
+                        <span class="text-2xl md:text-3xl font-black text-slate-200 group-hover/year:text-accent transition-colors duration-300 display-font">{{ .Key }}</span>
+                    </div>
                 </div>
-                
-                <div class="md:w-3/4 space-y-6 md:space-y-8 w-full">
+
+                <div class="flex-grow divide-y divide-slate-50 border-l border-slate-100">
                     {{ range .Pages }}
-                    <div class="bg-white rounded-2xl p-6 md:p-8 border border-slate-100 shadow-sm hover:shadow-md hover:border-blue-200 transition-all duration-300 group">
-                        <a href="{{ .Permalink }}" class="block mb-3">
-                            <h3 class="text-xl md:text-2xl font-bold text-slate-900 leading-tight group-hover:text-accent transition-colors">{{ .Title }}</h3>
-                        </a>
-                        <p class="text-slate-600 text-sm mb-6 font-light leading-relaxed">
-                            <span class="font-medium text-slate-800">
-                                {{ if .Params.authors }}{{ delimit .Params.authors ", " }}{{ else }}MIKE Lab Researchers{{ end }}
-                            </span> 
-                            <br class="md:hidden" />
-                            <span class="hidden md:inline"> | </span>
-                            <span class="italic text-accent mt-1 md:mt-0 inline-block">{{ .Params.venue }}</span>
-                        </p>
+                    <div class="pub-row py-3 pl-4 md:pl-6 pr-2 flex flex-col md:flex-row md:items-center justify-between gap-2 group/item">
+                        <div class="flex-grow min-w-0">
+                            <a href="{{ .Permalink }}" class="text-sm md:text-base font-bold text-slate-700 group-hover/item:text-accent transition-colors leading-snug inline-block">
+                                {{ .Title }}
+                            </a>
+                            <div class="text-[11px] md:text-xs text-slate-400 mt-1 flex flex-wrap items-center gap-x-2">
+                                <span class="font-bold text-slate-500">{{ if .Params.authors }}{{ index .Params.authors 0 }}{{ if gt (len .Params.authors) 1 }} et al.{{ end }}{{ else }}MIKE Lab{{ end }}</span>
+                                <span class="opacity-30">•</span>
+                                <span class="italic font-medium">{{ .Params.venue }}</span>
+                            </div>
+                        </div>
                         
-                        <div class="flex flex-col sm:flex-row gap-3">
-                            <a href="{{ .Permalink }}" class="text-center px-5 py-2.5 bg-blue-50 text-accent text-xs font-bold uppercase tracking-widest rounded-lg hover:bg-accent hover:text-white transition-all shadow-sm hover:shadow">Abstract & Details</a>
+                        <div class="flex items-center gap-1 shrink-0 md:opacity-0 group-hover/item:opacity-100 transition-opacity">
+                            <a href="{{ .Permalink }}" class="text-[9px] font-black uppercase tracking-tighter px-2 py-1 bg-slate-100 text-slate-500 rounded hover:bg-accent hover:text-white transition-all">Details</a>
                             {{ if .Params.pdf_url }}
-                            <a href="{{ .Params.pdf_url }}" target="_blank" class="text-center px-5 py-2.5 bg-white border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-widest rounded-lg hover:border-accent hover:text-accent transition-all shadow-sm hover:shadow">Download PDF</a>
+                            <a href="{{ .Params.pdf_url }}" target="_blank" class="text-[9px] font-black uppercase tracking-tighter px-2 py-1 bg-blue-50 text-accent rounded hover:bg-accent hover:text-white transition-all">PDF</a>
                             {{ end }}
                         </div>
                     </div>
                     {{ end }}
                 </div>
-                
             </div>
             {{ end }}
         </div>
 
-        {{ if gt $paginator.TotalPages 1 }}
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mt-16 pt-10 border-t border-blue-50">
-            {{ if $paginator.HasPrev }}
-            <a href="{{ $paginator.Prev.URL }}" class="w-full sm:w-auto text-center px-6 py-3 bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest rounded-xl hover:border-accent hover:text-accent shadow-sm hover:shadow transition-all">&larr; Newer Papers</a>
-            {{ else }}
-            <span class="w-full sm:w-auto text-center px-6 py-3 bg-slate-50 border border-slate-100 text-slate-300 font-bold text-xs uppercase tracking-widest rounded-xl cursor-not-allowed">&larr; Newer Papers</span>
-            {{ end }}
-
-            <span class="px-4 py-2 text-sm font-bold text-slate-500">
-                Page <span class="text-accent">{{ $paginator.PageNumber }}</span> of {{ $paginator.TotalPages }}
-            </span>
-
-            {{ if $paginator.HasNext }}
-            <a href="{{ $paginator.Next.URL }}" class="w-full sm:w-auto text-center px-6 py-3 bg-white border border-slate-200 text-slate-600 font-bold text-xs uppercase tracking-widest rounded-xl hover:border-accent hover:text-accent shadow-sm hover:shadow transition-all">Older Papers &rarr;</a>
-            {{ else }}
-            <span class="w-full sm:w-auto text-center px-6 py-3 bg-slate-50 border border-slate-100 text-slate-300 font-bold text-xs uppercase tracking-widest rounded-xl cursor-not-allowed">Older Papers &rarr;</span>
-            {{ end }}
+        {{/* Extremely minimal Archive Link */}}
+        {{ if gt (len $archivedPages) 0 }}
+        <div class="mt-16 pt-8 border-t border-slate-100 text-center">
+            <a href="{{ "publications/archive" | relURL }}" class="text-[11px] font-bold text-slate-400 hover:text-accent uppercase tracking-[0.3em] transition-all">
+                + View Historical Archive (Pre-{{ (now.AddDate -10 0 0).Format "2006" }})
+            </a>
         </div>
         {{ end }}
     </main>

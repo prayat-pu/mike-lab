@@ -1,6 +1,6 @@
 ---
 title: "Phaphontee Yamchote"
-role: "PhD Student"
+role: "Ph.D. Student"
 email: "phaphontee.yam@student.mahidol.edu"
 website: "https://yamchote-ppt.github.io/"
 image: "/images/members/phaphontee.jpg"

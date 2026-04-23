@@ -1,6 +1,6 @@
 ---
 title: "Prahyat Puangjaktha"
-role: "PhD Student"
+role: "Ph.D. Student"
 email: "prahyat.puangjaktha@gmail.com"
 website: "https://linkedin.com/in/prahyat-puangjaktha-039135185"
 image: "/images/members/prahyat.jpg"

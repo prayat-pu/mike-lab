@@ -1,6 +1,6 @@
 ---
 title: "KRISANAKORN RUGBUMROONG"
-role: "PhD Student"
+role: "Ph.D. Student"
 email: "krisanakorn.rub@student.mahidol.ac.th"
 website: #"https://linkedin.com/in/prahyat-puangjaktha-039135185"
 image: "/images/members/unknown_member.png" #"/images/members/krisanakorn.jpg"

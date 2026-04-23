@@ -1,6 +1,6 @@
 ---
 title: "Pisut Manorat"
-role: "PhD Student"
+role: "Ph.D. Student"
 email: "pisut.man@student.mahidol.edu"
 website: "https://www.linkedin.com/in/pisut-manorat/"
 image: "/images/members/pisut.jpg"
