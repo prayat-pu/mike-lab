@@ -2,7 +2,7 @@
 title: "Prahyat Puangjaktha"
 role: "Ph.D. Student"
 email: "prahyat.puangjaktha@gmail.com"
-website: "[https://linkedin.com/in/prahyat-puangjaktha-039135185](https://prayat-pu.github.io/py-website/)"
+website: "https://prayat-pu.github.io/py-website/"
 image: "/images/members/prahyat.jpg"
 character_image: "https://www.lemon8-app.com/seo/image?item_id=7472773588588708372&index=0&sign=b88884b0227a690f7bf2906b74b93d75"
 character_description: "(I can’t remember anything)"
